@@ -31,7 +31,7 @@ class FrontController extends Controller {
             $game = $articleManager->selectResourceGame($idResource);
             // $game .= $articleManager->selectStaffGame($idResource);
             
-            // var_dump($game);die;
+            var_dump($game);die;
             
         }
         if(isset($article['type_id']) && ($article['type_id'] == 2 || 3 )){

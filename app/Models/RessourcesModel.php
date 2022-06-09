@@ -184,8 +184,8 @@ class RessourcesModel extends Manager
         $array = array();
         array_push($array, $game, $staff);
         // return $array;
-        return $game;
-        // return $staff;
+        // return $game;
+        return $staff;
         
         }
 
