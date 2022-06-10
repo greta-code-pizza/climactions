@@ -205,7 +205,6 @@ class AdminModel extends Manager
                                 OR firstname LIKE :query
                                 ORDER BY id 
                                 DESC LIMIT 6");
-        // var_dump($req); die;
         $req->execute([':query' => '%'.$query.'%']);
     
         $searchEmail = $req->fetchAll();
@@ -294,9 +293,41 @@ class AdminModel extends Manager
         return $email;
     }
 
+    
     /* ----------------------------------------------------------------------*/
 
-    // gestion des infos (page addressBook.php)
+    // gestion carnet d'adresse
+
+    public function email($id)
+    {
+        $bdd = $this->connect();
+        $req = $bdd->prepare("SELECT firstname, lastname,`email`
+                             FROM `email`
+                              WHERE email.id = ?");
+        $req->execute(array($id));
+        $email = $req->fetch();
+        return $email;
+    }
+
+    public function exist_adress($adressBook)
+    {
+        $bdd = $this->connect();
+        $req = $bdd->prepare("SELECT COUNT(id) FROM contact WHERE email = ?");
+        $req->execute([$adressBook]);
+
+        $result = $req->fetch()[0];
+        return $result;
+    }
+
+    public function addAdressBook($data)
+    {
+        $bdd = $this->connect();
+        $req = $bdd->prepare("INSERT INTO contact (firstname,lastname,email) VALUES (:firstname,:lastname,:email)");        $req->execute(array(
+            "firstname" => $data["firstname"],
+            "lastname" => $data["lastname"],
+            "email" => $data["email"]
+        ));
+    }
 
     public function infos()
     {

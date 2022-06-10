@@ -35,8 +35,8 @@ try {
     if (isset($_GET['action'])) {
         
         if($_GET['action'] == 'pageCreationAdmin') {
-        isConnect();
-        $backController->pageConnexionAdmin();
+          isConnect();
+          $backController->pageConnexionAdmin();
     
         }
 
@@ -223,6 +223,12 @@ try {
         } 
 
         // les méthodes de la page addressBook.php
+
+        elseif($_GET['action'] == 'addAdressBook'){
+          isConnect();
+          $id = $_GET['id'];
+          $backController->addAdressBook($id);
+        }
 
         elseif($_GET['action'] == 'deleteInfo'){
           isConnect();

@@ -1,7 +1,13 @@
 <?php ob_start(); ?>
 
 <h1>Les emails</h1>
-
+<?php if (isset($erreur)): 
+    if ($erreur) :
+        foreach($erreur as $e):?>
+            <div class="msg-error"><?= $e ?></div>
+        <?php endforeach;
+    endif;
+endif;?>
 <section id="bar-search" class="container">
     <?php 
     include_once "layouts/searchEmail.php";
@@ -35,7 +41,7 @@
                         <span class="btn"><a class="delete"
                                 href="indexAdmin.php?action=deleteEmail&id=<?= $email['id'] ?>" title="Supprimer"><i
                                     class="fa-solid fa-trash-can"></i></a></span>
-                        <span class="btn"><a href="#" title="Ajouter au carnet d'adresse"><i
+                        <span class="btn"><a href="indexAdmin.php?action=addAdressBook&id=<?= $email['id'] ?>" title="Ajouter au carnet d'adresse"><i
                                     class="fa-solid fa-address-book"></i></a></span>
                     </li>
                 </ul>
@@ -52,11 +58,9 @@
         <h3 class="table-title">Publié le</h3>
         <h3 class="table-title">Action</h3>
     </div>
-
     <div class="bg">
         <?php foreach ($emails as $email) { ?>
         <div class="table-results">
-
             <?php if($email['read'] == 0 ):?>
                     <ul class="table-item gras">
                 <?php else: ?>
@@ -70,7 +74,8 @@
                                 class="fa-solid fa-eye"></i></a></span>
                     <span class="btn"><a class="delete" href="indexAdmin.php?action=deleteEmail&id=<?= $email['id'] ?>"
                             title="Supprimer"><i class="fa-solid fa-trash-can"></i></a></span>
-                    <span class="btn"><a href="#" title="Ajouter au carnet d'adresse"><i
+                    <span class="btn">
+                        <a href="indexAdmin.php?action=addAdressBook&id=<?= $email['id'] ?>" title="Ajouter au carnet d'adresse"><i
                                 class="fa-solid fa-address-book"></i></a></span>
                 </li>
             </ul>

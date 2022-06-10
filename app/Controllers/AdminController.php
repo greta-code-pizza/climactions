@@ -200,6 +200,32 @@ class AdminController extends Controller {
 
 	// les méthodes de la page addressBook.php
 
+	public function addAddressBook($id)
+	{
+		$adress = new \Climactions\Models\AdminModel();
+		$email = $adress->email($id);
+		$data = [
+			"firstname" => $email['firstname'],
+			"lastname" => $email['lastname'],
+			"email" => $email['email']
+		];
+		$adressBook = $email['email'];
+		$validation = true;
+		$erreur = [];
+		if($adress->exist_Adress($adressBook)){
+			$validation = false;
+			$erreur[] = "Cet email est déjà enregistré !";
+		}
+
+		if($validation){
+		$addAdress = $adress->addAdressBook($data);
+		header('Location: indexAdmin.php?action=emailAdmin');
+		} else{
+			header('Location: indexAdmin.php?action=emailAdmin');
+			return $erreur;
+		}
+	}
+
 	public function deleteInfo($id)
 	{
 		$info = new \Climactions\Models\AdminModel();
