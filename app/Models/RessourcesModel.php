@@ -150,9 +150,12 @@ class RessourcesModel extends Manager
         $req2->execute(array($idResource));
         $otherResource = $req->fetch();
         $staff = $req2->fetchAll();
+        $array = array();
+        array_push($array, $otherResource, $staff);
+        return $array;
 
-        return $otherResource;
-        return $staff;
+        // return $otherResource;
+        // return $staff;
     }
 
     public function selectResourceGame($idResource){

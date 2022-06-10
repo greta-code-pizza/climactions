@@ -30,17 +30,14 @@ class FrontController extends Controller {
         if(isset($article['type_id']) && ($article['type_id'] === 1)){
             $game = $articleManager->selectResourceGame($idResource);
             
-            var_dump($game);die;
+            // var_dump($game);die;
             
         }
         if(isset($article['type_id']) && ($article['type_id'] === 2 || 3 || 5 || 6)){
             $otherResource = $articleManager->selectOtherResources($idResource);
             // var_dump($movieBook);die;
         }
-        // if(isset($article['type_id']) && ($article['type_id'] == 3)){
-            // $movie = $articleManager->selectResourceMovieBook($idResource);
-            // }
-            if(isset($article['type_id']) && ($article['type_id'] === 4)){
+        if(isset($article['type_id']) && ($article['type_id'] === 4)){
             $flyer = $articleManager->selectResourceExpo($idResource);
             // var_dump($flyer);die;
         }
