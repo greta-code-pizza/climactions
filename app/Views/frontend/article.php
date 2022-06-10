@@ -21,7 +21,7 @@ ob_start(); ?>
                 <h2 class="title">Informations : </h2>
                 
                 <?php
-                if(isset($article['type_id']) && ($article['type_id'] == 4)){
+                if(isset($article['type_id']) && ($article['type_id'] === 4)){
                     ?>
                 <!-- pour les flyers -->
                 <p class="type">Type : <?= $flyer['type'] ?></p>
@@ -29,27 +29,32 @@ ob_start(); ?>
                 <?php }; ?>
 
                 <?php
-                if(isset($article['type_id']) && ($article['type_id'] == 2)){
+                if(isset($article['type_id']) && ($article['type_id'] === 2)){
+                    // var_dump($article['type_id'] === 2);die;
                     ?>
                 <!-- pour les livres -->
-                <p class="type">Type : <?= $movieBook['type'] ?></p>
-                <p class="theme">Thème : <?= $movieBook['theme'] ?></p>
+                <p class="type">Type : <?= $otherResource['type'] ?></p>
+                <p class="theme">Thème : <?= $otherResource['theme'] ?></p>
 
                 <p class="author">Auteur : </p>
                 <p class="editor">Éditeur : </p>
-                <p class="public">Public : <?= $movieBook['public'] ?></p>
+                <p class="public">Public : <?= $otherResource['public'] ?></p>
                 <?php }; ?>
 
                 <?php
-                if(isset($article['type_id']) && ($article['type_id'] == 3)){
+                if(isset($article['type_id']) && ($article['type_id'] === 3)){
+                    // var_dump($article['type_id'] === 3);die;
                     ?>
                 <!-- pour les films -->
-                <p class="type">Type : <?= $movieBook['type'] ?></p>
-                <p class="theme">Thème : <?= $movieBook['theme'] ?></p>
+                <p class="type">Type : <?= $otherResource['type'] ?></p>
+                <?php
+                // var_dump($otherResource['type']);die;
+                ?>
+                <p class="theme">Thème : <?= $otherResource['theme'] ?></p>
                 <p class="director">Réalisateur :</p>
                 <p class="producer">Producteur :</p>
-                <p class="public">Public : <?= $movieBook['public'] ?></p>
-                <p class="condition">Condition : <?= $movieBook['condition'] ?></p>
+                <p class="public">Public : <?= $otherResource['public'] ?></p>
+                <p class="condition">Condition : <?= $otherResource['condition'] ?></p>
                 <?php }; ?>
 
                 <?php

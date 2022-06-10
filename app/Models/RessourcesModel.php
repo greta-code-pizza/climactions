@@ -231,7 +231,7 @@ class RessourcesModel extends Manager
         return $expo;
     }
 
-    public function insertResourceMovieBook($data)
+    public function insertOtherResources($data)
     {
         $bdd = $this->connect();
         $req1 = $bdd->prepare("INSERT INTO resource (name,image,content,quantity,deposit,public_id,type_id,condition_id,theme_id,admin_id) 
@@ -324,7 +324,7 @@ class RessourcesModel extends Manager
         ));
     }
 
-    public function updateResourceMovieBook($data)
+    public function updateOtherResources($data)
     {
         $bdd = $this->connect();
         $req1 = $bdd->prepare("UPDATE resource SET name = :name, theme_id = :theme_id, image = :image, content = :content, quantity = :quantity,deposit = :deposit, public_id = :public_id, type_id = :type_id, condition_id = :condition_id, theme_id = :theme_id, admin_id = :admin_id 
