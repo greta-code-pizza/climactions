@@ -1,5 +1,5 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/4cfd4ca8942abdb551bc/maintainability)](https://codeclimate.com/github/greta-code-pizza/climactions/maintainability)
-[![Contributors][contributors-shield]][contributors-url]
+[![Contributors][contributors-shield]][https://github.com/greta-code-pizza/climactions/graphs/contributors]
 [![Forks][forks-shield]][forks-url]
 [![Issues][issues-shield]][issues-url]
 
