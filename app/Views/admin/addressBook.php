@@ -3,7 +3,7 @@
 <h1>Carnet d'adresses</h1>
 
 <?php
-require_once "app/Views/admin/layouts/search.php";
+require_once "app/Views/admin/layouts/searchAddress.php";
 ?>
 
 <div class="table-addressBook">

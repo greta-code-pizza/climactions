@@ -203,6 +203,7 @@ class AdminModel extends Manager
                                 FROM email 
                                 WHERE lastname LIKE :query 
                                 OR firstname LIKE :query
+                                OR message LIKE :query
                                 ORDER BY id 
                                 DESC LIMIT 6");
         $req->execute([':query' => '%'.$query.'%']);
@@ -273,7 +274,7 @@ class AdminModel extends Manager
     
     // supprimer un email
     
-    public function deleteEmail($id){
+     public function deleteEmail($id){
         $bdd = $this->connect();
         $req = $bdd->prepare('DELETE FROM `email` 
                               WHERE id = ?');
@@ -303,7 +304,7 @@ class AdminModel extends Manager
         $bdd = $this->connect();
         $req = $bdd->prepare("SELECT firstname, lastname,`email`
                              FROM `email`
-                              WHERE email.id = ?");
+                            WHERE email.id = ?");
         $req->execute(array($id));
         $email = $req->fetch();
         return $email;
@@ -329,12 +330,17 @@ class AdminModel extends Manager
         ));
     }
 
-    public function infos()
+    public function infos($query)
     {
         $bdd = $this->connect();
         $req = $bdd->prepare("SELECT `id`, `lastname`, `firstname`, `email`
-                              FROM `contact`");
-        $req->execute(array());
+                              FROM `contact`
+                              WHERE lastname LIKE :query 
+                                OR firstname LIKE :query
+                                OR email LIKE :query
+                                ORDER BY lastname 
+                                DESC LIMIT 6");
+        $req->execute([':query' => '%'.$query.'%']);
         $infos = $req->fetchAll();
         return $infos;
     }

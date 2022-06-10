@@ -36,13 +36,18 @@ endif;?>
                     <li><?= $email["message"]?></li>
                     <li><?= $email["date"]?></li>
                     <li class="flex">
-                        <span class="btn"><a href="indexAdmin.php?action=readEmail&id=<?= $email['id']?>&read=<?=$email['read']?>"
-                                title="Lire"><i class="fa-solid fa-eye"></i></a></span>
-                        <span class="btn"><a class="delete"
-                                href="indexAdmin.php?action=deleteEmail&id=<?= $email['id'] ?>" title="Supprimer"><i
-                                    class="fa-solid fa-trash-can"></i></a></span>
-                        <span class="btn"><a href="indexAdmin.php?action=addAdressBook&id=<?= $email['id'] ?>" title="Ajouter au carnet d'adresse"><i
-                                    class="fa-solid fa-address-book"></i></a></span>
+                        <span class="btn">
+                            <a href="indexAdmin.php?action=readEmail&id=<?= $email['id']?>&read=<?=$email['read']?>" title="Lire">
+                            <i class="fa-solid fa-eye"></i></a>
+                        </span>
+                        <span class="btn">
+                            <a class="delete" href="indexAdmin.php?action=deleteEmail&id=<?= $email['id'] ?>" title="Supprimer">
+                            <i class="fa-solid fa-trash-can"></i></a>
+                        </span>
+                        <span class="btn">
+                            <a class="addAddress" href="indexAdmin.php?action=addAddressBook&id=<?= $email['id'] ?>" title="Ajouter au carnet d'adresse">
+                            <i class="fa-solid fa-address-book"></i></a>
+                        </span>
                     </li>
                 </ul>
             </div>
@@ -75,7 +80,7 @@ endif;?>
                     <span class="btn"><a class="delete" href="indexAdmin.php?action=deleteEmail&id=<?= $email['id'] ?>"
                             title="Supprimer"><i class="fa-solid fa-trash-can"></i></a></span>
                     <span class="btn">
-                        <a href="indexAdmin.php?action=addAdressBook&id=<?= $email['id'] ?>" title="Ajouter au carnet d'adresse"><i
+                        <a class="addAddress" href="indexAdmin.php?action=addAddressBook&id=<?= $email['id'] ?>" title="Ajouter au carnet d'adresse"><i
                                 class="fa-solid fa-address-book"></i></a></span>
                 </li>
             </ul>
