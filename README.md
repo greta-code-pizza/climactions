@@ -1,6 +1,6 @@
 <div id="top"></div>
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/4cfd4ca8942abdb551bc/maintainability)](https://codeclimate.com/github/greta-code-pizza/climactions/maintainability)
+(https://codeclimate.com/github/greta-code-pizza/climactions/maintainability)
 [![Contributors][contributors-shield]][contributors-shield]
 [![Forks][forks-shield]][forks-url]
 [![Issues][issues-shield]][issues-url]
@@ -10,6 +10,7 @@
   <a href="https://github.com/greta-code-pizza/climactions">
     <img src="Public/img/logo_clim_action.png" alt="Logo Clim'Actions" width="80" height="80">
   </a>
+  [![Maintainability](https://api.codeclimate.com/v1/badges/4cfd4ca8942abdb551bc/maintainability)]
 
   <h1 align="center">Clim'actions - Centre de Ressources</h3>
 
@@ -21,7 +22,7 @@
     <br />
     <a href="<!-- Mettre le lien -->">Voir le site</a>
     ·
-    <a href="https://github.com/greta-code-pizza/climactions/issues">Reporter un Bug</a>
+    <a href="https://github.com/greta-code-pizza/climactions/issues">Reporter un Bug </a>
     ·
     <a href="https://github.com/greta-code-pizza/climactions/issues">Faire une demande de Feature</a>
   </p>
@@ -81,7 +82,13 @@ composer install
 
 ### Installation
 
-Pour pouvoir accéder à votre base de données, vous avez le fichier .env.example qui faut renommer en .env et préciser les informations de votre base de données.
+Clone le repo
+
+```sh
+git clone https://github.com/greta-code-pizza/climactions.git
+```
+
+_Pour pouvoir accéder à votre base de données, vous avez le fichier .env.example qui faut renommer en .env et préciser les informations de votre base de données._
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
