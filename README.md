@@ -1,6 +1,5 @@
 <div id="top"></div>
 
-(https://codeclimate.com/github/greta-code-pizza/climactions/maintainability)
 [![Contributors][contributors-shield]][contributors-shield]
 [![Forks][forks-shield]][forks-url]
 [![Issues][issues-shield]][issues-url]
@@ -11,7 +10,7 @@
     <img src="Public/img/logo_clim_action.png" alt="Logo Clim'Actions" width="80" height="80">
   </a>
   
-  ![Maintainability](https://api.codeclimate.com/v1/badges/4cfd4ca8942abdb551bc/maintainability)
+  [![Maintainability](https://api.codeclimate.com/v1/badges/4cfd4ca8942abdb551bc/maintainability)](https://codeclimate.com/github/greta-code-pizza/climactions/maintainability)
 
   <h1 align="center">Clim'actions - Centre de Ressources</h3>
 
