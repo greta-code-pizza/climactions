@@ -10,6 +10,7 @@
   <a href="https://github.com/greta-code-pizza/climactions">
     <img src="Public/img/logo_clim_action.png" alt="Logo Clim'Actions" width="80" height="80">
   </a>
+  
   [![Maintainability](https://api.codeclimate.com/v1/badges/4cfd4ca8942abdb551bc/maintainability)]
 
   <h1 align="center">Clim'actions - Centre de Ressources</h3>
