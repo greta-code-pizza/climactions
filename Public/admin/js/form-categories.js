@@ -5,7 +5,8 @@
 jQuery(document).ready(function($){
     $(".format-game").hide();
     $(".name-author").hide();   
-    $(".format-expo").hide();
+    $(".format-poster").hide();
+    $(".format-sign").hide();
     $(".name-public").hide();
 });
 
@@ -14,7 +15,9 @@ $("#select-block").change(function() {
 
     if ( $("#select-block").val() == "1" ){
         
-        $(".format-expo").hide();
+        $(".format-sign").hide();
+        $(".format-poster").hide();
+
         $(".format-game").show();
         $(".name-public").show();    
         $(".name-author").show();    
@@ -22,9 +25,11 @@ $("#select-block").change(function() {
     
     if ( $("#select-block").val() == "3" ){ 
         
+        $(".format-sign").hide();
+        $(".format-poster").hide();
+        $(".format-game").hide();
+        
         $(".name-author").show();
-        $(".format-expo").hide();
-        $(".format-game").hide();   
         $(".name-public").show();
     }
    
@@ -33,7 +38,9 @@ $("#select-block").change(function() {
         
         $(".format-flyer").hide();
         $(".format-game").hide();
-        $(".format-expo").hide();
+        $(".format-sign").hide();
+        $(".format-poster").hide();
+
         $(".name-author").show();
         $(".name-public").show();
 
@@ -45,7 +52,8 @@ $("#select-block").change(function() {
         $(".name-public").hide();
         $(".name-author").hide();
 
-        $(".format-expo").show();
+        $(".format-sign").show();
+        $(".format-poster").show();
 
     }
 
