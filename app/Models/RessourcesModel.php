@@ -154,8 +154,7 @@ class RessourcesModel extends Manager
         array_push($array, $otherResource, $staff);
         return $array;
 
-        // return $otherResource;
-        // return $staff;
+        
     }
 
     public function selectResourceGame($idResource){
@@ -181,41 +180,21 @@ class RessourcesModel extends Manager
 
         $req->execute(array($idResource));
         $req2->execute(array($idResource));
-        // var_dump($idResource);
+        
         $game = $req->fetch();
         $staff = $req2->fetchAll();
         $array = array();
         array_push($array, $game, $staff);
         return $array;
-        // return $game;
-        // return $staff;
+        
         
         }
 
-    // public function selectStaffGame($idResource){
-    //     $bdd = $this->connect();
-
-    //     $req2 = $bdd->prepare("SELECT personality.name AS staff,role.name AS role
-    //     FROM staff,role,resource,personality
-    //     WHERE resource.id = ?
-    //     AND resource.id = staff.resource_id
-    //     AND personality.role_id = role.id
-    //     AND personality.id = staff.personality_id;");
-
-
-    //     return $staff;
-    // }
-
-    // public function selectGame($idResource){
-    //     selectResourceGame();
-    //     selectStaffGame();
-    // }
-        
         
     public function selectResourceExpo($idResource){
         $bdd = $this->connect();
 
-        $req = $bdd->prepare("SELECT resource.id,resource.name,theme.`name` AS theme,`condition`.name AS `condition`,`type`.`name` AS `type`,public.name AS public,firstname,lastname,image,content,deposit,quantity,DATE_FORMAT(modified_at, '%d/%m/%Y') AS `date`,poster_bool,sign_bool
+        $req = $bdd->prepare("SELECT resource.id,resource.name,theme.`name` AS theme,`condition`.name AS `condition`,`type`.`name` AS `type`,public.name AS public,firstname,lastname,image,content,deposit,quantity,DATE_FORMAT(modified_at, '%d/%m/%Y') AS `date`,poster_bool,sign_bool,kakemono_bool
       FROM resource,`type`,admin,`condition`,theme,exposure,public
        WHERE resource.id = ?
         AND resource.type_id = `type`.id

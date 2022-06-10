@@ -26,60 +26,94 @@ ob_start(); ?>
                 <!-- pour les flyers -->
                 <p class="type">Type : <?= $flyer['type'] ?></p>
                 <p class="theme">Thème : <?= $flyer['theme'] ?></p>
+                <p class="format"><?php if($flyer['poster_bool'] == 1){
+                    echo "Format : Affiche";
+                }
+                elseif($flyer['sign_bool'] == 1){
+                    echo "Format : Panneau";
+                }
+                elseif($flyer['kakemono_bool'] == 1){
+                    echo "Format : Kakemono";
+                }
+                elseif($flyer['poster_bool'] == 1 && $flyer['sign_bool'] == 1){
+                    echo "Format : Affiche + Panneau";
+                }
+                else{
+                    echo "Format : Non précisé";
+                }
+                
+                
+                ?></p>
                 <?php }; ?>
 
                 <?php
                 if(isset($article['type_id']) && ($article['type_id'] === 2)){
-                    // var_dump($article['type_id'] === 2);die;
+                    
                     ?>
                 <!-- pour les livres -->
-                <p class="type">Type : <?= $otherResource['type'] ?></p>
-                <p class="theme">Thème : <?= $otherResource['theme'] ?></p>
+                <p class="type">Type : <?= $otherResource[0]['type'] ?></p>
+                <p class="theme">Thème : <?= $otherResource[0]['theme'] ?></p>
 
-                <p class="author">Auteur : </p>
+                <p class="author">Auteur : <?= $otherResource[1][0]['staff'] ?></p>
                 <p class="editor">Éditeur : </p>
-                <p class="public">Public : <?= $otherResource['public'] ?></p>
+                <p class="public">Public : <?= $otherResource[0]['public'] ?></p>
                 <?php }; ?>
 
                 <?php
                 if(isset($article['type_id']) && ($article['type_id'] === 3)){
-                    // var_dump($article['type_id'] === 3);die;
+                    
                     ?>
                 <!-- pour les films -->
-                <p class="type">Type : <?= $otherResource['type'] ?></p>
+                <p class="type">Type : <?= $otherResource[0]['type'] ?></p>
                 <?php
-                // var_dump($otherResource['type']);die;
+                
                 ?>
-                <p class="theme">Thème : <?= $otherResource['theme'] ?></p>
-                <p class="director">Réalisateur :</p>
-                <p class="producer">Producteur :</p>
-                <p class="public">Public : <?= $otherResource['public'] ?></p>
-                <p class="condition">Condition : <?= $otherResource['condition'] ?></p>
+                <p class="theme">Thème : <?= $otherResource[0]['theme'] ?></p>
+                <p class="director">Réalisateur : <?= $otherResource[1][0]['staff'] ?></p>
+                <p class="public">Public : <?= $otherResource[0]['public'] ?></p>
+                <p class="condition">Condition : <?= $otherResource[0]['condition'] ?></p>
                 <?php }; ?>
 
                 <?php
                 if(isset($article['type_id']) && ($article['type_id'] === 1)){
-                    // var_dump($article['type_id']);die;
+                    
                     ?>
                 <!-- pour les jeux -->
-                <p class="type">Type : <?= $game['type'] ?></p>
-                <p class="theme">Thème : <?= $game['theme'] ?></p>
-                <p class="creator">Créateur : <?= $game['firstname'] ?> <?= $game['lastname'] ?></p>
-                <p class="format">Format : <?= $game['game_format'] ?></p>
-                <p class="public">Public : <?= $game['public'] ?></p>
+                <p class="type">Type : <?= $game[0]['type'] ?></p>
+                <p class="theme">Thème : <?= $game[0]['theme'] ?></p>
+                <p class="creator">Créateur : <?= $game[1][0]['staff'] ?></p>
+                <p class="format">Format : <?= $game[0]['game_format'] ?></p>
+                <p class="public">Public : <?= $game[0]['public'] ?></p>
+                <?php }; ?>
+
+                <?php
+                if(isset($article['type_id']) && ($article['type_id'] === 5 || 6)){
+                    
+                    ?>
+                <!-- pour les malles et maquettes -->
+                <p class="type">Type : <?= $otherResource[0]['type'] ?></p>
+                <p class="theme">Thème : <?= $otherResource[0]['theme'] ?></p>
+                <p class="creator">Créateur : <?= $otherResource[1][0]['staff'] ?></p>
+                <p class="public">Public : <?= $otherResource[0]['public'] ?></p>
                 <?php }; ?>
 
                 <!-- quantity -->
                 <p class="format">Quantité : <?= $article['quantity'] ?></p>
                 <!-- la caution -->
-                <p class="format">Caution : <?= $article['deposit']." €" ?></p>
+                <?php if($article['deposit'] == 0): ?>
+                    <p class="caution">Caution : Pas de caution</p>
+                <?php
+                else : ?>
 
+                   <p class="caution">Caution : <?= $article['deposit']." €"  ?>
+              <?php  endif; ?>
+                </p>
             </section>
 
 
             <div class="content">
                 <div class="line"></div>
-                <p><?= $article['content'] ?></p>
+                <p><?= htmlspecialchars_decode($article['content']) ?></p>
                 <p class="created-at"><strong>Créé le : </strong><?= $article['created_at'] ?></p>
 
             </div>
