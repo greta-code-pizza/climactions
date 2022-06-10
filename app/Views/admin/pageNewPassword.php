@@ -1,4 +1,7 @@
-<?php ob_start(); ?>
+<?php 
+$title = "Votre nouveau mot de passe - CDR Clim'Actions";
+$description = "Votre nouveau mot de passe";
+ob_start(); ?>
 <?php //$admin = $mdpAdmin->fetch() ?>
 
 <section id="section-NewPassword">

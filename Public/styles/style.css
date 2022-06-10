@@ -320,7 +320,7 @@ a {
 }
 
 
-/* ---------------Page de tout les articles-------- */
+/* ---------------Page de tous les articles-------- */
 
 .button {
   display: inline-block;
@@ -434,6 +434,11 @@ a {
 
 .grid{
   width: 100%;
+  min-height: 200px;
+}
+
+.grid article {
+  margin: 10px 10px 65px;
 }
 
 /* ---- .element-item ---- */

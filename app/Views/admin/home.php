@@ -1,4 +1,7 @@
-<?php ob_start(); ?>
+<?php 
+$title = "Votre Dashboard - CDR Clim'Actions";
+$description = "Votre dashboard";
+ob_start(); ?>
 
 <h1>Bienvenue</h1>
 

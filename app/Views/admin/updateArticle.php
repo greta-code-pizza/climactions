@@ -1,4 +1,6 @@
 <?php
+$title = "Mettre à jour une ressource - CDR Clim'Actions";
+$description = "Mettre à jour une ressource";
 require 'app/Views/frontend/layouts/header.php';
 ?>
 

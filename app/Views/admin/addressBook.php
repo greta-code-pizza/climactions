@@ -1,4 +1,7 @@
-<?php ob_start(); ?>
+<?php 
+$title = "Le Carnet d'Adresses - CDR Clim'Actions";
+$description = "Le Carnet d'Adresses";
+ob_start(); ?>
 
 <h1>Carnet d'adresses</h1>
 

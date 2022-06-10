@@ -6,7 +6,12 @@
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="index.php?action=pageArticle">Ressources</a></li>
                 <li><a href="index.php?action=contact">Contact</a></li>
+                <?php if(!isset($_SESSION['id'])) :?>
                 <li><a href="indexAdmin.php">Connexion</a></li>
+                <?php else: ?>
+                <li><a href="indexAdmin.php?action=homeAdmin">Dashboard</a></li>
+                <li><a href="indexAdmin.php?action=deconnexion">Déconnexion</a></li>
+                <?php endif; ?>
             </ul>
         </div>
 

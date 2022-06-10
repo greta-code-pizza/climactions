@@ -1,4 +1,7 @@
-<?php ob_start(); ?>
+<?php 
+$title = "Vos utilisateurs - CDR Clim'Actions";
+$description = "Vos utilisateurs";
+ob_start(); ?>
 
 <h1><?= $admin['firstname'] ." ". $admin['lastname'] ?></h1>
 

@@ -1,4 +1,7 @@
-<?php ob_start(); ?>
+<?php 
+$title = "Votre compte utilisateur - CDR Clim'Actions";
+$description = "Votre compte utilisateur";
+ob_start(); ?>
 
 <section id="pageAccount">
 <h1>Bonjour <?= $_SESSION['firstname']. " ". $_SESSION['lastname'] ?>!</h1>

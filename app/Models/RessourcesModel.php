@@ -231,48 +231,52 @@ class RessourcesModel extends Manager
     public function insertResourceMovieBook($data)
     {
         $bdd = $this->connect();
-        $req1 = $bdd->prepare("INSERT INTO resource (name,image,content,quantity,deposit,public_id,type_id,condition_id,theme_id,admin_id) 
+        $req1 = $bdd->prepare("INSERT INTO resource (name,theme_id,image,content,quantity,deposit,public_id,type_id,condition_id,admin_id) 
         VALUES (:name,:theme_id,:image,:content,:quantity,:deposit,:public_id,:type_id,:condition_id,:admin_id)");
-        
+
         $req1->execute(array(
-            "name" => $data['name'],
-            "theme_id" => $data['theme'],
-            "image" =>$data['image'],
-            "content" =>$data['content'],
-            "quantity" => $data['quantity'],
-            "deposit" => $data['deposit'],
-            "public_id" => $data["public"],
-            "type_id" => $data['type'],
-            "condition_id" => $data['condition'],
-            "admin_id" => $data['admin']
+            ":name" => $data['name'],
+            ":theme_id" => $data['theme'],
+            ":image" =>$data['image'],
+            ":content" =>$data['content'],
+            ":quantity" => $data['quantity'],
+            ":deposit" => $data['deposit'],
+            ":public_id" => $data['public'],
+            ":type_id" => $data['type'],
+            ":condition_id" => $data['condition'],
+            ":admin_id" => $data['admin']
         ));
+        $idResource = $bdd->lastInsertId();
 
         $req2 = $bdd->prepare("INSERT INTO staff (personality_id,resource_id)
-        VALUES (:personality_id,:id_resource)");
+        VALUES (:personality_id,:resource_id)");
 
         $req2->execute(array(
             "personality_id" => $data['personality'],
-            "resource_id" => $req1->lastInsertId()
+            "resource_id" => $idResource
         ));
+
     }
 
     public function insertResourceExpo($data)
     {
         $bdd = $this->connect();
-        $req1 = $bdd->prepare("INSERT INTO resource (name,image,content,quantity,deposit,type_id,condition_id,theme_id,admin_id) 
+        $req1 = $bdd->prepare("INSERT INTO resource (name,theme_id,image,content,quantity,deposit,type_id,condition_id,admin_id) 
         VALUES (:name,:theme_id,:image,:content,:quantity,:deposit,:type_id,:condition_id,:admin_id)");
-        
+        // var_dump($data);die;
         $req1->execute(array(
-            "name" => $data['name'],
-            "theme_id" => $data['theme'],
-            "image" =>$data['image'],
-            "content" =>$data['content'],
-            "quantity" => $data['quantity'],
-            "deposit" => $data['deposit'],
-            "type_id" => $data['type'],
-            "condition_id" => $data['condition'],
-            "admin_id" => $data['admin']
+            ":name" => $data['name'],
+            ":theme_id" => $data['theme'],
+            ":image" =>$data['image'],
+            ":content" =>$data['content'],
+            ":quantity" => $data['quantity'],
+            ":deposit" => $data['deposit'],
+            ":type_id" => $data['type'],
+            ":condition_id" => $data['condition'],
+            ":admin_id" => $data['admin']
         ));
+        // var_dump($data);die;
+        $idResource = $bdd->lastInsertId();
 
         $req2 = $bdd->prepare("INSERT INTO exposure (poster_bool,sign_bool,resource_id)
         VALUES (:poster_bool,:sign_bool,:resource_id)");
@@ -280,44 +284,46 @@ class RessourcesModel extends Manager
         $req2->execute(array(
             "poster_bool" => $data['poster'],
             "sign_bool" => $data['sign'],
-            "resource_id" => $req1->lastInsertId()
+            "resource_id" => $idResource
 
         ));
+        // var_dump($data); die;
     }
 
     public function insertResourceGame($data)
     {
         $bdd = $this->connect();
-        $req1 = $bdd->prepare("INSERT INTO resource (name,image,content,quantity,deposit,public_id,type_id,condition_id,theme_id,admin_id) 
-        VALUES (:name,:theme_id,:image,:content,:quantity,:deposit,public_id,:type_id,:condition_id,:admin_id)");
+        $req1 = $bdd->prepare("INSERT INTO resource (name,theme_id,image,content,quantity,deposit,public_id,type_id,condition_id,admin_id) 
+        VALUES (:name,:theme_id,:image,:content,:quantity,:deposit,:public_id,:type_id,:condition_id,:admin_id)");
         
         $req1->execute(array(
-            "name" => $data['name'],
-            "theme_id" => $data['theme'],
-            "image" =>$data['image'],
-            "content" =>$data['content'],
-            "quantity" => $data['quantity'],
-            "deposit" => $data['deposit'],
-            "deposit" => $data['public'],
-            "type_id" => $data['type'],
-            "condition_id" => $data['condition'],
-            "admin_id" => $data['admin']
+            ":name" => $data['name'],
+            ":theme_id" => $data['theme'],
+            ":image" =>$data['image'],
+            ":content" =>$data['content'],
+            ":quantity" => $data['quantity'],
+            ":deposit" => $data['deposit'],
+            ":public_id" => $data['public'],
+            ":type_id" => $data['type'],
+            ":condition_id" => $data['condition'],
+            ":admin_id" => $data['admin']
         ));
-
+        $idResource = $bdd->lastInsertId();
+        
         $req2 = $bdd->prepare("INSERT INTO game (id_format,id_resource)
         VALUES (:id_format,:id_resource)");
 
         $req2->execute(array(
-            "id_format" => $data['format'], 
-            "id_resource" => $req1->lastInsertId()
+            ":id_format" => $data['format'], 
+            ":id_resource" => $idResource
         ));
 
         $req3 = $bdd->prepare("INSERT INTO staff (personality_id,resource_id)
-        VALUES (:personality_id,:id_resource)");
+        VALUES (:personality_id,:resource_id)");
 
         $req3->execute(array(
-            "personality_id" => $data['personality'],
-            "resource_id" => $req1->lastInsertId()
+            ":personality_id" => $data['personality'],
+            ":resource_id" => $idResource
         ));
     }
 

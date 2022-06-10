@@ -1,3 +1,5 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/4cfd4ca8942abdb551bc/maintainability)](https://codeclimate.com/github/greta-code-pizza/climactions/maintainability)
+
 # Clim'actions
 
 # A compléter

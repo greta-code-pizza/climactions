@@ -1,4 +1,6 @@
 <?php
+$title = "Vos ressources - CDR Clim'Actions";
+$description = "Les ressources";
 require 'app/Views/frontend/layouts/header.php';
 ?>
 

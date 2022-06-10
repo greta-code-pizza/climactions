@@ -1,6 +1,6 @@
 <?php
-$title = "page de création d'un administrateur";
-$description = "page de création d'un administrateur";
+$title = "Page de création d'un administrateur";
+$description = "Page de création d'un administrateur";
 ob_start(); ?>
 
 

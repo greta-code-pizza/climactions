@@ -1,4 +1,7 @@
-<?php ob_start(); ?>
+<?php 
+$title = "Vos Ressources - CDR Clim'Actions";
+$description = "Vos Ressources";
+ob_start(); ?>
 
 <h1>Les articles</h1>
 
@@ -57,7 +60,7 @@
 
             <ul class="table-item">
                 <li class="article-title"><?= $resource["name"] ?></li>
-                <li class="article-content"><?= $resource["content"] ?></li>
+                <li class="article-content"><?= htmlspecialchars_decode($resource["content"]) ?></li>
                 <li class="article-created-at"><?= $resource["date"] ?></li>
                 <li class="flex">
                     <span class="btn"><a href="#"><i class="fa-solid fa-pen"></i></a></span>

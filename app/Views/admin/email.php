@@ -1,4 +1,7 @@
-<?php ob_start(); ?>
+<?php 
+$title = "Gestion des mails - CDR Clim'Actions";
+$description = "Gestion des mails";
+ob_start(); ?>
 
 <h1>Les emails</h1>
 <?php if (isset($erreur)): 
