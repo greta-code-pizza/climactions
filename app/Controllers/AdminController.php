@@ -418,14 +418,16 @@ class AdminController extends Controller {
             $file = $uniqueName . "." . $extension;
             // télécharger l'image      
             $path = "Public/img/" . $file;
-            $res = move_uploaded_file($tmpName,  $path);
-			return $res;
+            move_uploaded_file($tmpName,  $path);
+			return $path;
         } else {
             echo 'Une erreur est survenue';
         }
         
     }
 
+	// -----------------------------------------------------------------------
+	
 	public function createResourceMovieBook($data)
 	{
 		
@@ -433,7 +435,47 @@ class AdminController extends Controller {
 		
 		$admin = $adminManager->insertResourceMovieBook($data);
 		
-		header("Location: app\Views\admin\resource.php");
+		header('Location: indexAdmin.php?action=resourceAdmin');
 
 	}	
+	public function createResourceExpo($data)
+	{
+		
+		$adminManager = new \Climactions\Models\RessourcesModel();
+		
+		if($data['sign'] == 'on' ){
+			$data['sign'] = 1;	
+		}
+		if($data['poster'] == 'on'){
+			$data['poster'] = 1;
+		}
+		if($data['sign'] == null){
+			$data['sign'] = 0;	
+		}
+		if( $data['poster'] == null ){
+			$data['poster'] = 0;
+		}
+	
+		// var_dump($data['sign'],$data['poster']); die;
+	
+		
+		$admin = $adminManager->insertResourceExpo($data);
+
+		header('Location: indexAdmin.php?action=resourceAdmin');
+
+	}	
+	public function createResourceGame($data)
+	{
+				
+		$adminManager = new \Climactions\Models\RessourcesModel();
+		// var_dump($data); die;
+		$adminManager->insertResourceGame($data);
+		
+		// var_dump($admin); die;
+		
+		header('Location: indexAdmin.php?action=resourceAdmin');
+		
+	}	
+	
+	// -----------------------------------------------------------------------	
 }

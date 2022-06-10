@@ -12,9 +12,8 @@ ob_start(); ?>
         <!-- le type -->
         <div class="item-form type">
             <label for="type">Type</label>
-            <select id="select-block" name="type" id="type" required>
+            <select id="select-block" name="type" id="type" >
                 <option value="#">Choisir</option>
-                <!-- <option class="item" value="game">Jeu</option> -->
                 <?php foreach($types as $type) {?>
                     <option class="item" value="<?= $type['id'] ?>"><?= $type['name'] ?></option>
                 <?php } ?>
@@ -24,15 +23,13 @@ ob_start(); ?>
         <!-- le titre     -->
         <div class="item-form name">
             <label for="name">Titre</label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" name="name" id="name" >
         </div>
 
         <!-- le thème  -->
-        <!-- TO DO : FAIRE UNE BOUCLE -->
         <div class="item-form ">
-            <label for="content">Thème</label>
-            <select name="type" id="type">
-                <!-- <option value="">thème 1</option> -->
+            <label for="theme">Thème</label>
+            <select name="theme" id="theme">
                 <?php foreach($themes as $theme) {?>
                     <option class="item" value="<?= $theme['id'] ?>"><?= $theme['name'] ?></option>
                 <?php } ?>
@@ -40,36 +37,34 @@ ob_start(); ?>
         </div>
 
         <!-- l'image -->
-
         <div class="item-form image">
             <label for="image">Image</label>
-            <input type="file" name="image" id="image" required>
+            <input type="file" name="image" id="image" >
         </div>
 
         <!-- le contenu -->
         <div class="item-form content">
             <p class="content-label">Contenu</p>
-            <textarea aria-label="content" required="required" name="editor1" id="editor1" cols="30" rows="8">
+            <textarea aria-label="content"  name="editor1" id="editor1" cols="30" rows="8">
             </textarea>
         </div>
 
         <!-- la quantité -->
         <div class="item-form quantite">
             <label for="quantite">Quantité</label>
-            <input type="number" value="1" min=0 name="quantity" id="quantite" required>
+            <input type="number" value="1" min=0 name="quantity" id="quantite" >
         </div>
 
         <!-- la caution -->
         <div class="item-form caution">
             <label for="caution">Caution</label>
-            <input type="text" name="deposit" id="caution" required>
+            <input type="number" value="0" name="deposit" id="caution" >
         </div>
 
         <!-- état -->
         <div class="item-form condition">
             <label for="condition">État</label>
-            <select name="condition" id="condition" required>
-                <!-- <option value="">Très bon état</option> -->
+            <select name="condition" id="condition" >
                 <?php foreach($conditions as $condition) {?>
                     <option class="item" value="<?= $condition['id'] ?>"><?= $condition['name'] ?></option>
                 <?php } ?>
@@ -82,35 +77,34 @@ ob_start(); ?>
 
         <div class="item-form  name-author">
             <label for="name-editor">Contributeur</label>
-            <!-- <input type="text" name="personality" id="name-author" required> -->
-            <select name="name-author" id="name-author" required>
-                <!-- <option value="">Très bon état</option> -->
+            <select name="name-author" id="name-author" >
                 <?php foreach($personalities as $personality) {?>
                     <option class="item" value="<?= $personality['id'] ?>"><?= $personality['role'] ?> - <?= $personality['name'] ?></option>
                 <?php } ?>
             </select>
         </div>
 
+
         <!-- format jeu -->
         <div class="item-form format-game">
             <label for="format-game">Format jeu</label>
-            <select name="type" id="format-game" required>
-                <!-- <option value="">Format 1</option> -->
+            <select name="format-game" id="format-game" >
                 <?php foreach($formats as $format) {?>
                     <option class="item" value="<?= $format['id'] ?>"><?= $format['name'] ?></option>
                 <?php } ?>
             </select>
         </div>
 
+
         <!-- format expo -->
-        <div class="item-form format-expo">
-            <label for="format-flyer">Format affiche</label>
-            <input class="increase" type="checkbox" name="format-poster" id="format-flyer">
+        <div class="item-form format-poster">
+            <label for="format-poster">Format affiche</label>
+            <input class="increase" type="checkbox" name="format-poster" id="format-poster">
         </div>
 
-        <div class="item-form format-expo">
-            <label for="format-flyer">Format panneau</label>
-            <input class="increase" type="checkbox" name="format-sign" id="format-flyer">
+        <div class="item-form format-sign">
+            <label for="format-sign">Format panneau</label>
+            <input class="increase" type="checkbox" name="format-sign" id="format-sign">
         </div>
 
         <!-- pour jeu / livre / film -->
@@ -119,7 +113,6 @@ ob_start(); ?>
         <div class="item-form name-public">
             <label for="name-public">Public</label>
             <select name="name-public" id="name-public">
-                <!-- <option value="#">1</option> -->
                 <?php foreach($publics as $public) {?>
                     <option class="item" value="<?= $public['id'] ?>"><?= $public['name'] ?></option>
                 <?php } ?>
