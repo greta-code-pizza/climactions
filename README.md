@@ -1,4 +1,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/4cfd4ca8942abdb551bc/maintainability)](https://codeclimate.com/github/greta-code-pizza/climactions/maintainability)
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Issues][issues-shield]][issues-url]
 
 # Clim'actions - Centre de Ressources
 
@@ -10,6 +13,7 @@ Son but : mobiliser, le plus largement possible, les acteurs sociaux, économiqu
 Cette Application va permettre aux utilisateurs de pouvoir réserver des livres, CDs, jeux, telle une "Médiathèque" spécialisée sur le climat et les enjeux environnementaux.
 
 ## Conditions préalables pour lancer l'application :
+Il faut récupérer les dépendances avec 
 
 ```php
 composer install
