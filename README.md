@@ -1,8 +1,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/4cfd4ca8942abdb551bc/maintainability)](https://codeclimate.com/github/greta-code-pizza/climactions/maintainability)
-[![Contributors][contributors-shield]][https://github.com/greta-code-pizza/climactions/graphs/contributors]
+[![Contributors][contributors-shield]][contributors-shield]
 [![Forks][forks-shield]][forks-url]
 [![Issues][issues-shield]][issues-url]
-
 # Clim'actions - Centre de Ressources
 
 ## A propos du Projet / Utilité:
@@ -26,3 +25,10 @@ Pour pouvoir accéder à votre base de données, vous avez le fichier .env.examp
 - PHP (en structure MVC)
 - SQL
 - JavaScript / Jquery
+
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-url]: https://github.com/greta-code-pizza/climactions/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-url]: https://github.com/greta-code-pizza/climactions/network/members
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-url]: https://github.com/greta-code-pizza/climactions/issues
