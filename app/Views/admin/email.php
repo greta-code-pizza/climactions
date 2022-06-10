@@ -4,7 +4,13 @@ $description = "Gestion des mails";
 ob_start(); ?>
 
 <h1>Les emails</h1>
-
+<?php if (isset($erreur)): 
+    if ($erreur) :
+        foreach($erreur as $e):?>
+            <div class="msg-error"><?= $e ?></div>
+        <?php endforeach;
+    endif;
+endif;?>
 <section id="bar-search" class="container">
     <?php 
     include_once "layouts/searchEmail.php";
@@ -33,13 +39,18 @@ ob_start(); ?>
                     <li><?= $email["message"]?></li>
                     <li><?= $email["date"]?></li>
                     <li class="flex">
-                        <span class="btn"><a href="indexAdmin.php?action=readEmail&id=<?= $email['id']?>&read=<?=$email['read']?>"
-                                title="Lire"><i class="fa-solid fa-eye"></i></a></span>
-                        <span class="btn"><a class="delete"
-                                href="indexAdmin.php?action=deleteEmail&id=<?= $email['id'] ?>" title="Supprimer"><i
-                                    class="fa-solid fa-trash-can"></i></a></span>
-                        <span class="btn"><a href="#" title="Ajouter au carnet d'adresse"><i
-                                    class="fa-solid fa-address-book"></i></a></span>
+                        <span class="btn">
+                            <a href="indexAdmin.php?action=readEmail&id=<?= $email['id']?>&read=<?=$email['read']?>" title="Lire">
+                            <i class="fa-solid fa-eye"></i></a>
+                        </span>
+                        <span class="btn">
+                            <a class="delete" href="indexAdmin.php?action=deleteEmail&id=<?= $email['id'] ?>" title="Supprimer">
+                            <i class="fa-solid fa-trash-can"></i></a>
+                        </span>
+                        <span class="btn">
+                            <a class="addAddress" href="indexAdmin.php?action=addAddressBook&id=<?= $email['id'] ?>" title="Ajouter au carnet d'adresse">
+                            <i class="fa-solid fa-address-book"></i></a>
+                        </span>
                     </li>
                 </ul>
             </div>
@@ -55,11 +66,9 @@ ob_start(); ?>
         <h3 class="table-title">Publié le</h3>
         <h3 class="table-title">Action</h3>
     </div>
-
     <div class="bg">
         <?php foreach ($emails as $email) { ?>
         <div class="table-results">
-
             <?php if($email['read'] == 0 ):?>
                     <ul class="table-item gras">
                 <?php else: ?>
@@ -73,7 +82,8 @@ ob_start(); ?>
                                 class="fa-solid fa-eye"></i></a></span>
                     <span class="btn"><a class="delete" href="indexAdmin.php?action=deleteEmail&id=<?= $email['id'] ?>"
                             title="Supprimer"><i class="fa-solid fa-trash-can"></i></a></span>
-                    <span class="btn"><a href="#" title="Ajouter au carnet d'adresse"><i
+                    <span class="btn">
+                        <a class="addAddress" href="indexAdmin.php?action=addAddressBook&id=<?= $email['id'] ?>" title="Ajouter au carnet d'adresse"><i
                                 class="fa-solid fa-address-book"></i></a></span>
                 </li>
             </ul>

@@ -149,10 +149,10 @@ class AdminController extends Controller {
 		require $this->viewAdmin('resource');
 	}
 
-	public function addressBookAdmin()
+	public function addressBookAdmin($query)
 	{
 		$infoManager = new \Climactions\Models\AdminModel();
-        $infos = $infoManager->infos();
+        $infos = $infoManager->infos($query);
 		require $this->viewAdmin('addressBook');
 	}
 
@@ -199,6 +199,48 @@ class AdminController extends Controller {
 	}
 
 	// les méthodes de la page addressBook.php
+
+	public function addAddressBook($id,$query, $currentPage)
+	{
+		
+		$emailsManager = new \Climactions\Models\AdminModel();
+		$search = $emailsManager->searchEmail($query);
+
+		// var_dump($search); die;
+
+		// count nb email
+		$nbrEmail = $emailsManager->countEmail();
+
+		// nb email per page 
+		$perPage = 8;
+
+		// calcul nb pages total 
+		$pages = ceil($nbrEmail / $perPage);
+		
+		$firstEmail = ($currentPage * $perPage) - $perPage;
+		$emails = $emailsManager->emailPage($firstEmail, $perPage);
+		$email = $emailsManager->email($id);
+		$data = [
+			"firstname" => $email['firstname'],
+			"lastname" => $email['lastname'],
+			"email" => $email['email']
+		];
+		$adressBook = $email['email'];
+		$validation = true;
+		$erreur = [];
+		if($emailsManager->exist_Adress($adressBook)){
+			$validation = false;
+			$erreur[] = "Cet email est déjà enregistré !";
+		}
+
+		if($validation){
+			$addAdress = $emailsManager->addAdressBook($data);
+			require $this->viewAdmin('email');
+		}else{
+			require $this->viewAdmin('email');
+			return $erreur;	
+		}
+	}
 
 	public function deleteInfo($id)
 	{

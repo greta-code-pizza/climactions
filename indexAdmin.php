@@ -35,8 +35,8 @@ try {
     if (isset($_GET['action'])) {
         
         if($_GET['action'] == 'pageCreationAdmin') {
-        isConnect();
-        $backController->pageConnexionAdmin();
+          isConnect();
+          $backController->pageConnexionAdmin();
     
         }
 
@@ -162,6 +162,7 @@ try {
         // affichage de la page resources.php (barre de recherche et pagination)
         
         elseif($_GET['action'] == 'resourceAdmin'){
+
           isConnect();
 
           $query = $_POST['query'] ?? "";
@@ -170,14 +171,17 @@ try {
 
             $currentPage = (int) strip_tags($_GET['page']);
 
-        } else {
-            $currentPage = 1;
-        }
-          $backController->resourceAdmin($query, $currentPage);
+          } else {
+              $currentPage = 1;
+          }
+            $backController->resourceAdmin($query, $currentPage);
         }
         elseif($_GET['action'] == 'addressBookAdmin'){
+
           isConnect();
-          $backController->addressBookAdmin();
+          $query = $_POST['query'] ?? "";
+          $backController->addressBookAdmin($query);
+          
         }
         
         // les méthodes de la page Resource.php
@@ -223,6 +227,21 @@ try {
         } 
 
         // les méthodes de la page addressBook.php
+
+        elseif($_GET['action'] == 'addAddressBook'){
+          
+          isConnect();
+          $id = $_GET['id'];$query = $_POST['query'] ?? "";
+
+          if (isset($_GET['page']) && !empty($_GET['page'])) {
+
+            $currentPage = (int) strip_tags($_GET['page']);
+
+          } else {
+              $currentPage = 1;
+          }
+          $backController->addAddressBook($id,$query, $currentPage);
+        }
 
         elseif($_GET['action'] == 'deleteInfo'){
           isConnect();
