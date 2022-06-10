@@ -127,7 +127,7 @@ class RessourcesModel extends Manager
         return $articles;
     }
 
-    public function selectResourceMovieBook($idResource){
+    public function selectOtherResources($idResource){
         $bdd = $this->connect();
 
         $req = $bdd->prepare("SELECT resource.id,resource.name,theme.`name` AS theme,`condition`.name AS `condition`,public.name AS public,`type`.`name` AS `type`,firstname,lastname,image,content,deposit,quantity,DATE_FORMAT(modified_at, '%d/%m/%Y') AS `date` 
@@ -148,10 +148,10 @@ class RessourcesModel extends Manager
 
         $req->execute(array($idResource));
         $req2->execute(array($idResource));
-        $movieBook = $req->fetch();
+        $otherResource = $req->fetch();
         $staff = $req2->fetchAll();
 
-        return $movieBook;
+        return $otherResource;
         return $staff;
     }
 
@@ -183,9 +183,9 @@ class RessourcesModel extends Manager
         $staff = $req2->fetchAll();
         $array = array();
         array_push($array, $game, $staff);
-        // return $array;
+        return $array;
         // return $game;
-        return $staff;
+        // return $staff;
         
         }
 
