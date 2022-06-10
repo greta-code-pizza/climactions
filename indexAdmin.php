@@ -292,8 +292,7 @@ try {
           $themeId = htmlspecialchars($_POST['theme']);
           $file = $_FILES['image'];
           $path = $backController->upload($file);
-          $editor1 = $_POST['editor1'];
-          $content = strip_tags($editor1,"<i><strong>");
+          $content = $_POST['editor1'];
           
           $quantity = htmlspecialchars($_POST['quantity']);
           $deposit = htmlspecialchars($_POST['deposit']);

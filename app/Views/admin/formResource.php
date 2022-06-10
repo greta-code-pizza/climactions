@@ -23,8 +23,6 @@
             <input type="text" name="name" id="name" >
         </div>
 
-
-
         <!-- le thème  -->
         <div class="item-form ">
             <label for="theme">Thème</label>
@@ -35,11 +33,7 @@
             </select>
         </div>
 
-
-
-
         <!-- l'image -->
-
         <div class="item-form image">
             <label for="image">Image</label>
             <input type="file" name="image" id="image" >
@@ -61,7 +55,7 @@
         <!-- la caution -->
         <div class="item-form caution">
             <label for="caution">Caution</label>
-            <input type="number" name="deposit" id="caution" >
+            <input type="number" value="0" name="deposit" id="caution" >
         </div>
 
         <!-- état -->
@@ -86,7 +80,6 @@
                 <?php } ?>
             </select>
         </div>
-
 
 
         <!-- format jeu -->
