@@ -441,19 +441,20 @@ class AdminController extends Controller {
 		
 		$adminManager = new \Climactions\Models\RessourcesModel();
 		
-		if($data['sign'] == 'on'){
-			$data['sign'] = 1;
-		}
-		else{
-			$data['sign'] = 0;
+		if($data['sign'] == 'on' ){
+			$data['sign'] = 1;	
 		}
 		if($data['poster'] == 'on'){
 			$data['poster'] = 1;
 		}
-		else{
+		if($data['sign'] == null){
+			$data['sign'] = 0;	
+		}
+		if( $data['poster'] == null ){
 			$data['poster'] = 0;
 		}
-		var_dump($data['sign']); die;
+	
+		// var_dump($data['sign'],$data['poster']); die;
 	
 		
 		$admin = $adminManager->insertResourceExpo($data);

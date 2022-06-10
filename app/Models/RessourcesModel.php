@@ -263,7 +263,7 @@ class RessourcesModel extends Manager
         $bdd = $this->connect();
         $req1 = $bdd->prepare("INSERT INTO resource (name,theme_id,image,content,quantity,deposit,type_id,condition_id,admin_id) 
         VALUES (:name,:theme_id,:image,:content,:quantity,:deposit,:type_id,:condition_id,:admin_id)");
-        var_dump($data);die;
+        // var_dump($data);die;
         $req1->execute(array(
             ":name" => $data['name'],
             ":theme_id" => $data['theme'],
