@@ -35,7 +35,7 @@ class FrontController extends Controller {
         }
         if(isset($article['type_id']) && ($article['type_id'] === 2 || 3 || 5 || 6)){
             $otherResource = $articleManager->selectOtherResources($idResource);
-            // var_dump($otherResource);die;
+            // var_dump($article['type_id']);die;
         }
         if(isset($article['type_id']) && ($article['type_id'] === 4)){
             $flyer = $articleManager->selectResourceExpo($idResource);

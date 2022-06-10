@@ -60,7 +60,7 @@ ob_start(); ?>
                 <?php }; ?>
 
                 <?php
-                if(isset($article['type_id']) && ($article['type_id'] === 3)){
+                if(isset($article['type_id']) && ($article['type_id'] === 3 || 5 || 6)):
                     
                     ?>
                 <!-- pour les films -->
@@ -69,10 +69,17 @@ ob_start(); ?>
                 
                 ?>
                 <p class="theme">Thème : <?= $otherResource[0]['theme'] ?></p>
-                <p class="director">Réalisateur : <?= $otherResource[1][0]['staff'] ?></p>
+                <?php if($article['type_id'] === 3): ?>
+
+                    <p class="director">Réalisateur : <?= $otherResource[1][0]['staff'] ?></p>
+                <?php elseif($article['type_id'] === 5 || 6): ?>
+                    <p class="director">Créateur : <?= $otherResource[1][0]['staff'] ?></p>
+                    <?php endif; ?>
                 <p class="public">Public : <?= $otherResource[0]['public'] ?></p>
                 <p class="condition">Condition : <?= $otherResource[0]['condition'] ?></p>
-                <?php }; ?>
+                <?php endif; ?>
+                
+                
 
                 <?php
                 if(isset($article['type_id']) && ($article['type_id'] === 1)){
@@ -91,11 +98,11 @@ ob_start(); ?>
                     
                     ?>
                 <!-- pour les malles et maquettes -->
-                <p class="type">Type : <?= $otherResource[0]['type'] ?></p>
+                <!-- <p class="type">Type : <?= $otherResource[0]['type'] ?></p>
                 <p class="theme">Thème : <?= $otherResource[0]['theme'] ?></p>
                 <p class="creator">Créateur : <?= $otherResource[1][0]['staff'] ?></p>
                 <p class="public">Public : <?= $otherResource[0]['public'] ?></p>
-                <?php }; ?>
+                <?php }; ?> -->
 
                 <!-- quantity -->
                 <p class="format">Quantité : <?= $article['quantity'] ?></p>
@@ -105,9 +112,9 @@ ob_start(); ?>
                 <?php
                 else : ?>
 
-                   <p class="caution">Caution : <?= $article['deposit']." €"  ?>
+                   <p class="caution">Caution : <?= $article['deposit']." €"  ?></p>
               <?php  endif; ?>
-                </p>
+                
             </section>
 
 
