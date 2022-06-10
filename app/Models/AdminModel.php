@@ -232,7 +232,7 @@ class AdminModel extends Manager
         $bdd = $this->connect();
         $req = $bdd->prepare("SELECT `id`, `name`, `image`, `content`, DATE_FORMAT(created_at, '%d/%m/%Y') AS `date` 
                               FROM `resource` 
-                              ORDER BY `created_at` ASC LIMIT :firstresource, :perpage");
+                              ORDER BY `created_at` DESC LIMIT :firstresource, :perpage");
                               $req->bindValue(':firstresource', $firstResource, \PDO::PARAM_INT);
                               $req->bindValue(':perpage', $perPage, \PDO::PARAM_INT);
         $req->execute();
