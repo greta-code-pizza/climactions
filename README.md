@@ -26,9 +26,9 @@ Pour pouvoir accéder à votre base de données, vous avez le fichier .env.examp
 - SQL
 - JavaScript / Jquery
 
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/greta-code-pizza/climactions.svg?style=for-the-badge
 [contributors-url]: https://github.com/greta-code-pizza/climactions/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/greta-code-pizza/climactions.svg?style=for-the-badge
 [forks-url]: https://github.com/greta-code-pizza/climactions/network/members
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/greta-code-pizza/climactions.svg?style=for-the-badge
 [issues-url]: https://github.com/greta-code-pizza/climactions/issues
