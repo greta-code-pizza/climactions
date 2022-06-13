@@ -8,7 +8,7 @@ ob_start(); ?>
 
 <p>Votre Email: <?= $_SESSION['email'] ?></p>
 
-<a class="changePassword" href="indexAdmin.php?action=pageNewPassword&id=<?= $_SESSION['id'] ?>">Changer votre mot de passe</a>
+<a class="changePassword" href="indexAdmin.php?action=pageNewPassword&id=<?= $_SESSION['id'] ?>" rel="nofollow">Changer votre mot de passe</a>
 
 </section>
 
