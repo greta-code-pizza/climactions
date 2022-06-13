@@ -31,8 +31,8 @@ require 'app/Views/frontend/layouts/header.php';
 <?php foreach($allArticles as $article) : ?>
     <h3><?= $article['title'] ?></h3>
     <p><?= $article['content'] ?></p>
-    <a title="Modifier" href="indexAdmin.php?action=viewUpdateArticle&id=<?= $article['id'] ?>">Modifier</a>
-    <a title="Supprimer" href="indexAdmin.php?action=deleteArticle&id=<?= $article['id'] ?>">Supprimer</a> 
+    <a title="Modifier" href="indexAdmin.php?action=viewUpdateArticle&id=<?= $article['id'] ?>" rel="nofollow">Modifier</a>
+    <a title="Supprimer" href="indexAdmin.php?action=deleteArticle&id=<?= $article['id'] ?>" rel="nofollow">Supprimer</a> 
 <?php endforeach ?>
 
 
