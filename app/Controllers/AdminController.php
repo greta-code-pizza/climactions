@@ -474,7 +474,9 @@ class AdminController extends Controller {
 		
 		$adminManager = new \Climactions\Models\RessourcesModel();
 		
+
 		$admin = $adminManager->insertResource($data);
+
 		
 		header('Location: indexAdmin.php?action=resourceAdmin');
 

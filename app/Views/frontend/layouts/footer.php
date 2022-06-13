@@ -7,10 +7,10 @@
                 <li><a href="index.php?action=pageArticle">Ressources</a></li>
                 <li><a href="index.php?action=contact">Contact</a></li>
                 <?php if(!isset($_SESSION['id'])) :?>
-                <li><a href="indexAdmin.php">Connexion</a></li>
+                <li><a href="indexAdmin.php" rel="nofollow">Connexion</a></li>
                 <?php else: ?>
-                <li><a href="indexAdmin.php?action=homeAdmin">Dashboard</a></li>
-                <li><a href="indexAdmin.php?action=deconnexion">Déconnexion</a></li>
+                <li><a href="indexAdmin.php?action=homeAdmin" rel="nofollow">Dashboard</a></li>
+                <li><a href="indexAdmin.php?action=deconnexion" rel="nofollow">Déconnexion</a></li>
                 <?php endif; ?>
             </ul>
         </div>
@@ -18,10 +18,10 @@
         <div id="reseaux-sociaux" class="item-footer">
             <h2>Nos réseaux sociaux</h2>
             <div id="reseaux">
-                <a href="https://fr-fr.facebook.com/climactions/"><img src="./Public/img/icon-facebook.svg" alt="facebook" title="Facebook"></a>
-                <a href="https://twitter.com/climactions"><img src="./Public/img/icon-twitter.svg" alt="twitter" title="Twitter"></a>
-                <a href="https://instagram.com/climactions.bretagnesud/?hl=fr"><img src="./Public/img/icon-instagram.svg" alt="instagram" title="Instagram"></a>
-                <a href="https://fr.linkedin.com/company/clim%27actions-bretagne-sud"><img src="./Public/img/icon-linkedin.svg" alt="linkedin" title="Linkedin"></a>
+                <a href="https://fr-fr.facebook.com/climactions/" rel="external"><img src="./Public/img/icon-facebook.svg" alt="facebook" title="Facebook"></a>
+                <a href="https://twitter.com/climactions" rel="external"><img src="./Public/img/icon-twitter.svg" alt="twitter" title="Twitter"></a>
+                <a href="https://instagram.com/climactions.bretagnesud/?hl=fr" rel="external"><img src="./Public/img/icon-instagram.svg" alt="instagram" title="Instagram"></a>
+                <a href="https://fr.linkedin.com/company/clim%27actions-bretagne-sud" rel="external"><img src="./Public/img/icon-linkedin.svg" alt="linkedin" title="Linkedin"></a>
             </div>
         </div>
 
@@ -40,9 +40,9 @@
 
     <div id="legals-footer">
         <ul>
-            <li><a href="index.php?action=cgu">CGU</a></li>
-            <li><a href="index.php?action=legalNotice">Mentions légales</a></li>
-            <li><a href="index.php?action=cookies">Cookies</a></li>
+            <li><a href="index.php?action=cgu" rel="nofollow">CGU</a></li>
+            <li><a href="index.php?action=legalNotice" rel="nofollow">Mentions légales</a></li>
+            <li><a href="index.php?action=cookies" rel="nofollow">Cookies</a></li>
         </ul>
         <p>Tous droits réservés - 2022 - <a href="https://climactions-bretagnesud.bzh/">Clim'actions Bretagne Sud</a></p>
     </div>

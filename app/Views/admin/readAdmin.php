@@ -22,9 +22,9 @@ ob_start(); ?>
         <li><?= $admin['email'] ?></li>
         <li><?= $admin['role'] ?></li>
         <li class="flex">
-            <span class="btn"><a href="indexAdmin.php?action=homeAdmin"><i class="fa-solid fa-arrow-left"></i></a></span>
+            <span class="btn"><a href="indexAdmin.php?action=homeAdmin" rel="nofollow"><i class="fa-solid fa-arrow-left"></i></a></span>
             <?php if(isset($admin['role']) && ($admin['role'] == "Administrateur")) : ?>
-            <span class="btn"><a href="indexAdmin.php?action=deleteAdmin&id=<?= $admin['id'] ?>"><i class="fa-solid fa-trash-can"></i></a></span>
+            <span class="btn"><a href="indexAdmin.php?action=deleteAdmin&id=<?= $admin['id'] ?>" rel="nofollow"><i class="fa-solid fa-trash-can"></i></a></span>
             <?php else : ?>
                 <?php endif; ?>
         </li>
