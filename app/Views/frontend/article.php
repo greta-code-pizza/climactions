@@ -19,25 +19,16 @@ ob_start(); ?>
             <!-- faire des conditions -->
             <section class="info">
                 <h2 class="title">Informations : </h2>
-
+ 
                 <?php
-                if(isset($article['type_id']) && ($article['type_id'] === 1)):
+                if(isset($article['type_id']) && ($article['type_id'] === 1 || 2 || 3 || 4 || 5 || 6)){
                     
                     ?>
-                <!-- pour les jeux -->
-                <p class="type">Type : <?= $game[0]['type'] ?></p>
-                <p class="theme">Thème : <?= $game[0]['theme'] ?></p>
-                <p class="creator">Créateur : <?= $game[1][0]['staff'] ?></p>
-                <p class="format">Format : <?= $game[0]['game_format'] ?></p>
-                <p class="public">Public : <?= $game[0]['public'] ?></p>
-                <?php endif; ?>
                 
+                <p class="type">Type : <?= $otherResource[0]['type'] ?></p>
+                <p class="theme">Thème : <?= $otherResource[0]['theme'] ?></p>
                 <?php
-                if(isset($article['type_id']) && ($article['type_id'] === 4)){
-                    ?>
-                <!-- pour les flyers -->
-                <p class="type">Type : <?= $flyer['type'] ?></p>
-                <p class="theme">Thème : <?= $flyer['theme'] ?></p>
+                if(isset($article['type_id']) && ($article['type_id'] === 4)) : ?>
                 <p class="format"><?php if($flyer['poster_bool'] == 1){
                     echo "Format : Affiche";
                 }
@@ -53,43 +44,23 @@ ob_start(); ?>
                 else{
                     echo "Format : Non précisé";
                 }
-                
+            
                 
                 ?></p>
-                <?php }; ?>
-
-                <?php
-                if(isset($article['type_id']) && ($article['type_id'] === 2)){
-                    
-                    ?>
-                <!-- pour les livres -->
-                <p class="type">Type : <?= $otherResource[0]['type'] ?></p>
-                <p class="theme">Thème : <?= $otherResource[0]['theme'] ?></p>
-
+                <?php endif; ?>
+                <?php if($article['type_id'] === 2): ?>
                 <p class="author">Auteur : <?= $otherResource[1][0]['staff'] ?></p>
                 <p class="editor">Éditeur : </p>
-                <p class="public">Public : <?= $otherResource[0]['public'] ?></p>
-                <?php }; ?>
-
-                <?php
-                if(isset($article['type_id']) && ($article['type_id'] === 3 || 5 || 6)){
-                    
-                    ?>
-                <!-- pour les films -->
-                <p class="type">Type : <?= $otherResource[0]['type'] ?></p>
-                <?php
-                
-                ?>
-                <p class="theme">Thème : <?= $otherResource[0]['theme'] ?></p>
-                <?php if($article['type_id'] === 3): ?>
-
+                <?php elseif($article['type_id'] === 3): ?>
                     <p class="director">Réalisateur : <?= $otherResource[1][0]['staff'] ?></p>
-                <?php elseif($article['type_id'] === 5 || 6): ?>
+                    <?php elseif($article['type_id'] === 1 || 5 || 6): ?>
                     <p class="director">Créateur : <?= $otherResource[1][0]['staff'] ?></p>
                     <?php endif; ?>
                 <p class="public">Public : <?= $otherResource[0]['public'] ?></p>
                 <p class="condition">Condition : <?= $otherResource[0]['condition'] ?></p>
                 <?php }; ?>
+
+               
                 
 
                 <!-- quantity -->

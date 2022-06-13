@@ -27,13 +27,9 @@ class FrontController extends Controller {
     {
         $articleManager = new \Climactions\Models\RessourcesModel();
         $article = $articleManager->afficherDetailArticle($idResource);
-        if(isset($article['type_id']) && ($article['type_id'] === 1)){
-            $game = $articleManager->selectResourceGame($idResource);
-            
-            // var_dump($game);  
-        }
-        if(isset($article['type_id']) && ($article['type_id'] === 2 || 3 || 5 || 6)){
-            $otherResource = $articleManager->selectOtherResources($idResource);
+        
+        if(isset($article['type_id']) && ($article['type_id'] === 1 || 2 || 3 || 5 || 6)){
+            $otherResource = $articleManager->selectMainResources($idResource);
             // var_dump($otherResource);die;
         }
         if(isset($article['type_id']) && ($article['type_id'] === 4)){
