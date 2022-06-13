@@ -480,7 +480,9 @@ class AdminController extends Controller {
 		
 		header('Location: indexAdmin.php?action=resourceAdmin');
 
-	}	
+	}
+	
+	
 	public function createResourceExpo($data)
 	{
 		
@@ -492,15 +494,18 @@ class AdminController extends Controller {
 		if($data['poster'] == 'on'){
 			$data['poster'] = 1;
 		}
+		if($data['kakemono'] == 'on'){
+			$data['kakemono'] = 1;
+		}
 		if($data['sign'] == null){
 			$data['sign'] = 0;	
 		}
 		if( $data['poster'] == null ){
 			$data['poster'] = 0;
 		}
-	
-		// var_dump($data['sign'],$data['poster']); die;
-	
+		if($data['kakemono'] == null){
+			$data['kakemono'] = 0;	
+		}
 		
 		$admin = $adminManager->insertResourceExpo($data);
 

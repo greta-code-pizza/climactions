@@ -258,7 +258,7 @@ try {
         }
 
         // ------------------------------
-        // création d'un film ou d'un jeu
+        // création d'une ressource
         // ------------------------------
 
         elseif($_GET['action'] == 'create'){
@@ -317,6 +317,7 @@ try {
 
           $poster = $_POST["format-poster"];
           $sign = $_POST["format-sign"];
+          $kakemono = $_POST["format-kakemono"];
           
 
           $data = [
@@ -331,7 +332,8 @@ try {
             "admin" => $adminId, 
             
             "poster" =>$poster,
-            "sign" => $sign
+            "sign" => $sign,
+            "kakemono" => $kakemono
           ];
 
           // var_dump($data); die;

@@ -210,9 +210,6 @@ class RessourcesModel extends Manager
 
 
     public function insertResource($data)
-
-    public function insertOtherResources($data)
-
     {
         $bdd = $this->connect();
         $req1 = $bdd->prepare("INSERT INTO resource (name,theme_id,image,content,quantity,deposit,public_id,type_id,condition_id,admin_id) 
@@ -262,12 +259,13 @@ class RessourcesModel extends Manager
         // var_dump($data);die;
         $idResource = $bdd->lastInsertId();
 
-        $req2 = $bdd->prepare("INSERT INTO exposure (poster_bool,sign_bool,resource_id)
-        VALUES (:poster_bool,:sign_bool,:resource_id)");
+        $req2 = $bdd->prepare("INSERT INTO exposure (poster_bool,sign_bool,kakemono_bool,resource_id)
+        VALUES (:poster_bool,:sign_bool,:kakemono_bool,:resource_id)");
 
         $req2->execute(array(
             "poster_bool" => $data['poster'],
             "sign_bool" => $data['sign'],
+            "kakemono_bool" => $data['kakemono'],
             "resource_id" => $idResource
 
         ));

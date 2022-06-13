@@ -96,7 +96,10 @@ ob_start(); ?>
             <input class="increase" type="checkbox" name="format-sign" id="format-sign">
         </div>
 
-        <!-- pour jeu / livre / film -->
+        <div class="item-form format-kakemono">
+            <label for="format-kakemono">Format kakemono</label>
+            <input class="increase" type="checkbox" name="format-kakemono" id="format-kakemono">
+        </div>
 
         <!-- public -->
         <div class="item-form name-public">
