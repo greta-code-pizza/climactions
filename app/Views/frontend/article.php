@@ -29,8 +29,8 @@ ob_start(); ?>
                 <p class="theme">Thème : <?= $otherResource[0]['theme'] ?></p>
                 <?php
                 if(isset($article['type_id']) && ($article['type_id'] === 4)) : ?>
-                <p class="format"><?php if($flyer['poster_bool'] == 1){
-                    echo "Format : Affiche";
+                <p class="format"><?php if($flyer['poster_bool'] == 1 && $flyer['sign_bool'] == 1){
+                    echo "Format : Affiche + Panneau";
                 }
                 elseif($flyer['sign_bool'] == 1){
                     echo "Format : Panneau";
@@ -38,8 +38,8 @@ ob_start(); ?>
                 elseif($flyer['kakemono_bool'] == 1){
                     echo "Format : Kakemono";
                 }
-                elseif($flyer['poster_bool'] == 1 && $flyer['sign_bool'] == 1){
-                    echo "Format : Affiche + Panneau";
+                elseif($flyer['poster_bool'] == 1){
+                    echo "Format : Affiche";
                 }
                 else{
                     echo "Format : Non précisé";

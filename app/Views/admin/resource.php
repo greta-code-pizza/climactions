@@ -45,7 +45,7 @@ ob_start(); ?>
 
     <h2 class="main-title">Création et mise à jour d'un article</h2>
 
-    <span class="btn-create"><a href="indexAdmin.php?action=createResource">Créer un article</a></span>
+    <span class="btn-create"><a href="indexAdmin.php?action=formCreateResource">Créer un article</a></span>
 
     <div class="table">
         <h3 class="table-title">Titre</h3>

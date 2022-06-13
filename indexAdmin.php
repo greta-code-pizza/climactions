@@ -186,9 +186,9 @@ try {
         
         // les méthodes de la page Resource.php
 
-        elseif($_GET['action'] == 'createResource'){
+        elseif($_GET['action'] == 'formCreateResource'){
           isConnect();
-          $backController->createResource();
+          $backController->formCreateResource();
         }
         elseif($_GET['action'] == 'updateResource'){
           isConnect();
@@ -258,7 +258,7 @@ try {
         }
 
         // ------------------------------
-        // création d'un film ou d'un jeu
+        // création d'une ressource
         // ------------------------------
 
         elseif($_GET['action'] == 'create'){
@@ -293,7 +293,7 @@ try {
             "personality" => $personalityId          
           ];
 
-          $backController->createResourceMovieBook($data);
+          $backController->createResource($data);
         }
 
         // // // -------------------------
@@ -308,15 +308,16 @@ try {
           $file = $_FILES['image'];
           $path = $backController->upload($file);
           $content = $_POST['editor1'];
-          
           $quantity = htmlspecialchars($_POST['quantity']);
           $deposit = htmlspecialchars($_POST['deposit']);
+          $publicId =  $_POST['name-public'];
           $typeId = htmlspecialchars($_POST['type']);
           $conditionId = htmlspecialchars($_POST['condition']);
           $adminId = $_SESSION['id'];
-
+          $personalityId =  htmlspecialchars($_POST["name-author"]);
           $poster = $_POST["format-poster"];
           $sign = $_POST["format-sign"];
+          $kakemono =$_POST["format-kakemono"];
           
 
           $data = [
@@ -325,66 +326,20 @@ try {
             "image" =>$path,
             "content" =>$content,
             "quantity" => $quantity,
-            "deposit" => $deposit,  
+            "deposit" => $deposit,
+            "public" => $publicId,  
             "type" => $typeId,
             "condition" => $conditionId,
             "admin" => $adminId, 
-            
+            "personality"=>$personalityId,
             "poster" =>$poster,
-            "sign" => $sign
+            "sign" => $sign,
+            "kakemono" => $kakemono
           ];
 
           // var_dump($data); die;
           
           $backController->createResourceExpo($data);
-        }
-
-        // -----------------
-        // création d'un jeu
-        // -----------------
-
-        elseif($_GET['action'] == 'create-game'){
-          isConnect();
-           
-          $name = htmlspecialchars($_POST['name']);
-          $themeId = htmlspecialchars($_POST['theme']);
-          $file = $_FILES['image'];
-          $path = $backController->upload($file);
-          $content = htmlspecialchars($_POST['editor1']);
-          $quantity =  $_POST['quantity'];
-          $deposit =  htmlspecialchars($_POST['deposit']);
-          $publicId =  $_POST['name-public'];  
-          $typeId =  $_POST['type'];
-          $conditionId = $_POST['condition'];
-          
-          $adminId = $_SESSION['id'];
-          
-          $formatGameId =  $_POST['format-game'];  //-
-          
-          $personalityId =  htmlspecialchars($_POST["name-author"]);
-
-          $data = [
-            "name" => $name,
-            "theme" => $themeId,
-            "image" => $path,
-            "content" =>$content,
-            "quantity" => $quantity,
-            "deposit" => $deposit,
-            "public" => $publicId,
-            "type" => $typeId,
-            "condition" => $conditionId,
-            "admin" => $adminId,
-
-            "format" => $formatGameId,
-            
-            "personality" => $personalityId
-            
-            
-          ];
-       
-          // var_dump($data); die;
-
-          $backController->createResourceGame($data);
         }
 
         else {
