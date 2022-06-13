@@ -19,62 +19,65 @@ ob_start(); ?>
             <!-- faire des conditions -->
             <section class="info">
                 <h2 class="title">Informations : </h2>
+ 
+                <?php
+                if(isset($article['type_id']) && ($article['type_id'] === 1 || 2 || 3 || 4 || 5 || 6)){
+                    
+                    ?>
                 
+                <p class="type">Type : <?= $otherResource[0]['type'] ?></p>
+                <p class="theme">Thème : <?= $otherResource[0]['theme'] ?></p>
                 <?php
-                if(isset($article['type_id']) && ($article['type_id'] == 4)){
-                    ?>
-                <!-- pour les flyers -->
-                <p class="type">Type : <?= $flyer['type'] ?></p>
-                <p class="theme">Thème : <?= $flyer['theme'] ?></p>
+                if(isset($article['type_id']) && ($article['type_id'] === 4)) : ?>
+                <p class="format"><?php if($flyer['poster_bool'] == 1){
+                    echo "Format : Affiche";
+                }
+                elseif($flyer['sign_bool'] == 1){
+                    echo "Format : Panneau";
+                }
+                elseif($flyer['kakemono_bool'] == 1){
+                    echo "Format : Kakemono";
+                }
+                elseif($flyer['poster_bool'] == 1 && $flyer['sign_bool'] == 1){
+                    echo "Format : Affiche + Panneau";
+                }
+                else{
+                    echo "Format : Non précisé";
+                }
+            
+                
+                ?></p>
+                <?php endif; ?>
+                
+                <?php if($article['type_id'] === 2 || 3): ?>
+                    <p class="director">Equipe : <?= $otherResource[1][0]['staff'] ?></p>
+                    <?php elseif($article['type_id'] === 1 || 5 || 6): ?>
+                    <p class="director">Créateur : <?= $otherResource[1][0]['staff'] ?></p>
+                    <?php endif; ?>
+                <p class="public">Public : <?= $otherResource[0]['public'] ?></p>
+                <p class="condition">Condition : <?= $otherResource[0]['condition'] ?></p>
                 <?php }; ?>
 
-                <?php
-                if(isset($article['type_id']) && ($article['type_id'] == 2)){
-                    ?>
-                <!-- pour les livres -->
-                <p class="type">Type : <?= $movieBook['type'] ?></p>
-                <p class="theme">Thème : <?= $movieBook['theme'] ?></p>
-
-                <p class="author">Auteur : </p>
-                <p class="editor">Éditeur : </p>
-                <p class="public">Public : <?= $movieBook['public'] ?></p>
-                <?php }; ?>
-
-                <?php
-                if(isset($article['type_id']) && ($article['type_id'] == 3)){
-                    ?>
-                <!-- pour les films -->
-                <p class="type">Type : <?= $movieBook['type'] ?></p>
-                <p class="theme">Thème : <?= $movieBook['theme'] ?></p>
-                <p class="director">Réalisateur :</p>
-                <p class="producer">Producteur :</p>
-                <p class="public">Public : <?= $movieBook['public'] ?></p>
-                <p class="condition">Condition : <?= $movieBook['condition'] ?></p>
-                <?php }; ?>
-
-                <?php
-                if(isset($article['type_id']) && ($article['type_id'] === 1)){
-                    // var_dump($article['type_id']);die;
-                    ?>
-                <!-- pour les jeux -->
-                <p class="type">Type : <?= $game['type'] ?></p>
-                <p class="theme">Thème : <?= $game['theme'] ?></p>
-                <p class="creator">Créateur : <?= $game['firstname'] ?> <?= $game['lastname'] ?></p>
-                <p class="format">Format : <?= $game['game_format'] ?></p>
-                <p class="public">Public : <?= $game['public'] ?></p>
-                <?php }; ?>
+               
+                
 
                 <!-- quantity -->
                 <p class="format">Quantité : <?= $article['quantity'] ?></p>
                 <!-- la caution -->
-                <p class="format">Caution : <?= $article['deposit']." €" ?></p>
+                <?php if($article['deposit'] == 0): ?>
+                    <p class="caution">Caution : Pas de caution</p>
+                <?php
+                else : ?>
 
+                   <p class="caution">Caution : <?= $article['deposit']." €"  ?></p>
+              <?php  endif; ?>
+                
             </section>
 
 
             <div class="content">
                 <div class="line"></div>
-                <p><?= $article['content'] ?></p>
+                <p><?= htmlspecialchars_decode($article['content']) ?></p>
                 <p class="created-at"><strong>Créé le : </strong><?= $article['created_at'] ?></p>
 
             </div>
