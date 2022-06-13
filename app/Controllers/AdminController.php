@@ -158,14 +158,13 @@ class AdminController extends Controller {
 
 	// les méthodes de la page Resource.php 
 
-	public function createResource()
+	public function formCreateResource()
 	{
 		$resources = new \Climactions\Models\RessourcesModel();
 		$types = $resources->selectType();
 		$themes = $resources->selectTheme();
 		$conditions = $resources->selectCondition();
 		$publics = $resources->selectPublic();
-		$formats = $resources->selectGameFormat();
 		$personalities = $resources->selectPersonality();
 		require $this->viewAdmin('formResource');
 	}
@@ -470,12 +469,12 @@ class AdminController extends Controller {
 
 	// -----------------------------------------------------------------------
 	
-	public function createResourceMovieBook($data)
+	public function createResource($data)
 	{
 		
 		$adminManager = new \Climactions\Models\RessourcesModel();
 		
-		$admin = $adminManager->insertResourceMovieBook($data);
+		$admin = $adminManager->insertResource($data);
 		
 		header('Location: indexAdmin.php?action=resourceAdmin');
 
@@ -506,18 +505,5 @@ class AdminController extends Controller {
 		header('Location: indexAdmin.php?action=resourceAdmin');
 
 	}	
-	public function createResourceGame($data)
-	{
-				
-		$adminManager = new \Climactions\Models\RessourcesModel();
-		// var_dump($data); die;
-		$adminManager->insertResourceGame($data);
-		
-		// var_dump($admin); die;
-		
-		header('Location: indexAdmin.php?action=resourceAdmin');
-		
-	}	
-	
 	// -----------------------------------------------------------------------	
 }

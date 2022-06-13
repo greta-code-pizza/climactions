@@ -186,9 +186,9 @@ try {
         
         // les méthodes de la page Resource.php
 
-        elseif($_GET['action'] == 'createResource'){
+        elseif($_GET['action'] == 'formCreateResource'){
           isConnect();
-          $backController->createResource();
+          $backController->formCreateResource();
         }
         elseif($_GET['action'] == 'updateResource'){
           isConnect();
@@ -293,7 +293,7 @@ try {
             "personality" => $personalityId          
           ];
 
-          $backController->createResourceMovieBook($data);
+          $backController->createResource($data);
         }
 
         // // // -------------------------
@@ -337,54 +337,6 @@ try {
           // var_dump($data); die;
           
           $backController->createResourceExpo($data);
-        }
-
-        // -----------------
-        // création d'un jeu
-        // -----------------
-
-        elseif($_GET['action'] == 'create-game'){
-          isConnect();
-           
-          $name = htmlspecialchars($_POST['name']);
-          $themeId = htmlspecialchars($_POST['theme']);
-          $file = $_FILES['image'];
-          $path = $backController->upload($file);
-          $content = htmlspecialchars($_POST['editor1']);
-          $quantity =  $_POST['quantity'];
-          $deposit =  htmlspecialchars($_POST['deposit']);
-          $publicId =  $_POST['name-public'];  
-          $typeId =  $_POST['type'];
-          $conditionId = $_POST['condition'];
-          
-          $adminId = $_SESSION['id'];
-          
-          $formatGameId =  $_POST['format-game'];  //-
-          
-          $personalityId =  htmlspecialchars($_POST["name-author"]);
-
-          $data = [
-            "name" => $name,
-            "theme" => $themeId,
-            "image" => $path,
-            "content" =>$content,
-            "quantity" => $quantity,
-            "deposit" => $deposit,
-            "public" => $publicId,
-            "type" => $typeId,
-            "condition" => $conditionId,
-            "admin" => $adminId,
-
-            "format" => $formatGameId,
-            
-            "personality" => $personalityId
-            
-            
-          ];
-       
-          // var_dump($data); die;
-
-          $backController->createResourceGame($data);
         }
 
         else {

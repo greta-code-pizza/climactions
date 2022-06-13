@@ -13,7 +13,7 @@ ob_start(); ?>
         <div class="item-form type">
             <label for="type">Type</label>
             <select id="select-block" name="type" id="type" >
-                <option value="#">Choisir</option>
+                <option value="default">Choisir</option>
                 <?php foreach($types as $type) {?>
                     <option class="item" value="<?= $type['id'] ?>"><?= $type['name'] ?></option>
                 <?php } ?>
@@ -23,7 +23,7 @@ ob_start(); ?>
         <!-- le titre     -->
         <div class="item-form name">
             <label for="name">Titre</label>
-            <input type="text" name="name" id="name" >
+            <input type="text" name="name" id="name" required>
         </div>
 
         <!-- le thème  -->
@@ -39,7 +39,7 @@ ob_start(); ?>
         <!-- l'image -->
         <div class="item-form image">
             <label for="image">Image</label>
-            <input type="file" name="image" id="image" >
+            <input type="file" name="image" id="image" required>
         </div>
 
         <!-- le contenu -->
@@ -52,13 +52,13 @@ ob_start(); ?>
         <!-- la quantité -->
         <div class="item-form quantite">
             <label for="quantite">Quantité</label>
-            <input type="number" value="1" min=0 name="quantity" id="quantite" >
+            <input type="number" value="1" min=0 name="quantity" id="quantite" required>
         </div>
 
         <!-- la caution -->
         <div class="item-form caution">
             <label for="caution">Caution</label>
-            <input type="number" value="0" name="deposit" id="caution" >
+            <input type="number" value="0" name="deposit" id="caution" required>
         </div>
 
         <!-- état -->
@@ -80,17 +80,6 @@ ob_start(); ?>
             <select name="name-author" id="name-author" >
                 <?php foreach($personalities as $personality) {?>
                     <option class="item" value="<?= $personality['id'] ?>"><?= $personality['role'] ?> - <?= $personality['name'] ?></option>
-                <?php } ?>
-            </select>
-        </div>
-
-
-        <!-- format jeu -->
-        <div class="item-form format-game">
-            <label for="format-game">Format jeu</label>
-            <select name="format-game" id="format-game" >
-                <?php foreach($formats as $format) {?>
-                    <option class="item" value="<?= $format['id'] ?>"><?= $format['name'] ?></option>
                 <?php } ?>
             </select>
         </div>
@@ -119,7 +108,7 @@ ob_start(); ?>
             </select>
         </div>
 
-        <button class="btn-create" type="submit">Créer un Jeu</button>
+        <button class="btn-create" type="submit">Ajout Ressource</button>
     </form>
 </section>
 
