@@ -242,8 +242,8 @@ class RessourcesModel extends Manager
     public function insertResourceExpo($data)
     {
         $bdd = $this->connect();
-        $req1 = $bdd->prepare("INSERT INTO resource (name,theme_id,image,content,quantity,deposit,type_id,condition_id,admin_id) 
-        VALUES (:name,:theme_id,:image,:content,:quantity,:deposit,:type_id,:condition_id,:admin_id)");
+        $req1 = $bdd->prepare("INSERT INTO resource (name,theme_id,image,content,quantity,deposit,public_id,type_id,condition_id,admin_id) 
+        VALUES (:name,:theme_id,:image,:content,:quantity,:deposit,:public_id,:type_id,:condition_id,:admin_id)");
         // var_dump($data);die;
         $req1->execute(array(
             ":name" => $data['name'],
@@ -252,6 +252,7 @@ class RessourcesModel extends Manager
             ":content" =>$data['content'],
             ":quantity" => $data['quantity'],
             ":deposit" => $data['deposit'],
+            ":public_id" => $data['public'],
             ":type_id" => $data['type'],
             ":condition_id" => $data['condition'],
             ":admin_id" => $data['admin']

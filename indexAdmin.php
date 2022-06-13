@@ -308,16 +308,16 @@ try {
           $file = $_FILES['image'];
           $path = $backController->upload($file);
           $content = $_POST['editor1'];
-          
           $quantity = htmlspecialchars($_POST['quantity']);
           $deposit = htmlspecialchars($_POST['deposit']);
+          $publicId =  $_POST['name-public'];
           $typeId = htmlspecialchars($_POST['type']);
           $conditionId = htmlspecialchars($_POST['condition']);
           $adminId = $_SESSION['id'];
           $personalityId =  htmlspecialchars($_POST["name-author"]);
           $poster = $_POST["format-poster"];
           $sign = $_POST["format-sign"];
-          $kakemono = $_POST["format-kakemono"];
+          $kakemono =$_POST["format-kakemono"];
           
 
           $data = [
@@ -326,7 +326,8 @@ try {
             "image" =>$path,
             "content" =>$content,
             "quantity" => $quantity,
-            "deposit" => $deposit,  
+            "deposit" => $deposit,
+            "public" => $publicId,  
             "type" => $typeId,
             "condition" => $conditionId,
             "admin" => $adminId, 
