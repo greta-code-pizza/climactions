@@ -36,8 +36,8 @@ ob_start(); ?>
             <?php foreach ($ressources as $ressource) { ?>
                     <article class="article-container element-item all <?= $ressource['type'] ?>">
                         <div class="cadre_image">
-                            <img src="<?= $ressource['image'] ?>" alt="image de <?= $ressource['name'] ?>">
-                            <?php if($ressource >1) : ?>
+                            <img src="<?= $ressources['image'] ?>" alt="image de <?= $ressource['name'] ?>">
+                            <?php if($ressources[] >= 1) : ?>
 
                         <img src="<?= $ressource['image'] ?>" alt="image de <?= $ressource['name'] ?>" loading="lazy">
                         <?php endif; ?>
