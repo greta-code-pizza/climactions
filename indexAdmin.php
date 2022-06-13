@@ -314,7 +314,7 @@ try {
           $typeId = htmlspecialchars($_POST['type']);
           $conditionId = htmlspecialchars($_POST['condition']);
           $adminId = $_SESSION['id'];
-
+          $personalityId =  htmlspecialchars($_POST["name-author"]);
           $poster = $_POST["format-poster"];
           $sign = $_POST["format-sign"];
           $kakemono = $_POST["format-kakemono"];
@@ -330,7 +330,7 @@ try {
             "type" => $typeId,
             "condition" => $conditionId,
             "admin" => $adminId, 
-            
+            "personality"=>$personalityId,
             "poster" =>$poster,
             "sign" => $sign,
             "kakemono" => $kakemono

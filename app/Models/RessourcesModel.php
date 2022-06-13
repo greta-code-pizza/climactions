@@ -256,7 +256,7 @@ class RessourcesModel extends Manager
             ":condition_id" => $data['condition'],
             ":admin_id" => $data['admin']
         ));
-        // var_dump($data);die;
+        
         $idResource = $bdd->lastInsertId();
 
         $req2 = $bdd->prepare("INSERT INTO exposure (poster_bool,sign_bool,kakemono_bool,resource_id)
@@ -268,6 +268,14 @@ class RessourcesModel extends Manager
             "kakemono_bool" => $data['kakemono'],
             "resource_id" => $idResource
 
+        ));
+
+        $req3 = $bdd->prepare("INSERT INTO staff (personality_id,resource_id)
+        VALUES (:personality_id,:resource_id)");
+
+        $req3->execute(array(
+            "personality_id" => $data['personality'],
+            "resource_id" => $idResource
         ));
     }
 
