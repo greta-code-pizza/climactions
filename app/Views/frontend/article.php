@@ -48,11 +48,9 @@ ob_start(); ?>
                 
                 ?></p>
                 <?php endif; ?>
-                <?php if($article['type_id'] === 2): ?>
-                <p class="author">Auteur : <?= $otherResource[1][0]['staff'] ?></p>
-                <p class="editor">Éditeur : </p>
-                <?php elseif($article['type_id'] === 3): ?>
-                    <p class="director">Réalisateur : <?= $otherResource[1][0]['staff'] ?></p>
+                
+                <?php if($article['type_id'] === 2 || 3): ?>
+                    <p class="director">Equipe : <?= $otherResource[1][0]['staff'] ?></p>
                     <?php elseif($article['type_id'] === 1 || 5 || 6): ?>
                     <p class="director">Créateur : <?= $otherResource[1][0]['staff'] ?></p>
                     <?php endif; ?>
