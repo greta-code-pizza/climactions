@@ -16,6 +16,7 @@
   src: local(""), url("../fonts/roboto/roboto.woff2") format("woff2"),
     url("../fonts/roboto/roboto.woff") format("woff"),
     url("../fonts/roboto/roboto.ttf") format("truetype");
+    font-display: swap;
 }
 
 @font-face {
@@ -26,6 +27,7 @@
     url("../fonts/robotocondensed/robotocondensed.woff2") format("woff2"),
     url("../fonts/robotocondensed/robotocondensed.woff") format("woff"),
     url("../fonts/robotocondensed/robotocondensed.ttf") format("truetype");
+    font-display: swap;
 }
 
 *,

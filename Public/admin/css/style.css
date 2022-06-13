@@ -18,6 +18,7 @@
   src: local(""), url("../fonts/roboto/roboto.woff2") format("woff2"),
     url("../fonts/roboto/roboto.woff") format("woff"),
     url("../fonts/roboto/roboto.ttf") format("truetype");
+    font-display: swap;
 }
 
 /* reset css */

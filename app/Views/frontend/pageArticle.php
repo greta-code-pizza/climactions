@@ -13,7 +13,7 @@ ob_start(); ?>
                 <?php foreach ($search as $article) {?>
                     <article class="article-container element-item  <?= $article['type'] ?>">
                         <div class="cadre_image">
-                            <img src="<?= $article['image'] ?>">
+                            <img src="<?= $article['image'] ?>" alt="image de <?= $article['resource'] ?>">
                         </div>
                         <div class="date"><p><?=$article['date']?></p></div>
                         <h2 class="title"><?= $article['resource'] ?></h2>
@@ -36,7 +36,11 @@ ob_start(); ?>
             <?php foreach ($ressources as $ressource) { ?>
                     <article class="article-container element-item all <?= $ressource['type'] ?>">
                         <div class="cadre_image">
-                            <img src="<?= $ressource['image'] ?>">
+                            <img src="<?= $ressource['image'] ?>" alt="image de <?= $ressource['name'] ?>">
+                            <?php if($ressource >1) : ?>
+
+                        <img src="<?= $ressource['image'] ?>" alt="image de <?= $ressource['name'] ?>" loading="lazy">
+                        <?php endif; ?>
                         </div>
                         <div class="date"><p><?=$ressource['date']?></p></div>
                         <h3 class="title"><?= $ressource['name'] ?></h2>
