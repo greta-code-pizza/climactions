@@ -12,7 +12,7 @@ require_once 'layouts/header.php';?>
     </section>
     <section id="articles">
         <div class="container">
-            <h2>Nos nouveautés <img src="./Public/img/feuille-articles.svg" alt="image-feuille"> </h2>
+            <h2>Nos nouveautés <img src="./Public/img/feuille-articles.svg" alt="feuille"> </h2>
             <!-- affichage des 3 derniers articles (titre et genre) -->
             <?php foreach ($lastArticles as $article) { ?>
             <article id="article">
@@ -27,7 +27,7 @@ require_once 'layouts/header.php';?>
         </div>
     </section>
     <section id="partenaires" class="container">
-        <h2>Nos partenaires</h2>
+        <h2>Nos partenaires <img src="./Public/img/feuille-agenda.svg" alt="feuille"> </h2>
         <div class="partenaires-img">
             <img src="./Public/img/partenaires/logo-ademe.svg" alt="ademe">
             <img src="./Public/img/partenaires/logo-gbs.jpg" alt="greta bretagne sud">

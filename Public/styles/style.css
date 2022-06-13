@@ -231,13 +231,13 @@ a {
   text-decoration: none;
 }
 
-#contenu #articles h2 {
+#contenu #articles h2, #contenu #partenaires h2 {
   width: 100%;
   text-align: left;
   padding: 20px 0 20px 20px;
 }
 
-#contenu #articles h2 img {
+#contenu #articles h2 img, #contenu #partenaires h2 img  {
   margin-left: 15%;
   margin-bottom: 10px;
   width: 35px;
@@ -934,7 +934,7 @@ p.last {
     border-radius:  0 0.5em 0.5em 0;
   }
 
-  #contenu #articles h2 img {
+  #contenu #articles h2 img, #contenu #partenaires h2 img {
     margin-left: 35%;
     margin-bottom: 10px;
     width: 45px;
@@ -1172,7 +1172,7 @@ p.last {
   }
 
   /* ------------------ body ----------------  */
-  #contenu #articles h2 img {
+  #contenu #articles h2 img, #contenu #partenaires h2 img {
     margin-left: 35%;
     margin-bottom: 10px;
     width: 45px;
