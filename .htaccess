@@ -1,3 +1,12 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php?action=$1
+
+
+
 <IfModule mod_expires.c>
   ExpiresActive On
 
@@ -107,6 +116,7 @@ RewriteEngine On
 RewriteCond %{HTTP_REFERER} !^$
 RewriteCond %{HTTP_REFERER} !^http(s)?://(www.)?ton-url.com [NC]
 # RewriteRule .(jpg|jpeg|png|gif)$ http://fakeimg.pl/400x200/?text=Pas_touche_aux_images [NC,R,L]
+
 
 
 # #Compressions des fichiers statiques
