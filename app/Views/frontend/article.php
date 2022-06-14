@@ -85,7 +85,7 @@ ob_start(); ?>
         </div>
 
     </article>
-    <a href="index.php?action=pageArticle" class="btn">Revenir sur tous les articles</a>
+    <a href="pageArticle" class="btn">Revenir sur tous les articles</a>
 
 
 </section>

@@ -7,7 +7,7 @@ ob_start();
     <section class="container-contact bloc-contact-user">
 
         <div class="main-bloc-form">
-            <form action="index.php?action=contactPost" method="POST">
+            <form action="contactPost" method="POST">
                 <h1>Contactez-Nous</h1>
 
                 <?php if (isset($erreur)):

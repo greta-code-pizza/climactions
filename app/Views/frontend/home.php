@@ -7,7 +7,7 @@ require_once 'layouts/header.php';?>
     <section id="encart" class="container">
         <h2>Comment fonctionne le nouveau centre de ressources ?</h2>
         <p>Bienvenue sur notre nouveau centre de ressources. Comme vous pouvez le voir, il est encore en construction. Nous espérons que vous trouverez ici tout ce dont vous avez besoin pour réserver nos ressources.</p>
-        <p> Nous vous invitons à vous rendre sur la page regroupant pour voir <a href="index.php?action=pageArticle">les différentes ressources disponibles</a>.</p>
+        <p> Nous vous invitons à vous rendre sur la page regroupant pour voir <a href="pageArticle">les différentes ressources disponibles</a>.</p>
         <p> Après avoir fait vos choix, n'hésitez pas à nous envoyer un message via le formulaire de contact, pour nous faire part de vos attentes afin que l'on puisse valider votre réservation. </p>
     </section>
     <section id="articles">
@@ -20,10 +20,10 @@ require_once 'layouts/header.php';?>
                 <a href="#"> <img src="<?= $article['image'] ?>"
                         alt="<?= $article['name'] ?>">
                 </a>
-                <a href="index.php?action=article&id=<?=$article['id']?>&type=<?=$article['type_id']?>" class="bouton-article">En voir plus</a>
+                <a href="article&id=<?=$article['id']?>&type=<?=$article['type_id']?>" class="bouton-article">En voir plus</a>
             </article>
             <?php } ?>
-            <a href="index.php?action=pageArticle" id="bouton-ressources">Découvrir les autres ressources</a>
+            <a href="pageArticle" id="bouton-ressources">Découvrir les autres ressources</a>
         </div>
     </section>
     <section id="partenaires" class="container">

@@ -4,8 +4,8 @@
             <h2>Menu</h2>
             <ul id="menu-pied">
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="index.php?action=pageArticle">Ressources</a></li>
-                <li><a href="index.php?action=contact">Contact</a></li>
+                <li><a href="pageArticle">Ressources</a></li>
+                <li><a href="contact">Contact</a></li>
                 <?php if(!isset($_SESSION['id'])) :?>
                 <li><a href="indexAdmin.php" rel="nofollow">Connexion</a></li>
                 <?php else: ?>
@@ -40,9 +40,9 @@
 
     <div id="legals-footer">
         <ul>
-            <li><a href="index.php?action=cgu" rel="nofollow">CGU</a></li>
-            <li><a href="index.php?action=legalNotice" rel="nofollow">Mentions légales</a></li>
-            <li><a href="index.php?action=cookies" rel="nofollow">Cookies</a></li>
+            <li><a href="cgu" rel="nofollow">CGU</a></li>
+            <li><a href="legalNotice" rel="nofollow">Mentions légales</a></li>
+            <li><a href="cookies" rel="nofollow">Cookies</a></li>
         </ul>
         <p>Tous droits réservés - 2022 - <a href="https://climactions-bretagnesud.bzh/">Clim'actions Bretagne Sud</a></p>
     </div>

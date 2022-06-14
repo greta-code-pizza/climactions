@@ -17,7 +17,7 @@ ob_start(); ?>
                         </div>
                         <div class="date"><p><?=$article['date']?></p></div>
                         <h2 class="title"><?= $article['resource'] ?></h2>
-                        <div class="read-more"><a class="read-more" href="index.php?action=article&id=<?= $article['id'] ?>">Voir l'Article</a></div>
+                        <div class="read-more"><a class="read-more" href="article&id=<?= $article['id'] ?>">Voir l'Article</a></div>
                     </article>
                 <?php } ?>
             </div>
@@ -42,7 +42,7 @@ ob_start(); ?>
                         </div>
                         <div class="date"><p><?=$ressource['date']?></p></div>
                         <h3 class="title"><?= $ressource['name'] ?></h2>
-                        <div class="read-more"><a class="read-more" href="index.php?action=article&id=<?= $ressource['id'] ?>">Voir l'Article</a></div>
+                        <div class="read-more"><a class="read-more" href="article&id=<?= $ressource['id'] ?>">Voir l'Article</a></div>
                     </article>
                 </div>
             <?php } ?>

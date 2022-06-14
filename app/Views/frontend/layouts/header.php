@@ -19,8 +19,8 @@
             <a href="/"><img src="./Public/img/logo_clim_action.png" alt="logo-climactions"></a>
             <ul id="menu" class="hidden">
                 <li><a href="/" class="menu-link">Accueil</a></li>
-                <li><a href="index.php?action=pageArticle" class="menu-link">Ressources</a></li>
-                <li><a href="index.php?action=contact" class="menu-link">Contact</a></li>
+                <li><a href="pageArticle" class="menu-link">Ressources</a></li>
+                <li><a href="contact" class="menu-link">Contact</a></li>
                 <li><a href="https://climactions-bretagnesud.bzh/" rel="external" class="menu-link">Retourner sur le site</a></li>
             </ul>
             <img id="burger" src="./Public/img/burger.png" alt="burger">
