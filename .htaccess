@@ -5,6 +5,18 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule ^(.*)$ index.php?action=$1
 
+# Activation du suivi des liens symboliques
+Options +FollowSymLinks
+
+# ne pas avoir accès aux dossiers
+Options All -Indexes
+
+# Encodage par défaut des fichiers textes et HTML
+AddDefaultCharset UTF-8
+
+# Masquer les informations du serveur
+ServerSignature Off
+
 
 
 <IfModule mod_expires.c>
