@@ -12,7 +12,7 @@
   
   [![Maintainability](https://api.codeclimate.com/v1/badges/4cfd4ca8942abdb551bc/maintainability)](https://codeclimate.com/github/greta-code-pizza/climactions/maintainability)
 
-  <h1 align="center">Clim'actions - Centre de Ressources</h3>
+  <h1 align="center">Clim'actions - Centre de Ressources</h1>
 
   <p align="center">
     Projet en collaboration avec le GRETA de VANNES
