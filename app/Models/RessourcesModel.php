@@ -37,6 +37,17 @@ class RessourcesModel extends Manager
         return $article;
     }
 
+      // if id resource exist 
+      public function exist_idResource($idResource)
+      {
+          $bdd = $this->connect();
+          $req = $bdd->prepare("SELECT COUNT(id) FROM resource WHERE id = ?");
+          $req->execute([$idResource]);
+  
+          $result = $req->fetch()[0];
+          return $result;
+      }
+
 
     public function lastArticles()
     {

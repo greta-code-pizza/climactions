@@ -53,13 +53,28 @@ try {
             $erreur = $backController->createAdmin($lastname, $firstname, $email, $password);
         }
 
-        elseif($_GET['action'] == 'home') {
+        // go to page connect admin 
+        elseif($_GET['action'] == 'connexionAdmin'){
+
+          require $this->viewAdmin('connexionAdmin');
+        }
+
+        elseif($_GET['action'] == 'connectAdmin') {
           $email = htmlspecialchars($_POST['email']);
           $password = htmlspecialchars($_POST['password']);
           if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) && !empty($password)) {
             $backController->connexion($email, $password); // on passe deux paramètre
           } else {
               throw new Exception('renseigner vos identifiants');
+          }
+        }
+
+        elseif($_GET['action'] == 'home'){
+          if(isset($_SESSION['id'])){
+            $backController->dashboardAdmin();
+          }
+          else {
+            throw new Exception("Veuillez renseigner vos identifiants");
           }
         }
 
@@ -343,8 +358,8 @@ try {
         }
 
         else {
-          require "app/Views/errors/404.php";
-          // throw new Exception("La page demandée n'existe pas", 404);
+          // require "app/Views/errors/404.php";
+          throw new Exception("La page demandée n'existe pas");
         }
        
         
@@ -358,7 +373,7 @@ try {
   if($e->getCode() === 404) {
     die('Erreur : ' .$e->getMessage());
   } else {
-    require "app/Views/errors/notAdmin.php";
+    require "app/Views/errors/404.php";
   } 
   
 } catch (Error $e) {

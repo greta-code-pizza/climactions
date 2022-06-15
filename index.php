@@ -17,7 +17,7 @@ $dotenv->load();
 
 function eCatcher($e)
 {
-  if ($_ENV["APP_ENV"] == "dev") {
+  if ($_ENV["APP_ENV"] == "de") {
     $whoops = new \Whoops\Run;
     $whoops->allowQuit(false);
     $whoops->writeToOutput(false);
@@ -48,16 +48,19 @@ try {
 
     // afficher un article 
     elseif ($_GET['action'] == 'article') {
-      $idResource = $_GET['id'];
-    // $idType = $_GET['type'];
-    // var_dump(($_GET['action'] == 'article&id=&type='));die;
-          if((!$idResource)){
-              header('Location: pageArticle');
-          }
-          else{
+      
 
-            $controllerFront->article($idResource);
-          }
+        $idResource = $_GET['id'];
+        // $idType = $_GET['type'];
+        // var_dump(($_GET['action'] == 'article&id=&type='));die;
+        if((!$idResource)){
+          header('Location: pageArticle');
+        }
+        else{
+          
+          $controllerFront->article($idResource);
+        }
+      
     }
     
 
@@ -109,7 +112,7 @@ try {
   } else {
     require "app/Views/errors/404.php";
   }
-  // require "app/Views/errors/404.php";
+  
 } 
 catch (Error $e) {
   eCatcher($e);

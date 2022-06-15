@@ -42,13 +42,15 @@ class AdminModel extends Manager
         return $result;
     }
 
+   
 
 
-    public function collectPassword($email, $password)
+
+    public function collectPassword($email)
     {
         $bdd = $this->connect();
-        $req = $bdd->prepare('SELECT email,password,lastname,firstname,id FROM admin WHERE email=?');
-        $req->execute(array($email));
+        $req = $bdd->prepare('SELECT email,password,lastname,firstname,id FROM admin WHERE email=:email');
+        $req->execute(array(':email' => $email));
 
         return $req;
     }
@@ -220,6 +222,17 @@ class AdminModel extends Manager
 
         $req->execute(array($adminId,$id));
     }
+
+      // if id email exist 
+      public function exist_idEmail($id)
+      {
+          $bdd = $this->connect();
+          $req = $bdd->prepare("SELECT COUNT(id) FROM email WHERE id = ?");
+          $req->execute([$id]);
+  
+          $result = $req->fetch()[0];
+          return $result;
+      }
 
     /* ----------------------------------------------------------------------*/
 

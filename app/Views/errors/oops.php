@@ -12,7 +12,7 @@
     <div>
 		  <div class="txt-error">
         <h1>Oops, il y a un problème, nos <br> développeurs sont sur le coup !</h1>
-        <a title="accueil" href="/index.php">Retour à la page d'accueil</a>
+        <a title="accueil" href="/">Retour à la page d'accueil</a>
       </div>
     </div>
 	</section>

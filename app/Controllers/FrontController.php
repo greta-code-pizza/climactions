@@ -2,6 +2,8 @@
 
 namespace Climactions\Controllers;
 
+use Exception;
+
 class FrontController extends Controller {
     public function home() {
 
@@ -27,18 +29,23 @@ class FrontController extends Controller {
     {
         $articleManager = new \Climactions\Models\RessourcesModel();
         $article = $articleManager->afficherDetailArticle($idResource);
-        
-        if(isset($article['type_id']) && ($article['type_id'] === 1 || 2 || 3 || 5 || 6)){
-            $otherResource = $articleManager->selectMainResources($idResource);
-            // var_dump($otherResource);die;
+        if($articleManager->exist_idResource($idResource)){
+			
+            
+            if(isset($article['type_id']) && ($article['type_id'] === 1 || 2 || 3 || 5 || 6)){
+                $otherResource = $articleManager->selectMainResources($idResource);
+                // var_dump($otherResource);die;
+            }
+            if(isset($article['type_id']) && ($article['type_id'] === 4)){
+                $flyer = $articleManager->selectResourceExpo($idResource);
+                // var_dump($flyer);die;
+            }
+            
+            
+            require "app/Views/frontend/article.php";
+        } else{
+            throw new Exception("La ressource demandée n'existe pas");
         }
-        if(isset($article['type_id']) && ($article['type_id'] === 4)){
-            $flyer = $articleManager->selectResourceExpo($idResource);
-            // var_dump($flyer);die;
-        }
-        
-
-        require "app/Views/frontend/article.php";
     }
 
 

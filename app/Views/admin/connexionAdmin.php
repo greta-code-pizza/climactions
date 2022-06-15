@@ -10,7 +10,17 @@
 <body>
     <section id="section-connectAdmin">
     <h1>Connexion Administrateur</h1>
-   <form id="form_admin" action="indexAdmin.php?action=home" method="post">
+   <form id="form_admin" action="indexAdmin.php?action=connectAdmin" method="post">
+
+       <!-- bloc confirmation || erreur  -->
+       <?php if (isset($erreur)): 
+                    if ($erreur) : ?>
+                <div class="msg-error"><?= $erreur ?></div>
+                <?php 
+            
+            endif;
+        endif;
+            ?>
 
         <div>
             <label for="email"> Email:</label>
