@@ -183,12 +183,16 @@ class AdminController extends Controller {
 	public function readEmail($id,$read,$adminId)
 	{
 		$email = new \Climactions\Models\AdminModel();
-		
-		if($read == 0){
-			$readValidate = $email->readValidate($adminId,$id);
+		if($email->exist_idEmail($id)){
+
+			if($read == 0){
+				$readValidate = $email->readValidate($adminId,$id);
+			}
+			$readEmail = $email->readEmail($id,$adminId);
+			require $this->viewAdmin('readEmail');
+		} else {
+			require "app/Views/errors/404.php";
 		}
-		$readEmail = $email->readEmail($id,$adminId);
-		require $this->viewAdmin('readEmail');
 	}
 	public function deleteEmail($id)
 	{
@@ -254,27 +258,49 @@ class AdminController extends Controller {
 
 	public function connexion($email,$password){
 		$adminManager = new \Climactions\Models\AdminModel();
-		$listAdmin = $adminManager->listAdmin();
+		
 		$connexAdm = $adminManager->collectPassword($email,$password);
 		$result = $connexAdm->fetch();
+		$erreur = 'Vos identifiants sont incorrects !';
+
+
 		if(!empty($result)){
 			$isPasswordCorrect = password_verify($password,$result['password']);
 
-			$_SESSION['email'] = $result['email']; // transformation des variables recupérées en session
-			$_SESSION['password'] = $result['password'];
-			$_SESSION['id'] = $result['id'];
-			$_SESSION['firstname'] = $result['firstname'];
-			$_SESSION['lastname'] = $result['lastname'];
-		
+			// var_dump($isPasswordCorrect);die;
+			
 			
 			if ($isPasswordCorrect) {
-				require $this->viewAdmin('home');
+				$_SESSION['email'] = $result['email']; // transformation des variables recupérées en session
+				$_SESSION['password'] = $result['password'];
+				$_SESSION['id'] = $result['id'];
+				$_SESSION['firstname'] = $result['firstname'];
+				$_SESSION['lastname'] = $result['lastname'];
+				$_SESSION['role'] = $result['role'];
+				if($result['role'] == "Super Administrateur" || "Administrateur"){
+
+					header("Location: indexAdmin.php?action=home");
+				}
+				else{
+					$erreur;
+					require $this->viewAdmin('connexionAdmin');
+				}
 			} else {
-        		echo 'Vos identifiants sont incorrects';
+        		$erreur;
+				require $this->viewAdmin('connexionAdmin');
 			}
 		} else {
-			echo "il ya une erreur, ce compte n'existe pas!";
+			$erreur = "Il y a une erreur, ce compte n'existe pas!";
+			require $this->viewAdmin('connexionAdmin');
 		}
+	}
+
+	// page home (dashboard admin) 
+	public function dashboardAdmin()
+	{
+		$adminManager = new \Climactions\Models\AdminModel();
+		$listAdmin = $adminManager->listAdmin();
+		require $this->viewAdmin('home');
 	}
 
 	// logout admin 
