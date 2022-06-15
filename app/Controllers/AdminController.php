@@ -290,7 +290,7 @@ class AdminController extends Controller {
 				require $this->viewAdmin('connexionAdmin');
 			}
 		} else {
-			echo "il ya une erreur, ce compte n'existe pas!";
+			$erreur = "Il y a une erreur, ce compte n'existe pas!";
 			require $this->viewAdmin('connexionAdmin');
 		}
 	}
