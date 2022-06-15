@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clim'Actions - 404 Page</title>
-  <link rel="stylesheet" href="/public/styles/style.css">
+  <link rel="stylesheet" href="./Public/styles/style.css">
 </head>
 <body>
 	<section id="page-404">

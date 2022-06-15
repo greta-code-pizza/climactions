@@ -52,7 +52,7 @@ try {
     // $idType = $_GET['type'];
     // var_dump(($_GET['action'] == 'article&id=&type='));die;
           if((!$idResource)){
-              header('Location: index.php?action=pageArticle');
+              header('Location: pageArticle');
           }
           else{
 
@@ -68,17 +68,17 @@ try {
     }
 
     // afficher page legalMention
-    if ($_GET['action'] == 'legalNotice') {
+    elseif ($_GET['action'] == 'legalNotice') {
       $controllerFront->legalNotice();
     }
 
     // afficher page cgu.php
-    if ($_GET['action'] == 'cgu') {
+    elseif ($_GET['action'] == 'cgu') {
       $controllerFront->cgu(); 
     }
 
     // afficher page cookies.php
-    if ($_GET['action'] == 'cookies') {
+    elseif ($_GET['action'] == 'cookies') {
       $controllerFront->cookies();
     }
 
@@ -96,17 +96,22 @@ try {
         throw new Exception('Tous les champs ne sont pas remplis!!');
       }
     }
+    else{
+      throw new Exception("Cette page n'existe pas !");
+    }
   } else {
     $controllerFront->home();
   }
 } catch (Exception $e) {
   eCatcher($e);
-  if ($e->getCode === 404) {
+  if ($e->getCode() === 404) {
     die('Erreur : ' . $e->getMessage());
   } else {
-    header("app/Views/errors/404.php");
+    require "app/Views/errors/404.php";
   }
-} catch (Error $e) {
+  // require "app/Views/errors/404.php";
+} 
+catch (Error $e) {
   eCatcher($e);
   header("location: app/Views/errors/oops.php");
 }

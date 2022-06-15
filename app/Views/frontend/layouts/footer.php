@@ -3,7 +3,7 @@
         <div id="menu-bas" class="item-footer">
             <h2>Menu</h2>
             <ul id="menu-pied">
-                <li><a href="index.php">Accueil</a></li>
+                <li><a href="/">Accueil</a></li>
                 <li><a href="pageArticle">Ressources</a></li>
                 <li><a href="contact">Contact</a></li>
                 <?php if(!isset($_SESSION['id'])) :?>
