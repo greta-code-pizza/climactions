@@ -14,7 +14,6 @@
     "require": {
         "filp/whoops": "^2.14",
         "vlucas/phpdotenv": "^5.4",
-        "peridot-php/peridot": "^1.19",
         "phpmailer/phpmailer": "^6.6",
         "league/oauth2-google": "^4.0"
     }
