@@ -2,6 +2,7 @@
 
 namespace Climactions\Controllers;
 
+	use Exception;
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\SMTP;
 
@@ -89,9 +90,15 @@ class AdminController extends Controller {
 	public function readAdmin($id)
 	{
 		$adminManager = new \Climactions\Models\AdminModel();
-		$admin = $adminManager->getOneAdmin($id);
+		if($adminManager->exist_idAdmin($id)){
+			
+			$admin = $adminManager->getOneAdmin($id);
+			require $this->viewAdmin('readAdmin');
+		}
+		else{
+			throw new Exception("L'administrateur n'existe pas !");
+		}
 
-		require $this->viewAdmin('readAdmin');
 	}
 
 	// delete a admin 

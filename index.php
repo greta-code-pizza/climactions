@@ -17,7 +17,7 @@ $dotenv->load();
 
 function eCatcher($e)
 {
-  if ($_ENV["APP_ENV"] == "de") {
+  if ($_ENV["APP_ENV"] == "dev") {
     $whoops = new \Whoops\Run;
     $whoops->allowQuit(false);
     $whoops->writeToOutput(false);
