@@ -201,7 +201,7 @@ class AdminModel extends Manager
     public function countEmail()
     {
         $bdd = $this->connect();
-        $req = $bdd->prepare("SELECT COUNT(id) AS nb_email FROM contact");
+        $req = $bdd->prepare("SELECT COUNT(id) AS nb_email FROM email");
         $req->execute();
         $result = $req->fetch();
         $nbEmail = $result['nb_email'];
