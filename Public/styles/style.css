@@ -814,15 +814,19 @@ a {
 .legal-notice p span {
   text-decoration: underline;
 }
-.legal-notice figure {
+.legal-notice .img-size {
   width: 50%;
+  max-width: 400px;
   margin: 0 auto;
 }
 
 .legal-notice .logo-climactions,
 .legal-notice .logo-greta {
   width: 100%;
-  margin: 0 auto;
+  margin: 2rem auto;
+} 
+.legal-notice p{
+  margin: 1rem auto;
 }
 
 p.last {
