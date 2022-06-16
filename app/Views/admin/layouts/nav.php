@@ -3,7 +3,7 @@
     <nav id="side-nav">
       <div class="nav-logo">
         <img src="" alt="">
-        <p class="admin">Admin</p>
+        <p class="admin"><?= $_SESSION['firstname'] ?></p>
         <a href="indexAdmin.php?action=accountAdmin&id=<?= $_SESSION['id'] ?>" class="account" rel="nofollow">
           <i class="fa-solid fa-user"></i>
           <span class="nav-links">Mon compte</span>
