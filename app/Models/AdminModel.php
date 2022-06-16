@@ -105,6 +105,17 @@ class AdminModel extends Manager
         return $req->fetch();
     }
 
+    // if id admin exist 
+    public function exist_idAdmin($id)
+    {
+        $bdd = $this->connect();
+        $req = $bdd->prepare("SELECT COUNT(id) FROM admin WHERE id = ?");
+        $req->execute([$id]);
+       
+        $result = $req->fetch()[0];
+        return $result;
+    }
+
     // delete one admin 
     public function deleteOneAdmin($id)
     {
