@@ -30,18 +30,39 @@ ob_start(); ?>
           <?php
           if (isset($article['type_id']) && ($article['type_id'] === 4)) : ?>
             <p class="format">
-              <?php if ($flyer['poster_bool'] == 1 && $flyer['sign_bool'] == 1) {
-                echo "Format : Affiche + Panneau";
-              } elseif ($flyer['sign_bool'] == 1) {
-                echo "Format : Panneau";
+              <?php if ($flyer['poster_bool'] == 1 && $flyer['sign_bool'] == 1 && $flyer['kakemono_bool'] == 1) {
+
+                echo "Format : Affiche - Panneau - Kakemono";
+
+              } elseif ($flyer['sign_bool'] == 1 && $flyer['kakemono_bool'] == 1) {
+
+                echo "Format : Panneau - Kakemono";
+
+              } elseif ($flyer['poster_bool'] == 1 && $flyer['kakemono_bool'] == 1) {
+
+                echo "Format : Affiche - Kakemono";
+
+              } elseif ($flyer['poster_bool'] == 1 && $flyer['sign_bool'] == 1) {
+
+                echo "Format : Affiche - Panneau";
+
               } elseif ($flyer['kakemono_bool'] == 1) {
+
                 echo "Format : Kakemono";
+
               } elseif ($flyer['poster_bool'] == 1) {
+
                 echo "Format : Affiche";
+
+              } elseif ($flyer['sign_bool'] == 1) {
+
+                echo "Format : Panneau";
+
               } else {
-                echo "Format : Non précisé";
-              }
-              ?></p>
+                
+                echo "";
+              }?>
+            </p>
           <?php endif; ?>
 
           <?php if ($article['type_id'] === 2 || 3) : ?>
