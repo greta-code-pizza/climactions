@@ -173,7 +173,7 @@ class AdminModel extends Manager
     public function deleteArticle($id)
     {
         $bdd = $this->connect();
-        $req = $bdd->prepare('DELETE FROM article WHERE id = ?');
+        $req = $bdd->prepare('DELETE FROM resource WHERE id = ?');
         $req->execute(array($id));
     }
 

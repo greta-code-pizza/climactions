@@ -451,9 +451,7 @@ class AdminController extends Controller {
 		$article = new \Climactions\Models\AdminModel();
 		$deleteArticle = $article->deleteArticle($id);
 
-		header('Location: indexAdmin.php?action=pageAddArticle');
-
-
+		header('Location: indexAdmin.php?action=resourceAdmin');
 	}
 	public function updateArticle($idArticle, $title, $content)
 	{
