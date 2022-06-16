@@ -31,16 +31,10 @@ $(document).ready(function() {
 // 	});	
 // });
 
-$(document).ready(function() {
-    $('.delete').click(function(){    
-		let answer = confirm('Êtes-vous sûr de vouloir supprimer ?');
-		return answer;
-  });
-});
 
 $(document).ready(function() {
   $('.delete').click(function(){    
   let answer = confirm('Êtes-vous sûr de vouloir supprimer ?');
   return answer;
-});
+  });
 });
