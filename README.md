@@ -32,9 +32,9 @@
   <summary>Sommaire</summary>
   <ol>
     <li>
-      <a href="#a-propos-projet">A propos du Projet</a>
+      <a href="#a-propos-projet-">A propos du Projet</a>
       <ul>
-        <li><a href="#techno-utilisees">Technologies utilisées</a></li>
+        <li><a href="#techno-utilisees-">Technologies utilisées</a></li>
       </ul>
     </li>
     <li>
@@ -55,7 +55,7 @@ Clim'Actions est une association et un laboratoire d’idées et de projets pour
 
 Son but : mobiliser, le plus largement possible, les acteurs sociaux, économiques et politiques pour engager des actions d’atténuation et d’adaptation du territoire aux conséquences déjà visibles du changement climatique.
 
-Cette Application va permettre aux utilisateurs de pouvoir réserver des livres, CDs, jeux, telle une "Médiathèque" spécialisée sur le climat et les enjeux environnementaux.
+Cette Application va permettre aux utilisateurs de pouvoir réserver des livres, CDs, jeux, telle une médiathèque spécialisée sur le climat et les enjeux environnementaux.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -72,20 +72,35 @@ Cette Application va permettre aux utilisateurs de pouvoir réserver des livres,
 
 ### Pré-requis
 
-* composer
+* PHP
+```sh 
+https://www.php.net/downloads.php
+```
 
+* composer
 ```sh
-composer install
+https://getcomposer.org/download/
+```
+
+* Dump 
+```
+dump.sql #à la racine
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Installation
 
-Clone le repo
+* Clone le repo
 
 ```sh
 git clone https://github.com/greta-code-pizza/climactions.git
+```
+
+* composer
+
+```sh
+composer install
 ```
 
 _Pour pouvoir accéder à votre base de données, vous avez le fichier .env.example qui faut renommer en .env et préciser les informations de votre base de données._
