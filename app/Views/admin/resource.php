@@ -33,7 +33,7 @@ ob_start(); ?>
                     <li class="article-created-at"><?= $resource["date"] ?></li>
                     <li class="flex">
                         <span class="btn"><a href="#"><i class="fa-solid fa-pen"></i></a></span>
-                        <span class="btn"><a class="delete" href="#"><i class="fa-solid fa-trash-can"></i></a></span>
+                        <span class="btn"><a class="delete" href="indexAdmin.php?action=deleteArticle&id=<?=$ressource["id"]?>"><i class="fa-solid fa-trash-can"></i></a></span>
                     </li>
                 </ul>
             </div>
@@ -64,7 +64,7 @@ ob_start(); ?>
                 <li class="article-created-at"><?= $resource["date"] ?></li>
                 <li class="flex">
                     <span class="btn"><a href="#"><i class="fa-solid fa-pen"></i></a></span>
-                    <span class="btn"><a class="delete" href="#"><i class="fa-solid fa-trash-can"></i></a></span>
+                    <span class="btn"><a class="delete" href="indexAdmin.php?action=deleteArticle&id=<?=$resource["id"]?>"><i class="fa-solid fa-trash-can"></i></a></span>
                 </li>
             </ul>
         </div>
