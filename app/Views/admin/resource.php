@@ -14,6 +14,8 @@ ob_start(); ?>
     if (isset($search) && !empty($search) && isset($_GET['search'])) : ?>
     
     <section>
+
+    <h2 class="title-search">Votre Recherche: "<em><?= $query ?></em>"</h2>
         
     <span class="btn-create"><a href="indexAdmin.php?action=resourceAdmin">Revenir</a></span>
 
@@ -71,10 +73,10 @@ ob_start(); ?>
         <?php }; ?>
     </div>
 
-    <?php endif ?>
-
+    
     <!-- pagination -->
-
+    
+</section>
     <nav id="nav-pagination">
         <ul class="pagination">
             <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
@@ -93,12 +95,12 @@ ob_start(); ?>
             <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
             <li class="page-item <?= ($currentPage == $pages) ? "hidden" : "" ?>">
                 <a title="suivant"
-                    href="indexAdmin.php?action=resourceAdmin&page=<?= htmlspecialchars($currentPage + 1) ?>"
-                    class="page-link">Suivante</a>
+                href="indexAdmin.php?action=resourceAdmin&page=<?= htmlspecialchars($currentPage + 1) ?>"
+                class="page-link">Suivante</a>
             </li>
         </ul>
     </nav>
-
-</section>
+    <?php endif ?>
+    
 <?php $content = ob_get_clean(); ?>
 <?php require 'layouts/dashboard.php'; ?>

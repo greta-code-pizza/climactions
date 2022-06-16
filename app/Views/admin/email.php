@@ -18,6 +18,8 @@ endif;?>
 
     <section>
 
+    <h2 class="title-search">Votre Recherche: "<em><?= $query ?></em>"</h2>
+
         <span class="btn-create"><a href="indexAdmin.php?action=emailAdmin">Revenir</a></span>
 
         <div class="table">
