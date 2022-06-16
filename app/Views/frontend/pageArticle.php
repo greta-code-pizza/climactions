@@ -8,14 +8,14 @@ ob_start(); ?>
   include_once "layouts/searchbar.php";
   if (isset($search) && !empty($search) && isset($_GET['search'])) : ?>
     <section>
-      <h2>Votre recherche</h2>
+    <h2 class="title-search">Votre Recherche: "<em><?= $query ?></em> "</h2>
       <div class="article-container" id="search">
         <?php foreach ($search as $article) { ?>
           <article class="article-container element-item">
-            <h2 class="title"><?= $article['resource'] ?></h2>
             <div class="cadre_image">
               <img src="<?= $article['image'] ?>" alt="image de <?= $article['resource'] ?>">
             </div>
+            <h2 class="title"><?= $article['resource'] ?></h2>
             <div class="date">
               <p><?= $article['date'] ?></p>
             </div>

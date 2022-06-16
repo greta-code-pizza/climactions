@@ -73,7 +73,13 @@ h2 {
   text-transform: uppercase;
   font-weight: 600;
 }
-
+.title-search{
+  font-size: 1.7rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 3rem 0;
+}
 h3 {
   font-size: 1.3rem;
   color: var(--text-primary);
