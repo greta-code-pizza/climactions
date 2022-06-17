@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,9 @@
   <title>Clim'Actions - 404 Page</title>
   <link rel="stylesheet" href="./Public/styles/style.css">
 </head>
+
 <body>
-	<section id="page-404">
+  <section id="page-404">
     <div>
       <h1>Erreur 404 - Page introuvable</h1>
       <div class="txt-error">
@@ -17,6 +19,7 @@
         <a href="/">Retour à l'accueil</a>
       </div>
     </div>
-	</section>
+  </section>
 </body>
+
 </html>

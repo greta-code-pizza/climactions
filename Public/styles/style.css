@@ -1228,9 +1228,10 @@ p.last {
 
   #contenu #articles #article img {
     min-width: 290px;
-    max-height: 420px;
+    max-height: 217px;
     border-radius: 10px;
     margin-bottom: 0;
+    object-fit: cover;
   }
 
   #contenu #articles #article .bouton-article {

@@ -188,7 +188,7 @@ class AdminModel extends Manager
         $bdd = $this->connect();
         $req = $bdd->prepare("SELECT `id`, `lastname`, `firstname`, `email`, `object`, `message`, DATE_FORMAT(created_at, '%d/%m/%Y') AS `date`,`read`
                               FROM `email` 
-                              ORDER BY `created_at` ASC LIMIT :firstemail, :perpage");
+                              ORDER BY `created_at` DESC LIMIT :firstemail, :perpage");
                               $req->bindValue(':firstemail', $firstEmail, \PDO::PARAM_INT);
                               $req->bindValue(':perpage', $perPage, \PDO::PARAM_INT);
         $req->execute();
