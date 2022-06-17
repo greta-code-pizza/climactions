@@ -56,6 +56,7 @@ ob_start(); ?>
     <?php endif ?>
 </section>
 
+
 <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 <script src="Public/scripts/isotope.js"></script>
 <?php $content = ob_get_clean();
