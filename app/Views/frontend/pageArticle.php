@@ -35,11 +35,14 @@ ob_start(); ?>
       <?php } ?>
     </div>
     <section class="grid">
-      <?php foreach ($ressources as $ressource) { ?>
+      <?php $i = 0; foreach ($ressources as $ressource) { ?>
         <article class="article-container element-item all <?= $ressource['type'] ?>">
           <div class="cadre_image">
-            <img src="<?= $ressource['image'] ?>" alt="image de <?= $ressource['name'] ?>" loading="lazy">
-
+          <?php if($i == 0){ ?>
+            <img src="<?= $ressource['image'] ?>" alt="image de <?= $ressource['name'] ?>" >
+<?php } else { ?>
+  <img src="<?= $ressource['image'] ?>" alt="image de <?= $ressource['name'] ?>" loading="lazy">
+  <?php } ?> 
           </div>
           <div class="date">
             <p><?= $ressource['date'] ?></p>
@@ -48,9 +51,9 @@ ob_start(); ?>
             <div class="read-more"><a class="read-more" href="article&id=<?= $ressource['id'] ?>">Voir l'Article</a></div>
         </article>
         </div>
-      <?php } ?>
+      <?php $i++; } ?>
     </section>
-  <?php endif ?>
+    <?php endif ?>
 </section>
 
 <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
