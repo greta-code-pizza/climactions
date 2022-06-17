@@ -1,40 +1,57 @@
-$(document).ready(function() {
-    $('.addAddress').click(function(){    
-		let answer = confirm('Êtes-vous sûr de vouloir ajouter le contact ?');
-		return answer;
+let del = document.getElementsByClassName(".delete");
+
+console.log(del);
+
+let favDialog = document.querySelector(".favDialog");
+
+let outputBox = document.querySelector(".output");
+
+let confirmBtn = document.querySelector(".confirmBtn");
+
+let cancelBtn = document.querySelector(".cancelBtn");
+
+// Le lien  ouvre le <dialogue> ;
+
+// Bouton supprimer
+
+// ouvre la boite modale
+
+del.addEventListener("click", function onOpen() {
+  if (typeof favDialog.showModal === "function") {
+    // let i;
+    let dataId = del.dataset.id;
+    console.log(dataId); die();
+    // for (i = 0; i < dataId.length; i++) {
+      favDialog.showModal();
+      // ++i;
+    // }
+  } else {
+    // message d'erreur dans la console
+    console.error(
+      "L'API <dialog> n'est pas prise en charge par ce navigateur."
+    );
+  }
+});
+
+// confirmer la suppression
+
+confirmBtn.addEventListener("click", function () {
+  let dataId = del.dataset.id;
+  console.log(dataId);
+  // récupération de l'action
+
+  fetch(`indexAdmin.php?action=deleteInfo&id=${dataId}`).then(function (
+    response
+  ) {
+    // fermer la boite modale
+    favDialog.close();
+    // cacher l'élément
+    del.parentNode.parentNode.parentNode.style.display = "none";
   });
 });
 
+// fermer la boite modale au clic (bouton Annuler)
 
-// $(document).ready(function(){
-	
-// 	$('.item .delete').click(function(){
-		
-// 		let elem = $(this).closest('.item');
-		
-// 		$.confirm({
-// 			'title'		: 'Delete Confirmation',
-// 			'message'	: 'You are about to delete this item. <br />It cannot be restored at a later time! Continue?',
-// 			'buttons'	: {
-// 				'Yes'	: {
-// 					'class'	: 'blue',
-// 					'action': function(){
-// 						elem.slideUp();
-// 					}
-// 				},
-// 				'No'	: {
-// 					'class'	: 'gray',
-// 					'action': function(){}
-// 				}
-// 			}
-// 		});		
-// 	});	
-// });
-
-
-$(document).ready(function() {
-  $('.delete').click(function(){    
-  let answer = confirm('Êtes-vous sûr de vouloir supprimer ?');
-  return answer;
-  });
+cancelBtn.addEventListener("click", function () {
+  favDialog.close();
 });
