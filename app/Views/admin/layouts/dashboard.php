@@ -8,5 +8,5 @@ require_once 'nav.php';
 </main>
 
 <?php
-require_once 'app\Views\admin\layouts\footer.php';
+require_once 'footer.php';
 ?>
