@@ -120,10 +120,11 @@ try {
           $backController->pageAddArticle();
         } 
         
-        elseif ($_GET['action'] == 'viewUpdateArticle') {
+        elseif ($_GET['action'] == 'updateArticle') {
           isConnect();
           $idArticle = $_GET['id'];
-          $backController->viewUpdateArticle($idArticle);
+          $typeId = $_GET['type_id'];
+          $backController->updateArticle($idArticle,$typeId);
         } 
         
         elseif ($_GET['action'] == 'deleteArticle') {

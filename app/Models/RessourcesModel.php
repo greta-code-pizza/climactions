@@ -116,16 +116,6 @@ class RessourcesModel extends Manager
         return $personalities;
     }
 
-    public function selectGameFormat(){
-        $bdd = $this->connect();
-        $req = $bdd->prepare("SELECT id,name FROM game_format");
-
-        $req->execute(array());
-        $formats = $req->fetchAll();
-
-        return $formats;
-    }
-
     public function selectResources(){
         $bdd = $this->connect();
         $req = $bdd->prepare("SELECT resource.id,resource.name,image,content,type_id,`type`.name AS type,DATE_FORMAT(created_at, '%d/%m/%Y') AS `date` FROM resource INNER JOIN `type` 
@@ -141,7 +131,7 @@ class RessourcesModel extends Manager
     public function selectMainResources($idResource){
         $bdd = $this->connect();
 
-        $req = $bdd->prepare("SELECT resource.id,resource.name,theme.`name` AS theme,`condition`.name AS `condition`,public.name AS public,`type`.`name` AS `type`,firstname,lastname,image,content,deposit,quantity,DATE_FORMAT(modified_at, '%d/%m/%Y') AS `date` 
+        $req = $bdd->prepare("SELECT resource.id,resource.`type_id`,resource.name,theme.`name` AS theme,`condition`.name AS `condition`,public.name AS public,`type`.`name` AS `type`,firstname,lastname,image,content,deposit,quantity,DATE_FORMAT(modified_at, '%d/%m/%Y') AS `date` 
         FROM resource,`type`,admin,`condition`,public,theme 
         WHERE resource.id = ?
         AND resource.type_id = `type`.id
@@ -164,48 +154,15 @@ class RessourcesModel extends Manager
         $array = array();
         array_push($array, $otherResource, $staff);
         return $array;
-
-        
     }
-
-    // public function selectResourceGame($idResource){
-    //     $bdd = $this->connect();
-
-    //     $req = $bdd->prepare("SELECT resource.id,resource.name,theme.`name` AS theme,`condition`.name AS `condition`,public.name AS public,`type`.`name` AS `type`,firstname,lastname,image,content,deposit,quantity,DATE_FORMAT(modified_at, '%d/%m/%Y') AS `date`
-    //     FROM resource,`type`,admin,`condition`,public,theme
-    //     WHERE resource.id = ?
-    //     AND resource.type_id = `type`.id
-    //     AND resource.theme_id = theme.id
-    //     AND resource.public_id = public.id
-    //     AND resource.condition_id = `condition`.id
-    //     AND resource.admin_id = admin.id");
-        
-
-    //    $req2 = $bdd->prepare("SELECT resource.id,personality.name AS staff,role.name AS role
-    //    FROM staff,role,resource,personality
-    //     WHERE resource.id = ?
-    //     AND resource.id = staff.resource_id
-    //     AND personality.role_id = role.id
-    //     AND personality.id = staff.personality_id;");
-
-    //     $req->execute(array($idResource));
-    //     $req2->execute(array($idResource));
-        
-    //     $game = $req->fetch();
-    //     $staff = $req2->fetchAll();
-    //     $array = array();
-    //     array_push($array, $game, $staff);
-    //     return $array;
-        
-    //     }
 
         
     public function selectResourceExpo($idResource){
         $bdd = $this->connect();
 
-        $req = $bdd->prepare("SELECT resource.id,resource.name,theme.`name` AS theme,`condition`.name AS `condition`,`type`.`name` AS `type`,public.name AS public,firstname,lastname,image,content,deposit,quantity,DATE_FORMAT(modified_at, '%d/%m/%Y') AS `date`,poster_bool,sign_bool,kakemono_bool
-      FROM resource,`type`,admin,`condition`,theme,exposure,public
-       WHERE resource.id = ?
+        $req = $bdd->prepare("SELECT resource.id,resource.`type_id`,resource.name,theme_id,theme.`name` AS theme,condition_id,`condition`.name AS `condition`,`type`.`name` AS `type`,public_id,public.name AS public,firstname,lastname,image,content,deposit,quantity,DATE_FORMAT(modified_at, '%d/%m/%Y') AS `date`,poster_bool,sign_bool,kakemono_bool
+        FROM resource,`type`,admin,`condition`,theme,exposure,public
+        WHERE resource.id = ?
         AND resource.type_id = `type`.id
         AND resource.theme_id = theme.id
         AND resource.public_id = public.id

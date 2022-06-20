@@ -176,10 +176,24 @@ class AdminController extends Controller {
 		require $this->viewAdmin('formResource');
 	}
 
-	public function updateResource()
+	public function updateArticle($idArticle,$typeId)
 	{
-		require $this->viewAdmin('updateResource');
+		$resources = new \Climactions\Models\RessourcesModel();
+		$themes = $resources->selectTheme();
+		$conditions = $resources->selectCondition();
+		$publics = $resources->selectPublic();
+		$personalities = $resources->selectPersonality();
+		if($typeId == 4){
+			$resource = $resources->selectResourceExpo($idArticle);
+		}else{
+			$resource = $resources->selectMainResources($idArticle);
+		}
+		// var_dump($resource);die;
+		
+		require $this->viewAdmin('formUpdateResource');
 	}
+
+
 	public function deleteResource()
 	{
 		require $this->viewAdmin('delete');
@@ -452,13 +466,6 @@ class AdminController extends Controller {
 		$deleteArticle = $article->deleteArticle($id);
 
 		header('Location: indexAdmin.php?action=resourceAdmin');
-	}
-	public function updateArticle($idArticle, $title, $content)
-	{
-		$article = new \Climactions\Models\AdminModel();
-		$updateArticle = $article->updateArticle($idArticle, $title, $content);
-		
-		header('Location: indexAdmin.php?action=pageAddArticle');
 	}
 
 	// téléchargement d'une image
