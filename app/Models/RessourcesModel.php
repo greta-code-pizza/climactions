@@ -160,15 +160,18 @@ class RessourcesModel extends Manager
     public function selectResourceExpo($idResource){
         $bdd = $this->connect();
 
-        $req = $bdd->prepare("SELECT resource.id,resource.`type_id`,resource.name,theme_id,theme.`name` AS theme,condition_id,`condition`.name AS `condition`,`type`.`name` AS `type`,public_id,public.name AS public,firstname,lastname,image,content,deposit,quantity,DATE_FORMAT(modified_at, '%d/%m/%Y') AS `date`,poster_bool,sign_bool,kakemono_bool
-        FROM resource,`type`,admin,`condition`,theme,exposure,public
+        $req = $bdd->prepare("SELECT resource.id,resource.`type_id`,resource.name,theme_id,theme.`name` AS theme,condition_id,`condition`.name AS `condition`,`type`.`name` AS `type`,public_id,public.name AS public,firstname,lastname,image,content,deposit,quantity,DATE_FORMAT(modified_at, '%d/%m/%Y') AS `date`,poster_bool,sign_bool,kakemono_bool,personality.id AS personality_id,personality.name AS staff,role.name AS role
+        FROM resource,`type`,admin,`condition`,theme,exposure,public,staff,role,personality
         WHERE resource.id = ?
         AND resource.type_id = `type`.id
         AND resource.theme_id = theme.id
         AND resource.public_id = public.id
         AND resource.condition_id = `condition`.id
         AND resource.admin_id = admin.id
-        AND exposure.resource_id = resource.id;");
+        AND exposure.resource_id = resource.id
+        AND resource.id = staff.resource_id
+        AND personality.role_id = role.id
+        AND personality.id = staff.personality_id;");
 
         $req->execute(array($idResource));
         $expo = $req->fetch();
@@ -253,8 +256,9 @@ class RessourcesModel extends Manager
     public function updateOtherResources($data)
     {
         $bdd = $this->connect();
-        $req1 = $bdd->prepare("UPDATE resource SET name = :name, theme_id = :theme_id, image = :image, content = :content, quantity = :quantity,deposit = :deposit, public_id = :public_id, type_id = :type_id, condition_id = :condition_id, theme_id = :theme_id, admin_id = :admin_id 
-        WHERE id = :id ;");
+        $req1 = $bdd->prepare("UPDATE resource,staff SET name = :name, theme_id = :theme_id, image = :image, content = :content, quantity = :quantity,deposit = :deposit, public_id = :public_id, condition_id = :condition_id
+        WHERE resource.id = :id
+        AND staff.resource_id = :id;");
         
         $req1->execute(array(
             "id" => $data['id'],
@@ -265,18 +269,17 @@ class RessourcesModel extends Manager
             "quantity" => $data['quantity'],
             "deposit" => $data['deposit'],
             "public_id" => $data["public"],
-            "type_id" => $data['type'],
-            "condition_id" => $data['condition'],
-            "admin_id" => $data['admin']
+            "condition_id" => $data['condition']   
         ));
     }
 
     public function updateResourceExpo($data)
     {
         $bdd = $this->connect();
-        $req1 = $bdd->prepare("UPDATE resource,exposure SET name = :name, theme_id = :theme_id, image = :image, content = :content, quantity = :quantity,deposit = :deposit, public_id = :public_id, type_id = :type_id, condition_id = :condition_id, theme_id = :theme_id, admin_id = :admin_id, poster_bool = :poster_bool, sign_bool = sign_bool 
+        $req1 = $bdd->prepare("UPDATE resource,exposure,staff SET name = :name, theme_id = :theme_id, image = :image, content = :content, quantity = :quantity,deposit = :deposit, public_id = :public_id, condition_id = :condition_id, poster_bool = :poster_bool, sign_bool = sign_bool,kakemono_bool = :kakemono_bool 
         WHERE resource.id = :id
-        AND resource.id = exposure.resource_id;");
+        AND resource.id = exposure.resource_id
+        AND staff.resource_id = :id;");
         
         $req1->execute(array(
             "id" => $data['id'],
@@ -287,11 +290,11 @@ class RessourcesModel extends Manager
             "quantity" => $data['quantity'],
             "deposit" => $data['deposit'],
             "public_id" => $data["public"],
-            "type_id" => $data['type'],
             "condition_id" => $data['condition'],
-            "admin_id" => $data['admin'],
             "poster_bool" => $data['poster'],
-            "sign_bool" => $data['sign']
+            "sign_bool" => $data['sign'],
+            "kakemono_bool" => $data['kakemono']
+            
         ));
     }
 

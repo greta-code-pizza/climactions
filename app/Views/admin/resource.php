@@ -65,7 +65,7 @@ ob_start(); ?>
                 <li class="article-content"><?= htmlspecialchars_decode($resource["content"]) ?></li>
                 <li class="article-created-at"><?= $resource["date"] ?></li>
                 <li class="flex">
-                    <span class="btn"><a href="indexAdmin.php?action=updateArticle&id=<?=$resource["id"]?>&type_id=<?=$resource['type_id']?>"><i class="fa-solid fa-pen"></i></a></span>
+                    <span class="btn"><a href="indexAdmin.php?action=formUpdateArticle&id=<?=$resource["id"]?>&type_id=<?=$resource['type_id']?>"><i class="fa-solid fa-pen"></i></a></span>
                     <span class="btn"><a class="delete" href="indexAdmin.php?action=deleteArticle&id=<?=$resource["id"]?>"><i class="fa-solid fa-trash-can"></i></a></span>
                 </li>
             </ul>

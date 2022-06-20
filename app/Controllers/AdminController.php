@@ -176,7 +176,7 @@ class AdminController extends Controller {
 		require $this->viewAdmin('formResource');
 	}
 
-	public function updateArticle($idArticle,$typeId)
+	public function formUpdateArticle($idArticle,$typeId)
 	{
 		$resources = new \Climactions\Models\RessourcesModel();
 		$themes = $resources->selectTheme();
@@ -187,11 +187,38 @@ class AdminController extends Controller {
 			$resource = $resources->selectResourceExpo($idArticle);
 		}else{
 			$resource = $resources->selectMainResources($idArticle);
-			// var_dump($resource);die;
-		}
-		// var_dump($resource);die;
-		
+		}		
 		require $this->viewAdmin('formUpdateResource');
+	}
+
+	public function updateResourceExpo($data){
+		$resources = new \Climactions\Models\RessourcesModel();
+		if($data['sign'] == 'on' ){
+			$data['sign'] = 1;	
+		}
+		if($data['poster'] == 'on'){
+			$data['poster'] = 1;
+		}
+		if($data['kakemono'] == 'on'){
+			$data['kakemono'] = 1;
+		}
+		if($data['sign'] == null){
+			$data['sign'] = 0;	
+		}
+		if( $data['poster'] == null ){
+			$data['poster'] = 0;
+		}
+		if($data['kakemono'] == null){
+			$data['kakemono'] = 0;	
+		}
+		$update = $resources->updateResourceExpo($data);
+		header('Location: indexAdmin.php?action=resourceAdmin');
+	}
+
+	public function updateOtherResources($data){
+		$resources = new \Climactions\Models\RessourcesModel();
+		$update = $resources->updateOtherResources($data);
+		header('Location: indexAdmin.php?action=resourceAdmin');
 	}
 
 
@@ -446,12 +473,6 @@ class AdminController extends Controller {
 		$articles = new \Climactions\Models\AdminModel();
 		$allArticles = $articles->getArticles();
 		require $this->viewAdmin('pageAddArticle');
-	}
-	public function viewUpdateArticle($idArticle)
-	{
-		$article = new \Climactions\Models\AdminModel();
-		$oneArticle = $article->getArticle($idArticle);
-		require $this->viewAdmin('updateArticle');
 	}
 
 	public function addArticle($title, $content)

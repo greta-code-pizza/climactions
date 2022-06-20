@@ -8,7 +8,7 @@ ob_start(); ?>
     <?php if($typeId == 4){?>
 
 
-        <form id="form-create-article" action="updateResourceExpo&id=<?php $idArticle ?>" method="post" enctype="multipart/form-data">
+        <form id="form-create-article" action="indexAdmin.php?action=updateResourceExpo&id=<?= $resource['id'] ?>" method="post" enctype="multipart/form-data">
         <!-- le titre     -->
         <div class="item-form name">
             <label for="name">Titre</label>
@@ -69,6 +69,7 @@ ob_start(); ?>
         <div class="item-form  name-author">
             <label for="name-editor">Contributeur</label>
             <select name="name-author" id="name-author" >
+            <option class="item" value="<?= $resource['personality_id'] ?>" selected><?= $resource['role'] ?> - <?= $resource['staff'] ?></option>
                 <?php foreach($personalities as $personality) {?>
                     <option class="item" value="<?= $personality['id'] ?>"><?= $personality['role'] ?> - <?= $personality['name'] ?></option>
                 <?php } ?>
@@ -119,83 +120,84 @@ ob_start(); ?>
     <?php }else{?>
 
 
-        <form id="form-create-article" action="updateMainRessource&id=<?php $idArticle ?>" method="post" enctype="multipart/form-data">
-<!-- le titre     -->
-<div class="item-form name">
-            <label for="name">Titre</label>
-            <input type="text" name="name" id="name" value="<?=$resource[0]['name'] ?>" required>
-        </div>
+        <form id="form-create-article" action="indexAdmin.php?action=updateOtherResources&id=<?= $resource[0]['id'] ?>" method="post" enctype="multipart/form-data">
+            <!-- le titre   -->
+            <div class="item-form name">
+                <label for="name">Titre</label>
+                <input type="text" name="name" id="name" value="<?=$resource[0]['name'] ?>" required>
+            </div>
 
-        <!-- le thème  -->
-        <div class="item-form ">
-            <label for="theme">Thème</label>
-            <select name="theme" id="theme">
-            <option class="item" value="<?= $resource[0]['theme_id'] ?>" selected><?= $resource[0]['theme'] ?></option>
-                <?php foreach($themes as $theme) {?>
-                    <option class="item" value="<?= $theme['id'] ?>"><?= $theme['name'] ?></option>
-                <?php } ?>
-            </select>
-        </div>
+            <!-- le thème  -->
+            <div class="item-form ">
+                <label for="theme">Thème</label>
+                <select name="theme" id="theme">
+                <option class="item" value="<?= $resource[0]['theme_id'] ?>" selected><?= $resource[0]['theme'] ?></option>
+                    <?php foreach($themes as $theme) {?>
+                        <option class="item" value="<?= $theme['id'] ?>"><?= $theme['name'] ?></option>
+                    <?php } ?>
+                </select>
+            </div>
 
-        <!-- l'image -->
-        <div class="item-form image">
-            <label for="image">Image</label>
-            <input type="file" name="image" id="image" required>
-        </div>
+            <!-- l'image -->
+            <div class="item-form image">
+                <label for="image">Image</label>
+                <input type="file" name="image" id="image" required>
+            </div>
 
-        <!-- le contenu -->
-        <div class="item-form content">
-            <p class="content-label">Contenu</p>
-            <textarea aria-label="content"  name="editor1" id="editor1" cols="30" rows="8"><?= $resource[0]['content'] ?>
-            </textarea>
-        </div>
+            <!-- le contenu -->
+            <div class="item-form content">
+                <p class="content-label">Contenu</p>
+                <textarea aria-label="content"  name="editor1" id="editor1" cols="30" rows="8"><?= $resource[0]['content'] ?>
+                </textarea>
+            </div>
 
-        <!-- la quantité -->
-        <div class="item-form quantite">
-            <label for="quantite">Quantité</label>
-            <input type="number" value="<?= $resource[0]['quantity']?>" min=0 name="quantity" id="quantite" required>
-        </div>
+            <!-- la quantité -->
+            <div class="item-form quantite">
+                <label for="quantite">Quantité</label>
+                <input type="number" value="<?= $resource[0]['quantity']?>" min=0 name="quantity" id="quantite" required>
+            </div>
 
-        <!-- la caution -->
-        <div class="item-form caution">
-            <label for="caution">Caution</label>
-            <input type="number" value="<?= $resource[0]['deposit'] ?>" name="deposit" id="caution" required>
-        </div>
+            <!-- la caution -->
+            <div class="item-form caution">
+                <label for="caution">Caution</label>
+                <input type="number" value="<?= $resource[0]['deposit'] ?>" name="deposit" id="caution" required>
+            </div>
 
-        <!-- état -->
-        <div class="item-form condition">
-            <label for="condition">État</label>
-            <select name="condition" id="condition" >
-                <option class="item" value="<?= $resource[0]['condition_id'] ?>" selected><?= $resource[0]['condition'] ?></option>
-                <?php foreach($conditions as $condition) {?>
-                    <option class="item" value="<?= $condition['id'] ?>"><?= $condition['name'] ?></option>
-                <?php } ?>
-            </select>
-        </div>
+            <!-- état -->
+            <div class="item-form condition">
+                <label for="condition">État</label>
+                <select name="condition" id="condition" >
+                    <option class="item" value="<?= $resource[0]['condition_id'] ?>" selected><?= $resource[0]['condition'] ?></option>
+                    <?php foreach($conditions as $condition) {?>
+                        <option class="item" value="<?= $condition['id'] ?>"><?= $condition['name'] ?></option>
+                    <?php } ?>
+                </select>
+            </div>
 
-        <!-- ------------------------------------------------- -->
+            <!-- ------------------------------------------------- -->
 
-        <!-- staff -->
+            <!-- staff -->
 
-        <div class="item-form  name-author">
-            <label for="name-editor">Contributeur</label>
-            <select name="name-author" id="name-author" >
-                <option class="item" value="<?= $resource[1][0]['id'] ?>" selected><?= $resource[1][0]['role'] ?> - <?= $resource[1][0]['staff'] ?></option>
-                <?php foreach($personalities as $personality) {?>
-                    <option class="item" value="<?= $personality['id'] ?>"><?= $personality['role'] ?> - <?= $personality['name'] ?></option>
-                <?php } ?>
-            </select>
-        </div>
-        <!-- public -->
-        <div class="item-form name-public">
-            <label for="name-public">Public</label>
-            <select name="name-public" id="name-public">
-                <?php foreach($publics as $public) {?>
-                    <option class="item" value="<?= $public['id'] ?>"><?= $public['name'] ?></option>
-                <?php } ?>
-            </select>
-        </div>
+            <div class="item-form  name-author">
+                <label for="name-editor">Contributeur</label>
+                <select name="name-author" id="name-author" >
+                    <option class="item" value="<?= $resource[1][0]['id'] ?>" selected><?= $resource[1][0]['role'] ?> - <?= $resource[1][0]['staff'] ?></option>
+                    <?php foreach($personalities as $personality) {?>
+                        <option class="item" value="<?= $personality['id'] ?>"><?= $personality['role'] ?> - <?= $personality['name'] ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+            <!-- public -->
+            <div class="item-form name-public">
+                <label for="name-public">Public</label>
+                <select name="name-public" id="name-public">
+                    <?php foreach($publics as $public) {?>
+                        <option class="item" value="<?= $public['id'] ?>"><?= $public['name'] ?></option>
+                    <?php } ?>
+                </select>
+            </div>
     <?php } ?>
+
     <button class="btn-create" type="submit">Ajout Ressource</button>
     </form>
 </section>
