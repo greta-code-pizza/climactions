@@ -455,6 +455,7 @@ a {
   margin: 15px auto;
   background-color: var(--bg-primary);
     border-radius: 10px;
+    width: 96%;
     transition: all 0.4s;
 }
 .element-item:hover{
@@ -1071,7 +1072,7 @@ p.last {
   }
 
   .element-item{
-    width: 46%;
+    width: 47%;
     margin: 15px 2%;
   }
 
