@@ -7,9 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?= $description ?>">
     <link rel="stylesheet" href="./Public/styles/style.css">
-    <!-- <link rel="preload" href="/Public/fonts/roboto/roboto.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/Public/fonts/robotocondensed/robotocondensed.woff2" as="font" type="font/woff2" crossorigin> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="icon" href="./Public/img/favicon.webp" />
     <title><?= $title ?></title>
 </head>
