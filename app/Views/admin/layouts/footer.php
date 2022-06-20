@@ -9,7 +9,6 @@
     CKEDITOR.replace('editor1');
 </script>
 </body>
-<script src="Public\admin\js\script.js"></script>
 
 
 </html>
