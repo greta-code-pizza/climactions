@@ -253,7 +253,7 @@ class RessourcesModel extends Manager
 
 
 
-    public function updateOtherResources($data)
+    public function updateOtherResourcesImg($data)
     {
         $bdd = $this->connect();
         $req1 = $bdd->prepare("UPDATE resource,staff SET name = :name, theme_id = :theme_id, image = :image, content = :content, quantity = :quantity,deposit = :deposit, public_id = :public_id, condition_id = :condition_id
@@ -273,7 +273,26 @@ class RessourcesModel extends Manager
         ));
     }
 
-    public function updateResourceExpo($data)
+    public function updateOtherResources($data)
+    {
+        $bdd = $this->connect();
+        $req1 = $bdd->prepare("UPDATE resource,staff SET name = :name, theme_id = :theme_id, content = :content, quantity = :quantity,deposit = :deposit, public_id = :public_id, condition_id = :condition_id
+        WHERE resource.id = :id
+        AND staff.resource_id = :id;");
+        
+        $req1->execute(array(
+            "id" => $data['id'],
+            "name" => $data['name'],
+            "theme_id" => $data['theme'],
+            "content" =>$data['content'],
+            "quantity" => $data['quantity'],
+            "deposit" => $data['deposit'],
+            "public_id" => $data["public"],
+            "condition_id" => $data['condition']   
+        ));
+    }
+
+    public function updateResourceExpoImg($data)
     {
         $bdd = $this->connect();
         $req1 = $bdd->prepare("UPDATE resource,exposure,staff SET name = :name, theme_id = :theme_id, image = :image, content = :content, quantity = :quantity,deposit = :deposit, public_id = :public_id, condition_id = :condition_id, poster_bool = :poster_bool, sign_bool = sign_bool,kakemono_bool = :kakemono_bool 
@@ -286,6 +305,30 @@ class RessourcesModel extends Manager
             "name" => $data['name'],
             "theme_id" => $data['theme'],
             "image" =>$data['image'],
+            "content" =>$data['content'],
+            "quantity" => $data['quantity'],
+            "deposit" => $data['deposit'],
+            "public_id" => $data["public"],
+            "condition_id" => $data['condition'],
+            "poster_bool" => $data['poster'],
+            "sign_bool" => $data['sign'],
+            "kakemono_bool" => $data['kakemono']
+            
+        ));
+    }
+
+    public function updateResourceExpo($data)
+    {
+        $bdd = $this->connect();
+        $req1 = $bdd->prepare("UPDATE resource,exposure,staff SET name = :name, theme_id = :theme_id, content = :content, quantity = :quantity,deposit = :deposit, public_id = :public_id, condition_id = :condition_id, poster_bool = :poster_bool, sign_bool = sign_bool,kakemono_bool = :kakemono_bool 
+        WHERE resource.id = :id
+        AND resource.id = exposure.resource_id
+        AND staff.resource_id = :id;");
+        
+        $req1->execute(array(
+            "id" => $data['id'],
+            "name" => $data['name'],
+            "theme_id" => $data['theme'],
             "content" =>$data['content'],
             "quantity" => $data['quantity'],
             "deposit" => $data['deposit'],

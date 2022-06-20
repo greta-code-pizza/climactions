@@ -211,13 +211,23 @@ class AdminController extends Controller {
 		if($data['kakemono'] == null){
 			$data['kakemono'] = 0;	
 		}
-		$update = $resources->updateResourceExpo($data);
+
+		if($data['image'] != NULL){
+			$update = $resources->updateResourceExpoImg($data);
+		}else{
+			$update = $resources->updateResourceExpo($data);
+		}
+
 		header('Location: indexAdmin.php?action=resourceAdmin');
 	}
 
 	public function updateOtherResources($data){
 		$resources = new \Climactions\Models\RessourcesModel();
-		$update = $resources->updateOtherResources($data);
+		if($data['image'] != NULL){
+			$update = $resources->updateOtherResourcesImg($data);
+		}else{
+			$update = $resources->updateOtherResources($data);
+		}
 		header('Location: indexAdmin.php?action=resourceAdmin');
 	}
 

@@ -194,6 +194,7 @@ try {
             "personality"=>$personalityId,
           ];
 
+
           $backController->updateOtherResources($data);
         }
         

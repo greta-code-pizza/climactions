@@ -29,7 +29,7 @@ ob_start(); ?>
         <!-- l'image -->
         <div class="item-form image">
             <label for="image">Image</label>
-            <input type="file" name="image" id="image" required>
+            <input type="file" name="image" id="image">
         </div>
 
         <!-- le contenu -->
@@ -141,7 +141,7 @@ ob_start(); ?>
             <!-- l'image -->
             <div class="item-form image">
                 <label for="image">Image</label>
-                <input type="file" name="image" id="image" required>
+                <input type="file" name="image" id="image">
             </div>
 
             <!-- le contenu -->
