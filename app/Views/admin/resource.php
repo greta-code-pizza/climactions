@@ -3,7 +3,7 @@ $title = "Vos Ressources - CDR Clim'Actions";
 $description = "Vos Ressources";
 ob_start(); ?>
 
-<h1>Les articles</h1>
+<h1>Les Ressources</h1>
 
 <section id="bar-search" class="container">
 
@@ -45,9 +45,9 @@ ob_start(); ?>
 
     <?php else : ?>
 
-    <h2 class="main-title">Création et mise à jour d'un article</h2>
+    <h2 class="main-title">Création et mise à jour d'une ressource</h2>
 
-    <span class="btn-create"><a href="indexAdmin.php?action=formCreateResource">Créer un article</a></span>
+    <span class="btn-create"><a href="indexAdmin.php?action=formCreateResource">Créer une ressource</a></span>
 
     <div class="table">
         <h3 class="table-title">Titre</h3>
@@ -61,8 +61,8 @@ ob_start(); ?>
         <div class="table-results">
 
             <ul class="table-item">
-                <li class="article-title"><?= $resource["name"] ?></li>
-                <li class="article-content"><?= htmlspecialchars_decode($resource["content"]) ?></li>
+                <li class="article-title"><?= substr($resource["name"], 0, 30) . " ..."; ?></li>
+                <li class="article-content"><?= htmlspecialchars_decode(substr($resource["content"], 0, 100)) . " ..." ?></li>
                 <li class="article-created-at"><?= $resource["date"] ?></li>
                 <li class="flex">
                     <span class="btn"><a href="#"><i class="fa-solid fa-pen"></i></a></span>

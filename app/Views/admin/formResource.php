@@ -1,11 +1,11 @@
 <?php 
-$title = "Créer un article - CDR Clim'Actions";
-$description = "Créer un article";
+$title = "Créer un ressource - CDR Clim'Actions";
+$description = "Créer une Ressource";
 ob_start(); ?>
 
 <section>
 
-    <h1>Création d'un article</h1>
+    <h1>Création d'une ressource</h1>
 
     <form id="form-create-article" action="" method="post" enctype="multipart/form-data">
 
@@ -111,7 +111,7 @@ ob_start(); ?>
             </select>
         </div>
 
-        <button class="btn-create" type="submit">Ajout Ressource</button>
+        <button class="btn-create" type="submit">Ajout de la Ressource</button>
     </form>
 </section>
 

@@ -80,7 +80,7 @@ endif;?>
                 <ul class="table-item lu">
                     <?php endif; ?>
                     <li><?= $email["firstname"] . " " . $email["lastname"] ?></li>
-                    <li><?= $email["message"]?></li>
+                    <li><?= substr($email["message"], 0, 80) . "..."; ?></li>
                     <li><?= $email["date"]?></li>
                     <li class="flex">
                         <span class="btn"><a
