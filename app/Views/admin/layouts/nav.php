@@ -9,7 +9,7 @@
           <span class="nav-links">Mon compte</span>
         </a>
       </div>
-      <div>
+      <div class="nav">
         <a href="indexAdmin.php?action=homeAdmin" class="bloc-link" rel="nofollow">
           <i class="fa-solid fa-house"></i>
           <span class="nav-links">Accueil</span>

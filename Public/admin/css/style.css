@@ -621,6 +621,26 @@ div.image {
   color: var(--primary);
 }
 
+/* lire le message */
+
+#read-email .username{
+  text-align: center;
+  padding: 1.2rem;
+}
+#read-email .object,
+#read-email .content{
+  text-align: left;
+  margin-left: 10px;
+}
+#read-email .view,
+#read-email .created-at{
+  padding: 10px;
+}
+
+#read-email .btn{
+  display: flex;
+}
+
 @media screen and (max-width: 800px) {
   #side-nav {
     position: relative;
@@ -672,6 +692,11 @@ div.image {
   .nav-logo .account {
     text-align: center;
   }
+  #side-nav .nav{
+    height: 380px;
+  }
+
+  
 
   /* le formulaire de création d'un article */
 
