@@ -283,8 +283,9 @@ h1 {
   margin: 10px auto;
 }
 .btn-create {
-  width: 140px;
+  width: 180px;
   margin: 20px auto;
+  padding: 20px;
   color: var(--white);
   border: none;
 }
