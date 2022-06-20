@@ -187,6 +187,7 @@ class AdminController extends Controller {
 			$resource = $resources->selectResourceExpo($idArticle);
 		}else{
 			$resource = $resources->selectMainResources($idArticle);
+			// var_dump($resource);die;
 		}
 		// var_dump($resource);die;
 		

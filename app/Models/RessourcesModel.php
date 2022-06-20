@@ -131,7 +131,7 @@ class RessourcesModel extends Manager
     public function selectMainResources($idResource){
         $bdd = $this->connect();
 
-        $req = $bdd->prepare("SELECT resource.id,resource.`type_id`,resource.name,theme.`name` AS theme,`condition`.name AS `condition`,public.name AS public,`type`.`name` AS `type`,firstname,lastname,image,content,deposit,quantity,DATE_FORMAT(modified_at, '%d/%m/%Y') AS `date` 
+        $req = $bdd->prepare("SELECT resource.id,resource.`type_id`,resource.name,resource.theme_id,theme.`name` AS theme,resource.condition_id,`condition`.name AS `condition`,public.name AS public,`type`.`name` AS `type`,firstname,lastname,image,content,deposit,quantity,DATE_FORMAT(modified_at, '%d/%m/%Y') AS `date` 
         FROM resource,`type`,admin,`condition`,public,theme 
         WHERE resource.id = ?
         AND resource.type_id = `type`.id
@@ -140,7 +140,7 @@ class RessourcesModel extends Manager
         AND resource.condition_id = `condition`.id
         AND resource.admin_id = admin.id;");
 
-        $req2 = $bdd->prepare("SELECT personality.name AS staff,role.name AS role
+        $req2 = $bdd->prepare("SELECT personality.id,personality.name AS staff,role.name AS role
         FROM staff,role,resource,personality
         WHERE resource.id = ?
         AND resource.id = staff.resource_id
