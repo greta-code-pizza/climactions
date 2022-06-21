@@ -114,18 +114,93 @@ try {
             
             $erreur = $backController->createNewPassword($id, $oldPassword, $newPassword);
 
-        }}
+          }
+        }
 
         elseif ($_GET['action'] == 'pageAddArticle') {
           isConnect();
           $backController->pageAddArticle();
         } 
         
-        elseif ($_GET['action'] == 'viewUpdateArticle') {
+        elseif ($_GET['action'] == 'formUpdateArticle') {
           isConnect();
           $idArticle = $_GET['id'];
-          $backController->viewUpdateArticle($idArticle);
-        } 
+          $typeId = $_GET['type_id'];
+          $backController->formUpdateArticle($idArticle,$typeId);
+        }
+
+        elseif ($_GET['action'] == 'updateResourceExpo') {
+          isConnect();
+          $idArticle = $_GET['id'];
+          $name = htmlspecialchars($_POST['name']);
+          $themeId = htmlspecialchars($_POST['theme']);
+          $file = $_FILES['image'];
+          $path = $backController->upload($file);
+          $content = $_POST['editor1'];
+          $quantity = htmlspecialchars($_POST['quantity']);
+          $deposit = htmlspecialchars($_POST['deposit']);
+          $publicId =  $_POST['name-public'];
+          $conditionId = htmlspecialchars($_POST['condition']);
+          $role = htmlspecialchars($_POST['role']);
+          $personality =  htmlspecialchars(trim($_POST["name-author"]));
+          $poster = $_POST["format-poster"];
+          $sign = $_POST["format-sign"];
+          $kakemono = $_POST["format-kakemono"];
+          
+
+          $data = [
+            "id" => $idArticle,
+            "name" => $name,
+            "theme" => $themeId,
+            "image" =>$path,
+            "content" =>$content,
+            "quantity" => $quantity,
+            "deposit" => $deposit,
+            "public" => $publicId,  
+            "condition" => $conditionId,
+            "poster" =>$poster,
+            "sign" => $sign,
+            "kakemono" => $kakemono,
+            "role" => $role,
+            "personality" => $personality 
+          ];
+
+          $backController->updateResourceExpo($data);
+          
+
+        }
+
+        elseif ($_GET['action'] == 'updateOtherResources') {
+          isConnect();
+          $idArticle = $_GET['id'];
+          $name = htmlspecialchars($_POST['name']);
+          $themeId = htmlspecialchars($_POST['theme']);
+          $file = $_FILES['image'];
+          $path = $backController->upload($file);
+          $content = $_POST['editor1'];
+          $quantity = htmlspecialchars($_POST['quantity']);
+          $deposit = htmlspecialchars($_POST['deposit']);
+          $publicId =  $_POST['name-public'];
+          $conditionId = htmlspecialchars($_POST['condition']);
+          $role = htmlspecialchars($_POST['role']);
+          $personality =  htmlspecialchars(trim($_POST["name-author"]));
+          $data = [
+            "id" => $idArticle,
+            "name" => $name,
+            "theme" => $themeId,
+            "image" =>$path,
+            "content" =>$content,
+            "quantity" => $quantity,
+            "deposit" => $deposit,
+            "public" => $publicId,  
+            "condition" => $conditionId,
+            "role" => $role,
+            "personality" => $personality
+          ];
+
+
+          $backController->updateOtherResources($data);
+        }
         
         elseif ($_GET['action'] == 'deleteArticle') {
           isConnect();
@@ -138,13 +213,6 @@ try {
           $title = htmlspecialchars($_POST['title']);
           $content = htmlspecialchars($_POST['content']);
           $backController->addArticle($title, $content);
-          
-        } elseif ($_GET['action'] == 'updateArticle') {
-          isConnect();
-          $idArticle = $_GET['id'];    
-          $title = htmlspecialchars($_POST['title']);
-          $content = htmlspecialchars($_POST['content']);
-          $backController->updateArticle($idArticle, $title, $content);
           
         }
         
@@ -205,10 +273,6 @@ try {
         elseif($_GET['action'] == 'formCreateResource'){
           isConnect();
           $backController->formCreateResource();
-        }
-        elseif($_GET['action'] == 'updateResource'){
-          isConnect();
-          $backController->updateResource();
         }
         elseif($_GET['action'] == 'deleteResource'){
           isConnect();
@@ -290,11 +354,10 @@ try {
           $publicId =  $_POST['name-public'];  
           $typeId =  $_POST['type'];
           $conditionId = $_POST['condition'];
+          $role = htmlspecialchars($_POST['role']);
+          $adminId = $_SESSION['id'];      
+          $personality =  htmlspecialchars(trim($_POST["name-author"]));
           
-          $adminId = $_SESSION['id'];
-                    
-          $personalityId =  htmlspecialchars($_POST["name-author"]);
-
           $data = [
             "name" => $name,
             "theme" => $themeId,
@@ -306,8 +369,8 @@ try {
             "type" => $typeId,
             "condition" => $conditionId,
             "admin" => $adminId,
-            
-            "personality" => $personalityId          
+            "role" => $role,
+            "personality" => $personality          
           ];
 
           $backController->createResource($data);
@@ -330,8 +393,9 @@ try {
           $publicId =  $_POST['name-public'];
           $typeId = htmlspecialchars($_POST['type']);
           $conditionId = htmlspecialchars($_POST['condition']);
-          $adminId = $_SESSION['id'];
-          $personalityId =  htmlspecialchars($_POST["name-author"]);
+          $role = htmlspecialchars($_POST['role']);
+          $adminId = $_SESSION['id'];      
+          $personality =  htmlspecialchars(trim($_POST["name-author"]));
           $poster = $_POST["format-poster"];
           $sign = $_POST["format-sign"];
           $kakemono =$_POST["format-kakemono"];
@@ -348,13 +412,12 @@ try {
             "type" => $typeId,
             "condition" => $conditionId,
             "admin" => $adminId, 
-            "personality"=>$personalityId,
+            "role" => $role,
+            "personality" => $personality, 
             "poster" =>$poster,
             "sign" => $sign,
             "kakemono" => $kakemono
           ];
-
-          // var_dump($data); die;
           
           $backController->createResourceExpo($data);
         }

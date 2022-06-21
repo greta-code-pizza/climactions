@@ -179,14 +179,98 @@ class AdminController extends Controller {
 		$themes = $resources->selectTheme();
 		$conditions = $resources->selectCondition();
 		$publics = $resources->selectPublic();
-		$personalities = $resources->selectPersonality();
+		$roles = $resources->selectRole();
 		require $this->viewAdmin('formResource');
 	}
 
-	public function updateResource()
+	public function formUpdateArticle($idArticle,$typeId)
 	{
-		require $this->viewAdmin('updateResource');
+		$resources = new \Climactions\Models\RessourcesModel();
+		$themes = $resources->selectTheme();
+		$conditions = $resources->selectCondition();
+		$publics = $resources->selectPublic();
+		$roles = $resources->selectRole();
+		if($typeId == 4){
+			$resource = $resources->selectResourceExpo($idArticle);
+		}else{
+			$resource = $resources->selectMainResources($idArticle);
+		}		
+		// var_dump($resource);die;
+		require $this->viewAdmin('formUpdateResource');
 	}
+
+	public function updateResourceExpo($data){
+		$resources = new \Climactions\Models\RessourcesModel();
+		if($data['sign'] == 'on' ){
+			$data['sign'] = 1;	
+		}
+		if($data['poster'] == 'on'){
+			$data['poster'] = 1;
+		}
+		if($data['kakemono'] == 'on'){
+			$data['kakemono'] = 1;
+		}
+		if($data['sign'] == null){
+			$data['sign'] = 0;	
+		}
+		if( $data['poster'] == null ){
+			$data['poster'] = 0;
+		}
+		if($data['kakemono'] == null){
+			$data['kakemono'] = 0;	
+		}
+		$exist_personality = $resources->selectPersonality($data);
+		if($data['image'] != NULL){
+			
+			if($exist_personality == false){
+				$personality = $resources->insertPersonality($data);
+				$update = $resources->updateResourceExpoImg($data,$personality);
+			}elseif($exist_personality != false){
+				$personality = $exist_personality['id'];
+				$update = $resources->updateResourceExpoImg($data,$personality);
+			}
+			
+		}else{
+			
+			if($exist_personality == false){
+				$personality = $resources->insertPersonality($data);
+				$update = $resources->updateResourceExpo($data,$personality);
+			}elseif($exist_personality != false){
+				$personality = $exist_personality['id'];
+				$update = $resources->updateResourceExpo($data,$personality);
+			}	
+		}
+
+		header('Location: indexAdmin.php?action=resourceAdmin');
+	}
+
+	public function updateOtherResources($data){
+		$resources = new \Climactions\Models\RessourcesModel();
+		$exist_personality = $resources->selectPersonality($data);
+		if($data['image'] != NULL){
+			
+			if($exist_personality == false){
+				$personality = $resources->insertPersonality($data);
+				$update = $resources->updateOtherResourcesImg($data,$personality);
+			}elseif($exist_personality != false){
+				$personality = $exist_personality['id'];
+				$update = $resources->updateOtherResourcesImg($data,$personality);
+			}
+			
+		}else{
+			if($exist_personality == false){
+				$personality = $resources->insertPersonality($data);
+				$update = $resources->updateOtherResources($data,$personality);
+			}elseif($exist_personality != false){
+				$personality = $exist_personality['id'];
+				$update = $resources->updateOtherResources($data,$personality);
+				
+			}
+		}
+		header('Location: indexAdmin.php?action=resourceAdmin');
+	}
+
+
 	public function deleteResource()
 	{
 		require $this->viewAdmin('delete');
@@ -447,12 +531,6 @@ class AdminController extends Controller {
 		$allArticles = $articles->getArticles();
 		require $this->viewAdmin('pageAddArticle');
 	}
-	public function viewUpdateArticle($idArticle)
-	{
-		$article = new \Climactions\Models\AdminModel();
-		$oneArticle = $article->getArticle($idArticle);
-		require $this->viewAdmin('updateArticle');
-	}
 
 	public function addArticle($title, $content)
 	{
@@ -467,13 +545,6 @@ class AdminController extends Controller {
 		$deleteArticle = $article->deleteArticle($id);
 
 		header('Location: indexAdmin.php?action=resourceAdmin');
-	}
-	public function updateArticle($idArticle, $title, $content)
-	{
-		$article = new \Climactions\Models\AdminModel();
-		$updateArticle = $article->updateArticle($idArticle, $title, $content);
-		
-		header('Location: indexAdmin.php?action=pageAddArticle');
 	}
 
 	// téléchargement d'une image
@@ -520,10 +591,14 @@ class AdminController extends Controller {
 		
 		$adminManager = new \Climactions\Models\RessourcesModel();
 		
-
-		$admin = $adminManager->insertResource($data);
-
-		
+		$exist_personality = $adminManager->selectPersonality($data);
+		if($exist_personality == false){
+			$personality = $adminManager->insertPersonality($data);
+			$admin = $adminManager->insertResource($data,$personality);
+		}elseif($exist_personality != false){
+			$personality = $exist_personality['id'];
+			$admin = $adminManager->insertResource($data,$personality);
+		}
 		header('Location: indexAdmin.php?action=resourceAdmin');
 
 	}
@@ -552,8 +627,16 @@ class AdminController extends Controller {
 		if($data['kakemono'] == null){
 			$data['kakemono'] = 0;	
 		}
-		
-		$admin = $adminManager->insertResourceExpo($data);
+
+		$exist_personality = $adminManager->selectPersonality($data);
+
+		if($exist_personality == false){
+			$personality = $adminManager->insertPersonality($data);
+			$admin = $adminManager->insertResourceExpo($data,$personality);
+		}elseif($exist_personality != false){
+			$personality = $exist_personality['id'];
+			$admin = $adminManager->insertResourceExpo($data,$personality);
+		}
 
 		header('Location: indexAdmin.php?action=resourceAdmin');
 

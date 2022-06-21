@@ -75,13 +75,20 @@ ob_start(); ?>
 
         <!-- staff -->
 
-        <div class="item-form  name-author">
-            <label for="name-editor">Contributeur</label>
-            <select name="name-author" id="name-author" >
-                <?php foreach($personalities as $personality) {?>
-                    <option class="item" value="<?= $personality['id'] ?>"><?= $personality['role'] ?> - <?= $personality['name'] ?></option>
-                <?php } ?>
-            </select>
+        <div>
+            <div class="item-form  role">
+                <label for="role">Role</label>
+                <select name="role" id="role" >
+                    <?php foreach($roles as $role) {?>
+                        <option class="item" value="<?= $role['id'] ?>"><?= $role['name'] ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+
+            <div class="item-form  name-author">
+                <label for="name-author">Contributeur</label>
+                <input type="text" name="name-author" id="name-author" required>
+            </div>
         </div>
 
 

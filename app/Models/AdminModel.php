@@ -254,7 +254,7 @@ class AdminModel extends Manager
     public function resourcePage($firstResource, $perPage)
     {
         $bdd = $this->connect();
-        $req = $bdd->prepare("SELECT `id`, `name`, `image`, `content`, DATE_FORMAT(created_at, '%d/%m/%Y') AS `date` 
+        $req = $bdd->prepare("SELECT `id`, `type_id`, `name`, `image`, `content`, DATE_FORMAT(created_at, '%d/%m/%Y') AS `date` 
                               FROM `resource` 
                               ORDER BY `created_at` DESC LIMIT :firstresource, :perpage");
                               $req->bindValue(':firstresource', $firstResource, \PDO::PARAM_INT);
@@ -270,7 +270,7 @@ class AdminModel extends Manager
     {
         $bdd = $this->connect();
 
-        $req = $bdd->prepare("SELECT id, name, image, content ,DATE_FORMAT(created_at, '%d/%m/%Y') AS `date` 
+        $req = $bdd->prepare("SELECT id, name, image,type_id, content ,DATE_FORMAT(created_at, '%d/%m/%Y') AS `date` 
                                 FROM resource 
                                 WHERE name LIKE :query 
                                 OR content LIKE :query
