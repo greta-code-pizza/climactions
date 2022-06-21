@@ -52,6 +52,7 @@
 
 <script src="./Public/scripts/main.js"></script>
 <script src="./Public/scripts/active-front.js"></script>
+<script src="./Public/scripts/axeptio.js"></script>
 
 
 </body>
