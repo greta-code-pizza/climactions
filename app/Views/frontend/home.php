@@ -26,13 +26,13 @@ require_once 'layouts/header.php';?>
             <a href="pageArticle" id="bouton-ressources">Découvrir les autres ressources</a>
         </div>
     </section>
-    <section id="partenaires" class="container">
+    <!-- <section id="partenaires" class="container">
         <h2>Nos partenaires <img src="./Public/img/feuille-agenda.svg" alt="feuille"> </h2>
         <div class="partenaires-img">
             <img src="./Public/img/partenaires/logo-ademe.svg" alt="ademe">
             <img src="./Public/img/partenaires/logo-gbs.jpg" alt="greta bretagne sud">
         </div>
-    </section>
+    </section> -->
 </main>
 
 <?php require_once "layouts/footer.php"; ?>
