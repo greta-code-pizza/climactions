@@ -47,7 +47,7 @@ ob_start(); ?>
 
     <h2 class="main-title">Création et mise à jour d'une ressource</h2>
 
-    <span class="btn-create"><a href="indexAdmin.php?action=formCreateResource">Créer une ressource</a></span>
+    <span class="btn-create"><a href="indexAdmin.php?action=formCreateResource">Créer</a></span>
 
     <div class="table">
         <h3 class="table-title">Titre</h3>
