@@ -116,11 +116,6 @@ try {
 
           }
         }
-
-        elseif ($_GET['action'] == 'pageAddArticle') {
-          isConnect();
-          $backController->pageAddArticle();
-        } 
         
         elseif ($_GET['action'] == 'formUpdateArticle') {
           isConnect();

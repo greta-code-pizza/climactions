@@ -525,20 +525,6 @@ class AdminController extends Controller {
 		}
 	}
 
-	public function pageAddArticle()
-	{
-		$articles = new \Climactions\Models\AdminModel();
-		$allArticles = $articles->getArticles();
-		require $this->viewAdmin('pageAddArticle');
-	}
-
-	public function addArticle($title, $content)
-	{
-		$adminManager = new \Climactions\Models\AdminModel();
-		$admin = $adminManager->addArticle($title, $content);
-		require $this->viewAdmin('pageAddArticle');
-
-	}
 
 	public function deleteArticle($id) {
 		$article = new \Climactions\Models\AdminModel();
