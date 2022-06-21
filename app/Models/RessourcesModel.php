@@ -327,7 +327,7 @@ class RessourcesModel extends Manager
     public function updateResourceExpoImg($data,$personality)
     {
         $bdd = $this->connect();
-        $req1 = $bdd->prepare("UPDATE resource,exposure,staff SET name = :name, theme_id = :theme_id, image = :image, content = :content, quantity = :quantity,deposit = :deposit, public_id = :public_id, condition_id = :condition_id, poster_bool = :poster_bool, sign_bool = sign_bool,kakemono_bool = :kakemono_bool, personality_id = :personality 
+        $req1 = $bdd->prepare("UPDATE resource,exposure,staff SET name = :name, theme_id = :theme_id, image = :image, content = :content, quantity = :quantity,deposit = :deposit, public_id = :public_id, condition_id = :condition_id, poster_bool = :poster_bool, sign_bool = :sign_bool,kakemono_bool = :kakemono_bool, personality_id = :personality 
         WHERE resource.id = :id
         AND resource.id = exposure.resource_id
         AND staff.resource_id = :id;");
@@ -353,7 +353,7 @@ class RessourcesModel extends Manager
     public function updateResourceExpo($data,$personality)
     {
         $bdd = $this->connect();
-        $req1 = $bdd->prepare("UPDATE resource,exposure,staff SET name = :name, theme_id = :theme_id, content = :content, quantity = :quantity,deposit = :deposit, public_id = :public_id, condition_id = :condition_id, poster_bool = :poster_bool, sign_bool = sign_bool,kakemono_bool = :kakemono_bool, personality_id = :personality
+        $req1 = $bdd->prepare("UPDATE resource,exposure,staff SET name = :name, theme_id = :theme_id, content = :content, quantity = :quantity,deposit = :deposit, public_id = :public_id, condition_id = :condition_id, poster_bool = :poster_bool, sign_bool = :sign_bool,kakemono_bool = :kakemono_bool, personality_id = :personality
         WHERE resource.id = :id
         AND resource.id = exposure.resource_id
         AND staff.resource_id = :id;");
