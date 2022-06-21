@@ -140,7 +140,8 @@ try {
           $deposit = htmlspecialchars($_POST['deposit']);
           $publicId =  $_POST['name-public'];
           $conditionId = htmlspecialchars($_POST['condition']);
-          $personalityId =  htmlspecialchars($_POST["name-author"]);
+          $role = htmlspecialchars($_POST['role']);
+          $personality =  htmlspecialchars(trim($_POST["name-author"]));
           $poster = $_POST["format-poster"];
           $sign = $_POST["format-sign"];
           $kakemono = $_POST["format-kakemono"];
@@ -156,10 +157,11 @@ try {
             "deposit" => $deposit,
             "public" => $publicId,  
             "condition" => $conditionId,
-            "personality"=>$personalityId,
             "poster" =>$poster,
             "sign" => $sign,
-            "kakemono" => $kakemono
+            "kakemono" => $kakemono,
+            "role" => $role,
+            "personality" => $personality 
           ];
 
           $backController->updateResourceExpo($data);
@@ -179,8 +181,8 @@ try {
           $deposit = htmlspecialchars($_POST['deposit']);
           $publicId =  $_POST['name-public'];
           $conditionId = htmlspecialchars($_POST['condition']);
-          $personalityId =  htmlspecialchars($_POST["name-author"]);
-
+          $role = htmlspecialchars($_POST['role']);
+          $personality =  htmlspecialchars(trim($_POST["name-author"]));
           $data = [
             "id" => $idArticle,
             "name" => $name,
@@ -191,7 +193,8 @@ try {
             "deposit" => $deposit,
             "public" => $publicId,  
             "condition" => $conditionId,
-            "personality"=>$personalityId,
+            "role" => $role,
+            "personality" => $personality
           ];
 
 

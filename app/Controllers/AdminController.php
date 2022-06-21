@@ -182,12 +182,13 @@ class AdminController extends Controller {
 		$themes = $resources->selectTheme();
 		$conditions = $resources->selectCondition();
 		$publics = $resources->selectPublic();
-		$personalities = $resources->selectPersonality();
+		$roles = $resources->selectRole();
 		if($typeId == 4){
 			$resource = $resources->selectResourceExpo($idArticle);
 		}else{
 			$resource = $resources->selectMainResources($idArticle);
 		}		
+		// var_dump($resource);die;
 		require $this->viewAdmin('formUpdateResource');
 	}
 
@@ -211,11 +212,26 @@ class AdminController extends Controller {
 		if($data['kakemono'] == null){
 			$data['kakemono'] = 0;	
 		}
-
+		$exist_personality = $resources->selectPersonality($data);
 		if($data['image'] != NULL){
-			$update = $resources->updateResourceExpoImg($data);
+			
+			if($exist_personality == false){
+				$personality = $resources->insertPersonality($data);
+				$update = $resources->updateResourceExpoImg($data,$personality);
+			}elseif($exist_personality != false){
+				$personality = $exist_personality['id'];
+				$update = $resources->updateResourceExpoImg($data,$personality);
+			}
+			
 		}else{
-			$update = $resources->updateResourceExpo($data);
+			
+			if($exist_personality == false){
+				$personality = $resources->insertPersonality($data);
+				$update = $resources->updateResourceExpo($data,$personality);
+			}elseif($exist_personality != false){
+				$personality = $exist_personality['id'];
+				$update = $resources->updateResourceExpo($data,$personality);
+			}	
 		}
 
 		header('Location: indexAdmin.php?action=resourceAdmin');
@@ -223,10 +239,26 @@ class AdminController extends Controller {
 
 	public function updateOtherResources($data){
 		$resources = new \Climactions\Models\RessourcesModel();
+		$exist_personality = $resources->selectPersonality($data);
 		if($data['image'] != NULL){
-			$update = $resources->updateOtherResourcesImg($data);
+			
+			if($exist_personality == false){
+				$personality = $resources->insertPersonality($data);
+				$update = $resources->updateOtherResourcesImg($data,$personality);
+			}elseif($exist_personality != false){
+				$personality = $exist_personality['id'];
+				$update = $resources->updateOtherResourcesImg($data,$personality);
+			}
+			
 		}else{
-			$update = $resources->updateOtherResources($data);
+			if($exist_personality == false){
+				$personality = $resources->insertPersonality($data);
+				$update = $resources->updateOtherResources($data,$personality);
+			}elseif($exist_personality != false){
+				$personality = $exist_personality['id'];
+				$update = $resources->updateOtherResources($data,$personality);
+				
+			}
 		}
 		header('Location: indexAdmin.php?action=resourceAdmin');
 	}
@@ -545,15 +577,13 @@ class AdminController extends Controller {
 		$adminManager = new \Climactions\Models\RessourcesModel();
 		
 		$exist_personality = $adminManager->selectPersonality($data);
-		if($exist_personality != NULL){
-			$personality = $exist_personality['id'];
-			$admin = $adminManager->insertResource($data,$personality);
-		}else{
+		if($exist_personality == false){
 			$personality = $adminManager->insertPersonality($data);
 			$admin = $adminManager->insertResource($data,$personality);
+		}elseif($exist_personality != false){
+			$personality = $exist_personality['id'];
+			$admin = $adminManager->insertResource($data,$personality);
 		}
-
-		
 		header('Location: indexAdmin.php?action=resourceAdmin');
 
 	}
@@ -584,11 +614,12 @@ class AdminController extends Controller {
 		}
 
 		$exist_personality = $adminManager->selectPersonality($data);
-		if($exist_personality != NULL){
-			$personality = $exist_personality['id'];
-			$admin = $adminManager->insertResource($data,$personality);
-		}else{
+
+		if($exist_personality == false){
 			$personality = $adminManager->insertPersonality($data);
+			$admin = $adminManager->insertResourceExpo($data,$personality);
+		}elseif($exist_personality != false){
+			$personality = $exist_personality['id'];
 			$admin = $adminManager->insertResourceExpo($data,$personality);
 		}
 

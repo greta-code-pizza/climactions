@@ -66,14 +66,20 @@ ob_start(); ?>
 
         <!-- staff -->
 
-        <div class="item-form  name-author">
-            <label for="name-editor">Contributeur</label>
-            <select name="name-author" id="name-author" >
-            <option class="item" value="<?= $resource['personality_id'] ?>" selected><?= $resource['role'] ?> - <?= $resource['staff'] ?></option>
-                <?php foreach($personalities as $personality) {?>
-                    <option class="item" value="<?= $personality['id'] ?>"><?= $personality['role'] ?> - <?= $personality['name'] ?></option>
-                <?php } ?>
-            </select>
+        <div>
+            <div class="item-form  role">
+                <label for="role">Role</label>
+                <select name="role" id="role" >
+                    <?php foreach($roles as $role) {?>
+                        <option class="item" value="<?= $role['id'] ?>"><?= $role['name'] ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+
+            <div class="item-form  name-author">
+                <label for="name-author">Contributeur</label>
+                <input type="text" name="name-author" id="name-author" value="<?= $resource['staff'] ?>" required>
+            </div>
         </div>
         
         <!-- format expo -->
@@ -178,14 +184,20 @@ ob_start(); ?>
 
             <!-- staff -->
 
-            <div class="item-form  name-author">
-                <label for="name-editor">Contributeur</label>
-                <select name="name-author" id="name-author" >
-                    <option class="item" value="<?= $resource[1][0]['id'] ?>" selected><?= $resource[1][0]['role'] ?> - <?= $resource[1][0]['staff'] ?></option>
-                    <?php foreach($personalities as $personality) {?>
-                        <option class="item" value="<?= $personality['id'] ?>"><?= $personality['role'] ?> - <?= $personality['name'] ?></option>
-                    <?php } ?>
-                </select>
+            <div>
+                <div class="item-form  role">
+                    <label for="role">Role</label>
+                    <select name="role" id="role" >
+                        <?php foreach($roles as $role) {?>
+                            <option class="item" value="<?= $role['id'] ?>"><?= $role['name'] ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+
+                <div class="item-form  name-author">
+                    <label for="name-author">Contributeur</label>
+                    <input type="text" name="name-author" id="name-author" value="<?= $resource[1][0]['staff'] ?>" required>
+                </div>
             </div>
             <!-- public -->
             <div class="item-form name-public">
@@ -198,7 +210,7 @@ ob_start(); ?>
             </div>
     <?php } ?>
 
-    <button class="btn-create" type="submit">Ajout Ressource</button>
+    <button class="btn-create" type="submit">Modifier Ressource</button>
     </form>
 </section>
 
