@@ -98,7 +98,8 @@ try {
         // go to page create new password 
         elseif($_GET['action'] == 'pageNewPassword'){
           isConnect();
-          $backController->pageNewPassword();
+          $backController->pageNewPassword($_GET['id']);
+          
           }
           
         // confirm new password 
@@ -172,7 +173,7 @@ try {
 
         elseif($_GET['action'] == 'accountAdmin'){
           isConnect();
-          $backController->accountAdmin();
+          $backController->accountAdmin($_GET['id']);
         }
         // affichage de la page resources.php (barre de recherche et pagination)
         
@@ -221,6 +222,7 @@ try {
           isConnect();
           $backController->readAdmin($_GET['id']);
         }
+
         elseif($_GET['action'] == 'deleteAdmin'){
           isConnect();
           $backController->deleteOneAdmin($_GET['id']);
