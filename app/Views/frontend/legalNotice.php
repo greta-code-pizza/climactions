@@ -13,7 +13,7 @@ ob_start(); ?>
         Aussi, conformément à l’article n°6 de la Loi n°2004-575 du 21 Juin 2004 pour la confiance dans l’économie
         numérique, les responsables du présent site internet <span>www.cdr-climactions-bretagnesud.bzh</span> sont :</p>
 
-    <!-- ----------------------- -->
+    
 
     <h2>Clim'actions</h2>
 
@@ -25,9 +25,9 @@ ob_start(); ?>
         s’inscrit dans une démarche de démocratie participative, de pratiques collaboratives
         et d’éducation populaire.</p>
 
-    <!-- <p>Date de création : 00/00/0000 </p> -->
+    <p>Date de création : 06/04/2015</p>
 
-    <p>SIRET : 8188274950024</p>
+    <p>SIRET : 81882749500024</p>
 
     <p>Type : Association</p>
 
@@ -45,7 +45,7 @@ ob_start(); ?>
 
     <p>Adresse du site : <span>www.cdr-climactions-bretagnesud.bzh</span></p>
 
-    <!-- ----------------------- -->
+    
 
     <h2>Développement</h2>
 
@@ -59,7 +59,7 @@ ob_start(); ?>
         <img class="logo-greta" src="./Public/img/partenaires/logo-gbs.jpg" alt="logo du greta bretagne sud">
     </figure>
 
-    <!-- ----------------------- -->
+    
 
     <h2>Hébergement</h2>
 
@@ -69,7 +69,7 @@ ob_start(); ?>
 
     <p>Site Web : https://www.ovhcloud.com/fr/</p>
 
-    <!-- ----------------------- -->
+    
 
     <h2>Conditions générales d’utilisation</h2>
 
@@ -88,7 +88,7 @@ ob_start(); ?>
         peuvent être modifiées à tout moment : elles s’imposent néanmoins à l’utilisateur qui est invité à s’y référer
         le plus souvent possible afin d’en prendre connaissance. </p>
 
-    <!-- ----------------------- -->
+    
 
     <h2>Limitations contractuelles sur les données techniques</h2>
 
@@ -98,7 +98,7 @@ ob_start(); ?>
         l’utilisateur du site s’engage à accéder au site en utilisant un matériel récent, ne contenant pas de virus et
         avec un navigateur de dernière génération mis-à-jour </p>
 
-    <!-- ----------------------- -->
+    
 
     <h2> Respect du droit d'auteur</h2>
 
@@ -125,7 +125,7 @@ ob_start(); ?>
         n’engagent pas la responsabilité de la rédaction de Warp Code quant au contenu de ces sites.
     </p>
 
-    <!-- ----------------------- -->
+    
 
     <h2>Litiges</h2>
 
@@ -141,7 +141,7 @@ ob_start(); ?>
             techniques</strong> , soit de l’apparition d’un bug ou d’une incompatibilité.
     </p>
 
-    <!-- ----------------------- -->
+    
 
     <h2>Données personnelles</h2>
 
@@ -166,7 +166,7 @@ ob_start(); ?>
         données.
     </p>
 
-    <!-- ----------------------- -->
+    
 
 
     <h2>Liens hypertextes et cookies</h2>

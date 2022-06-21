@@ -258,18 +258,18 @@ a {
   background-color: var(--bg-articles);
 }
 
-#contenu #articles #article {
+#contenu #articles .article {
   width: 65%;
   margin: 30px auto;
   text-align: center;
 }
 
-#contenu #articles #article h3 {
+#contenu #articles .article h3 {
   width: 80%;
   margin: 10px auto;
 }
 
-#contenu #articles #article img {
+#contenu #articles .article img {
   width: 100%;
   border-radius: 10px;
 }
@@ -492,7 +492,6 @@ a {
   width: 120px;
   background-color: var(--primary);
   margin-top: 15px;
-  padding: auto;
   text-align: center;
   border-radius: 10px;
 }
@@ -972,7 +971,7 @@ p.last {
     background-color: var(--bg-articles);
   }
 
-  #contenu #articles #article {
+  #contenu #articles .article {
     width: 30%;
     text-align: center;
     display: flex;
@@ -981,7 +980,7 @@ p.last {
     align-items: center;
   }
 
-  #contenu #articles #article h3 {
+  #contenu #articles .article h3 {
     width: 75%;
     margin: 10px auto;
     height: 2.2em;
@@ -989,14 +988,14 @@ p.last {
     user-select: none;
   }
 
-  #contenu #articles #article img {
+  #contenu #articles .article img {
     width: 80%;
     border-radius: 10px;
     margin-bottom: 0;
     max-height: 355px;
   }
 
-  #contenu #articles #article .bouton-article {
+  #contenu #articles .article .bouton-article {
     display: block;
     margin-top: 20px;
   }
@@ -1210,7 +1209,7 @@ p.last {
     background-color: var(--bg-articles);
   }
 
-  #contenu #articles #article {
+  #contenu #articles .article {
     width: 28%;
     text-align: center;
     display: flex;
@@ -1219,7 +1218,7 @@ p.last {
     align-items: center;
   }
 
-  #contenu #articles #article h3 {
+  #contenu #articles .article h3 {
     width: 70%;
     margin: 10px auto;
     height: 1em;
@@ -1228,7 +1227,7 @@ p.last {
     padding-bottom: 50px;
   }
 
-  #contenu #articles #article img {
+  #contenu #articles .article img {
     min-width: 290px;
     max-height: 217px;
     border-radius: 10px;
@@ -1236,7 +1235,7 @@ p.last {
     object-fit: cover;
   }
 
-  #contenu #articles #article .bouton-article {
+  #contenu #articles .article .bouton-article {
     display: block;
     margin-top: 40px;
   }
