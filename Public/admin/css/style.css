@@ -315,6 +315,7 @@ h1 {
   background: #fff;
   border-radius: 15px;
   margin: 0 auto;
+  
 }
 #section-connectAdmin input {
   display: block;
@@ -544,6 +545,7 @@ div.image {
   background: #fff;
   border-radius: 15px;
   margin: 3rem auto;
+ 
 }
 #password-forgot h1 {
   font-size: 2rem;
@@ -580,7 +582,7 @@ div.image {
 .pagination .page-item a {
   transition: all 0.1s ease-in-out;
   background-color: #f7f7f8;
-  padding: 5px 8px;
+  padding: 7px 14px;
   border: solid 1px var(--hover);
   color: black;
 }
