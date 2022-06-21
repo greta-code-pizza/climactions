@@ -4,7 +4,7 @@ $description = "Créer un article";
 ob_start(); ?>
 
 <section>
-    <h1>Création d'un article</h1>
+    <h1>Mettre à jour</h1>
     <?php if($typeId == 4){?>
 
 
