@@ -201,7 +201,7 @@ class RessourcesModel extends Manager
             VALUES (:name,:role_id)");
 
             $req1->execute(array(
-                ":name" => $data['name'],
+                ":name" => ucfirst($data['personality']),
                 "role_id" =>$data['role']
             ));
             $personality = $bdd->lastInsertId();
