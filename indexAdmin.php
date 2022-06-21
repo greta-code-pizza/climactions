@@ -203,14 +203,6 @@ try {
           $backController->deleteArticle($id);
         } 
         
-        elseif ($_GET['action'] == 'addArticle') {
-          isConnect();
-          $title = htmlspecialchars($_POST['title']);
-          $content = htmlspecialchars($_POST['content']);
-          $backController->addArticle($title, $content);
-          
-        }
-        
         // go to page home admin 
         // les pages de l'administration
 
