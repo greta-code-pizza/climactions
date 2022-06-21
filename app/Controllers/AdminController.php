@@ -70,9 +70,16 @@ class AdminController extends Controller {
 
 	// affichage des pages de l'administration
 
-	public function accountAdmin()
+	public function accountAdmin($id)
 	{
+		$adminManager = new \Climactions\Models\AdminModel();
+			if($adminManager->exist_idAdmin($id)){
+
 		require $this->viewAdmin('account');
+	}
+	else{
+		throw new Exception("L'administrateur n'existe pas pour cette page !");
+	}
 	}
 
 
@@ -379,10 +386,18 @@ class AdminController extends Controller {
 	}
 
 	// page create new password 
-	public function pageNewPassword()
+	public function pageNewPassword($id)
 	{
+		$adminManager = new \Climactions\Models\AdminModel();
+			if($adminManager->exist_idAdmin($id)){
+				
 		require $this->viewAdmin('pageNewPassword');
 	}
+	else{
+		throw new Exception("L'administrateur n'existe pas pour cette page !");
+	}
+	}
+
 
 	// confirm new passsword 
 	public function createNewPassword($id, $oldPassword, $newPassword)
