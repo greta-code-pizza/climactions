@@ -172,7 +172,7 @@ class AdminController extends Controller {
 		$themes = $resources->selectTheme();
 		$conditions = $resources->selectCondition();
 		$publics = $resources->selectPublic();
-		$personalities = $resources->selectPersonality();
+		$roles = $resources->selectRole();
 		require $this->viewAdmin('formResource');
 	}
 
@@ -544,8 +544,14 @@ class AdminController extends Controller {
 		
 		$adminManager = new \Climactions\Models\RessourcesModel();
 		
-
-		$admin = $adminManager->insertResource($data);
+		$exist_personality = $adminManager->selectPersonality($data);
+		if($exist_personality != NULL){
+			$personality = $exist_personality['id'];
+			$admin = $adminManager->insertResource($data,$personality);
+		}else{
+			$personality = $adminManager->insertPersonality($data);
+			$admin = $adminManager->insertResource($data,$personality);
+		}
 
 		
 		header('Location: indexAdmin.php?action=resourceAdmin');
@@ -576,8 +582,15 @@ class AdminController extends Controller {
 		if($data['kakemono'] == null){
 			$data['kakemono'] = 0;	
 		}
-		
-		$admin = $adminManager->insertResourceExpo($data);
+
+		$exist_personality = $adminManager->selectPersonality($data);
+		if($exist_personality != NULL){
+			$personality = $exist_personality['id'];
+			$admin = $adminManager->insertResource($data,$personality);
+		}else{
+			$personality = $adminManager->insertPersonality($data);
+			$admin = $adminManager->insertResourceExpo($data,$personality);
+		}
 
 		header('Location: indexAdmin.php?action=resourceAdmin');
 

@@ -349,11 +349,10 @@ try {
           $publicId =  $_POST['name-public'];  
           $typeId =  $_POST['type'];
           $conditionId = $_POST['condition'];
+          $role = htmlspecialchars($_POST['role']);
+          $adminId = $_SESSION['id'];      
+          $personality =  htmlspecialchars(trim($_POST["name-author"]));
           
-          $adminId = $_SESSION['id'];
-                    
-          $personalityId =  htmlspecialchars($_POST["name-author"]);
-
           $data = [
             "name" => $name,
             "theme" => $themeId,
@@ -365,8 +364,8 @@ try {
             "type" => $typeId,
             "condition" => $conditionId,
             "admin" => $adminId,
-            
-            "personality" => $personalityId          
+            "role" => $role,
+            "personality" => $personality          
           ];
 
           $backController->createResource($data);
@@ -389,8 +388,9 @@ try {
           $publicId =  $_POST['name-public'];
           $typeId = htmlspecialchars($_POST['type']);
           $conditionId = htmlspecialchars($_POST['condition']);
-          $adminId = $_SESSION['id'];
-          $personalityId =  htmlspecialchars($_POST["name-author"]);
+          $role = htmlspecialchars($_POST['role']);
+          $adminId = $_SESSION['id'];      
+          $personality =  htmlspecialchars(trim($_POST["name-author"]));
           $poster = $_POST["format-poster"];
           $sign = $_POST["format-sign"];
           $kakemono =$_POST["format-kakemono"];
@@ -407,7 +407,8 @@ try {
             "type" => $typeId,
             "condition" => $conditionId,
             "admin" => $adminId, 
-            "personality"=>$personalityId,
+            "role" => $role,
+            "personality" => $personality, 
             "poster" =>$poster,
             "sign" => $sign,
             "kakemono" => $kakemono

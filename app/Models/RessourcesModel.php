@@ -105,15 +105,31 @@ class RessourcesModel extends Manager
         return $publics;
     }
 
-    public function selectPersonality(){
+    public function selectRole(){
         $bdd = $this->connect();
-        $req = $bdd->prepare("SELECT personality.id AS id,personality.name AS name,role.name AS role FROM personality,role
-        WHERE personality.role_id = role.id");
+        $req = $bdd->prepare("SELECT id,name FROM role");
 
         $req->execute(array());
-        $personalities = $req->fetchAll();
+        $roles = $req->fetchAll();
 
-        return $personalities;
+        return $roles;
+    }
+
+    public function selectPersonality($data){
+        $bdd = $this->connect();
+        $req = $bdd->prepare("SELECT id FROM personality
+        WHERE LOWER(name) = :name
+        AND role_id = :role
+        ");
+
+        $req->execute(array(
+            "name" => strtolower($data['personality']),
+            "role" => $data['role']
+        ));
+
+        $exist_personality = $req->fetch();
+
+        return $exist_personality;
     }
 
     public function selectResources(){
@@ -179,8 +195,21 @@ class RessourcesModel extends Manager
         return $expo;
     }
 
+    public function insertPersonality($data){
+            $bdd = $this->connect();
+            $req1 = $bdd->prepare("INSERT INTO personality (name,role_id) 
+            VALUES (:name,:role_id)");
 
-    public function insertResource($data)
+            $req1->execute(array(
+                ":name" => $data['name'],
+                "role_id" =>$data['role']
+            ));
+            $personality = $bdd->lastInsertId();
+
+            return $personality;
+    }
+
+    public function insertResource($data,$personality)
     {
         $bdd = $this->connect();
         $req1 = $bdd->prepare("INSERT INTO resource (name,theme_id,image,content,quantity,deposit,public_id,type_id,condition_id,admin_id) 
@@ -204,18 +233,19 @@ class RessourcesModel extends Manager
         VALUES (:personality_id,:resource_id)");
 
         $req2->execute(array(
-            "personality_id" => $data['personality'],
+            "personality_id" => $personality,
             "resource_id" => $idResource
         ));
 
     }
 
-    public function insertResourceExpo($data)
+    
+
+    public function insertResourceExpo($data,$personality)
     {
         $bdd = $this->connect();
         $req1 = $bdd->prepare("INSERT INTO resource (name,theme_id,image,content,quantity,deposit,public_id,type_id,condition_id,admin_id) 
         VALUES (:name,:theme_id,:image,:content,:quantity,:deposit,:public_id,:type_id,:condition_id,:admin_id)");
-        // var_dump($data);die;
         $req1->execute(array(
             ":name" => $data['name'],
             ":theme_id" => $data['theme'],
@@ -246,7 +276,7 @@ class RessourcesModel extends Manager
         VALUES (:personality_id,:resource_id)");
 
         $req3->execute(array(
-            "personality_id" => $data['personality'],
+            "personality_id" => $personality,
             "resource_id" => $idResource
         ));
     }
