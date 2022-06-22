@@ -50,14 +50,18 @@ ob_start(); ?>
       <h3 class="title"><?= $ressource['name'] ?></h3>
       <div class="read-more"><a class="read-more" href="article&id=<?= $ressource['id'] ?>">Voir l'Article</a></div>
     </article>
-    
+
     <?php $i++; } ?>
   </section>
   <?php endif ?>
 </section>
+<div class="btn-arrow">
+  <img src="Public/img/fleche-haut.svg" alt="flèche pour remonter en haut de page">
+</div>
 
 
 <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 <script src="Public/scripts/isotope.js"></script>
+<script src="Public/scripts/btn-up.js"></script>
 <?php $content = ob_get_clean();
 require "layouts/template.php";
