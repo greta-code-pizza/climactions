@@ -261,11 +261,6 @@ try {
           isConnect();
           $backController->formCreateResource();
         }
-        elseif($_GET['action'] == 'deleteResource'){
-          isConnect();
-          $backController->deleteResource();
-        }
-
 
         // method page home.php 
 
