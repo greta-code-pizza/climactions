@@ -42,7 +42,7 @@ ob_start();
                 </div>
                 <div class="bloc-form">
                     <label for="object">Objet : *</label>
-                    <input type="object" id="object" name="object" placeholder="Objet de votre demande" required />
+                    <input type="text" id="object" name="object" placeholder="Objet de votre demande" required />
                 </div>
                 <div class="bloc-form">
                     <label for="message">Message : *</label>

@@ -15,7 +15,7 @@ require_once 'layouts/header.php';?>
             <h2>Nos nouveautés <img src="./Public/img/feuille-articles.svg" alt="feuille"> </h2>
             <!-- affichage des 3 derniers articles (titre et genre) -->
             <?php foreach ($lastArticles as $article) { ?>
-            <article id="article">
+            <article class="article">
                 <h3><?= $article['name'] ?></h3>
                 <a href="#"> <img src="<?= $article['image'] ?>"
                         alt="<?= $article['name'] ?>">
