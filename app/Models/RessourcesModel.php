@@ -380,5 +380,12 @@ class RessourcesModel extends Manager
         $req = $bdd->prepare("DELETE FROM resource WHERE resource.id = ?");
         $delete = $req->execute(array($idRessources));
     }
+
+    public function deleteArticle($idRessources)
+    {
+        $bdd = $this->connect();
+        $req = $bdd->prepare('DELETE FROM resource WHERE id = ?');
+        $req->execute(array($idRessources));
+    }
 }
 

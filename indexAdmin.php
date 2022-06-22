@@ -116,11 +116,6 @@ try {
 
           }
         }
-
-        elseif ($_GET['action'] == 'pageAddArticle') {
-          isConnect();
-          $backController->pageAddArticle();
-        } 
         
         elseif ($_GET['action'] == 'formUpdateArticle') {
           isConnect();
@@ -204,17 +199,9 @@ try {
         
         elseif ($_GET['action'] == 'deleteArticle') {
           isConnect();
-          $id = $_GET['id'];
-          $backController->deleteArticle($id);
+          $idRessources = $_GET['id'];
+          $backController->deleteArticle($idRessources);
         } 
-        
-        elseif ($_GET['action'] == 'addArticle') {
-          isConnect();
-          $title = htmlspecialchars($_POST['title']);
-          $content = htmlspecialchars($_POST['content']);
-          $backController->addArticle($title, $content);
-          
-        }
         
         // go to page home admin 
         // les pages de l'administration
@@ -274,11 +261,6 @@ try {
           isConnect();
           $backController->formCreateResource();
         }
-        elseif($_GET['action'] == 'deleteResource'){
-          isConnect();
-          $backController->deleteResource();
-        }
-
 
         // method page home.php 
 
