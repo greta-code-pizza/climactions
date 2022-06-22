@@ -199,8 +199,8 @@ try {
         
         elseif ($_GET['action'] == 'deleteArticle') {
           isConnect();
-          $id = $_GET['id'];
-          $backController->deleteArticle($id);
+          $idRessources = $_GET['id'];
+          $backController->deleteArticle($idRessources);
         } 
         
         // go to page home admin 

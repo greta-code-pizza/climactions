@@ -270,12 +270,6 @@ class AdminController extends Controller {
 		header('Location: indexAdmin.php?action=resourceAdmin');
 	}
 
-
-	public function deleteResource()
-	{
-		require $this->viewAdmin('delete');
-	}
-
 	// les méthodes de la page Email.php
 
 	public function readEmail($id,$read,$adminId)
@@ -526,9 +520,9 @@ class AdminController extends Controller {
 	}
 
 
-	public function deleteArticle($id) {
-		$article = new \Climactions\Models\AdminModel();
-		$deleteArticle = $article->deleteArticle($id);
+	public function deleteArticle($idRessources) {
+		$article = new \Climactions\Models\RessourcesModel();
+		$deleteArticle = $article->deleteArticle($idRessources);
 
 		header('Location: indexAdmin.php?action=resourceAdmin');
 	}

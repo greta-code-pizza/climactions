@@ -323,6 +323,6 @@ class AdminModel extends Manager
         $req = $bdd->prepare('DELETE FROM `contact` 
                               WHERE id = ?');
         $req->execute(array($id));
-    } 
+    }
     
 }
