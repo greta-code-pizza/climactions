@@ -63,7 +63,7 @@ try {
           $email = htmlspecialchars($_POST['email']);
           $password = htmlspecialchars($_POST['password']);
           if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) && !empty($password)) {
-            $backController->connexion($email, $password); // on passe deux paramètre
+            $backController->connexion($email, $password); 
           } else {
               throw new Exception('renseigner vos identifiants');
           }

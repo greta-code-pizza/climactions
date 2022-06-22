@@ -116,6 +116,17 @@ class AdminModel extends Manager
         return $result;
     }
 
+    // if id exist for resources (update)
+    public function exist_idResource($idArticle)
+    {
+        $bdd = $this->connect();
+        $req = $bdd->prepare("SELECT COUNT(id) FROM resource WHERE id = ?");
+        $req->execute([$idArticle]);
+       
+        $result = $req->fetch()[0];
+        return $result;
+    }
+
     // delete one admin 
     public function deleteOneAdmin($id)
     {

@@ -186,17 +186,25 @@ class AdminController extends Controller {
 	public function formUpdateArticle($idArticle,$typeId)
 	{
 		$resources = new \Climactions\Models\RessourcesModel();
+		$adminManager = new \Climactions\Models\AdminModel();
 		$themes = $resources->selectTheme();
 		$conditions = $resources->selectCondition();
 		$publics = $resources->selectPublic();
 		$roles = $resources->selectRole();
-		if($typeId == 4){
-			$resource = $resources->selectResourceExpo($idArticle);
+		if($adminManager->exist_idResource($idArticle)){
+
+			if($typeId == 4){
+				$resource = $resources->selectResourceExpo($idArticle);
+			}else{
+				$resource = $resources->selectMainResources($idArticle);
+			}		
+					
+			require $this->viewAdmin('formUpdateResource');
+
 		}else{
-			$resource = $resources->selectMainResources($idArticle);
-		}		
-		// var_dump($resource);die;
-		require $this->viewAdmin('formUpdateResource');
+			throw new Exception("Cet article n'existe pas !");
+		}
+		
 	}
 
 	public function updateResourceExpo($data){
