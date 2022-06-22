@@ -422,10 +422,11 @@ a {
 .btn-search {
   /* width: 50px; */
   height: 30px;
-  padding: 5px;
+  padding: 7px;
   border: 1px solid var(--primary);
   background-color: var(--primary);
   color: var(--white);
+  cursor: pointer;
 }
 .btn-search:hover {
   background-color: var(--white);
