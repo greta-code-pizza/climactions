@@ -908,7 +908,7 @@ p.last {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background: url("/public/img/errors/bg-404page.jpg") no-repeat center;
+  background: url("/Public/img/errors/bg-404page.jpg") no-repeat center;
 }
 
 #page-404 h1 {
@@ -925,7 +925,7 @@ p.last {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background: url("/public/img/errors/bg-oopspage.jpg") no-repeat center;
+  background: url("/Public/img/errors/bg-oopspage.jpg") no-repeat center;
 }
 
 .txt-error {
