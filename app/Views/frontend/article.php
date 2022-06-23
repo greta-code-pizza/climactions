@@ -94,7 +94,7 @@ ob_start(); ?>
       <div class="content">
         <div class="line"></div>
         <p><?= htmlspecialchars_decode($article['content']) ?></p>
-        <p class="created-at"><strong>Créé le : </strong><?= $article['created_at'] ?></p>
+        <p class="created-at"><strong>Créé le : </strong><?= $article['date'] ?></p>
 
       </div>
 

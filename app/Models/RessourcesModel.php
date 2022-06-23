@@ -29,7 +29,7 @@ class RessourcesModel extends Manager
     {
         $bdd = $this->connect();
         $idResource = $_GET['id'];
-        $req = $bdd->prepare("SELECT * FROM resource WHERE id = ?");
+        $req = $bdd->prepare("SELECT *,DATE_FORMAT(modified_at, '%d/%m/%Y') AS `date` FROM resource WHERE id = ?");
 
         $req->execute([$idResource]);
         $article = $req->fetch();
