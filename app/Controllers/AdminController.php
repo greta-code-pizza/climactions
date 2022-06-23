@@ -456,7 +456,7 @@ class AdminController extends Controller {
 		
 				// on envoie 
 				$mail->send();
-				echo "Message envoyé";
+				// echo "Message envoyé";
 				
 			
 			} 
