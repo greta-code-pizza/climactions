@@ -25,6 +25,10 @@
           <i class="fa-solid fa-address-book"></i>
           <span class="nav-links">Carnet d'adresses</span>
         </a>
+        <a href="Public/admin/pdf/guide-admin.pdf" target="_blank" class="bloc-link" rel="nofollow">
+          <i class="fa-solid fa-book"></i>
+          <span class="nav-links">Guide d'utilisation</span>
+        </a>
         <a href="indexAdmin.php?action=deconnexion" class="bloc-link" rel="nofollow">
           <i class="fa-solid fa-power-off"></i>
           <span class="nav-links">Se déconnecter</span>
