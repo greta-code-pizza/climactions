@@ -7,7 +7,6 @@
                 <li><a href="pageArticle">Ressources</a></li>
                 <li><a href="contact">Contact</a></li>
                 <?php if(!isset($_SESSION['id'])) :?>
-                <li><a href="indexAdmin.php" rel="nofollow">Connexion</a></li>
                 <?php else: ?>
                 <li><a href="indexAdmin.php?action=homeAdmin" rel="nofollow">Dashboard</a></li>
                 <li><a href="indexAdmin.php?action=deconnexion" rel="nofollow">Déconnexion</a></li>

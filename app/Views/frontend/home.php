@@ -6,7 +6,7 @@ require_once 'layouts/header.php';?>
     <h1>Votre centre de ressources</h1>
     <section id="encart" class="container">
         <h2>Comment fonctionne le nouveau centre de ressources ?</h2>
-        <p>Bienvenue sur notre nouveau centre de ressources. Comme vous pouvez le voir, il est encore en construction. Nous espérons que vous trouverez ici tout ce dont vous avez besoin pour réserver nos ressources.</p>
+        <p>Bienvenue sur notre nouveau centre de ressources, nous espérons que vous trouverez ici tout ce dont vous avez besoin pour réserver nos ressources.</p>
         <p> Nous vous invitons à vous rendre sur la page regroupant pour voir <a href="pageArticle">les différentes ressources disponibles</a>.</p>
         <p> Après avoir fait vos choix, n'hésitez pas à nous envoyer un message via le formulaire de contact, pour nous faire part de vos attentes afin que l'on puisse valider votre réservation. </p>
     </section>
@@ -26,13 +26,13 @@ require_once 'layouts/header.php';?>
             <a href="pageArticle" id="bouton-ressources">Découvrir les autres ressources</a>
         </div>
     </section>
-    <!-- <section id="partenaires" class="container">
+    <section id="partenaires" class="container">
         <h2>Nos partenaires <img src="./Public/img/feuille-agenda.svg" alt="feuille"> </h2>
         <div class="partenaires-img">
             <img src="./Public/img/partenaires/logo-ademe.svg" alt="ademe">
             <img src="./Public/img/partenaires/logo-gbs.jpg" alt="greta bretagne sud">
         </div>
-    </section> -->
+    </section>
 </main>
 
 <?php require_once "layouts/footer.php"; ?>
